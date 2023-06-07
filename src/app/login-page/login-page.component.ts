@@ -13,6 +13,8 @@ export class LoginPageComponent {
 
   signButton() {
     this.router.navigate(['/main-page']);
+    // id
   }
 
 }
+// interface email "", password""
