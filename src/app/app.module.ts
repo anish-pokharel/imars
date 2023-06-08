@@ -11,6 +11,8 @@ import { BookingFormComponent } from './booking-form/booking-form.component';
 import { BookingConfirmComponent } from './booking-confirm/booking-confirm.component';
 import { BusDetailsComponent } from './bus-details/bus-details.component';
 import { FooterComponent } from './shared/footer/footer/footer.component';
+import { ClientDashboardComponent } from './client-dashboard/client-dashboard.component';
+import { AdminDashboardComponent } from './admin-dashboard/admin-dashboard.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +24,9 @@ import { FooterComponent } from './shared/footer/footer/footer.component';
     BookingFormComponent,
     BookingConfirmComponent,
     BusDetailsComponent,
-    FooterComponent
+    FooterComponent,
+    ClientDashboardComponent,
+    AdminDashboardComponent
   ],
   imports: [
     BrowserModule,
