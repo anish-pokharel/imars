@@ -13,6 +13,7 @@ import { BusDetailsComponent } from './bus-details/bus-details.component';
 import { FooterComponent } from './shared/footer/footer/footer.component';
 import { ClientDashboardComponent } from './client-dashboard/client-dashboard.component';
 import { AdminDashboardComponent } from './admin-dashboard/admin-dashboard.component';
+import { SearchComponent } from './search/search.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import { AdminDashboardComponent } from './admin-dashboard/admin-dashboard.compo
     BusDetailsComponent,
     FooterComponent,
     ClientDashboardComponent,
-    AdminDashboardComponent
+    AdminDashboardComponent,
+    SearchComponent
   ],
   imports: [
     BrowserModule,

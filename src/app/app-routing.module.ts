@@ -7,6 +7,7 @@ import { HomeComponent } from './home/home.component';
 import { BookingFormComponent } from './booking-form/booking-form.component';
 import { BookingConfirmComponent } from './booking-confirm/booking-confirm.component';
 import { BusDetailsComponent } from './bus-details/bus-details.component';
+import { SearchComponent } from './search/search.component';
 
 const routes: Routes = [
   { path: 'home', component: HomeComponent },
@@ -16,6 +17,7 @@ const routes: Routes = [
   { path: 'booking-form', component: BookingFormComponent },
   { path: 'booking-confirm', component: BookingConfirmComponent },
   { path: 'bus-details', component: BusDetailsComponent },
+  { path: 'search', component: SearchComponent },
   { path: '**', component: HomeComponent }
 
 
