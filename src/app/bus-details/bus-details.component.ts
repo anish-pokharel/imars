@@ -1,5 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, ElementRef, ViewChild } from '@angular/core';
+// import { ModalService } from '../service/modal/modal.service';
 import { Router } from '@angular/router';
+
 
 @Component({
   selector: 'app-bus-details',
@@ -7,9 +9,16 @@ import { Router } from '@angular/router';
   styleUrls: ['./bus-details.component.scss']
 })
 export class BusDetailsComponent {
-  constructor(private router: Router) { }
+
+  constructor(
+    // private modalSrv$: ModalService,
+    private router: Router
+  ) { }
   actionBook() {
     this.router.navigate(['/booking-form']);
   }
+  actionImage() {
 
+  }
+  onSubmit() { }
 }

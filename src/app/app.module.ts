@@ -10,6 +10,7 @@ import { HomeComponent } from './home/home.component';
 import { BookingFormComponent } from './booking-form/booking-form.component';
 import { BookingConfirmComponent } from './booking-confirm/booking-confirm.component';
 import { BusDetailsComponent } from './bus-details/bus-details.component';
+import { FooterComponent } from './shared/footer/footer/footer.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { BusDetailsComponent } from './bus-details/bus-details.component';
     HomeComponent,
     BookingFormComponent,
     BookingConfirmComponent,
-    BusDetailsComponent
+    BusDetailsComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,
