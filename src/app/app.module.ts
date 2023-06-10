@@ -13,11 +13,9 @@ import { BusDetailsComponent } from './bus-details/bus-details.component';
 import { FooterComponent } from './shared/footer/footer/footer.component';
 import { ClientDashboardComponent } from './client-dashboard/client-dashboard.component';
 import { AdminDashboardComponent } from './admin-dashboard/admin-dashboard.component';
-<<<<<<< HEAD
-import { ReactiveFormsModule } from '@angular/forms';
-=======
 import { SearchComponent } from './search/search.component';
->>>>>>> 143b0e7db5813988b1aa9f81676c4267d87a204e
+import { ReactiveFormsModule } from '@angular/forms';
+
 
 @NgModule({
   declarations: [
