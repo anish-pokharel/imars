@@ -13,6 +13,7 @@ import { BusDetailsComponent } from './bus-details/bus-details.component';
 import { FooterComponent } from './shared/footer/footer/footer.component';
 import { ClientDashboardComponent } from './client-dashboard/client-dashboard.component';
 import { AdminDashboardComponent } from './admin-dashboard/admin-dashboard.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,8 @@ import { AdminDashboardComponent } from './admin-dashboard/admin-dashboard.compo
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
