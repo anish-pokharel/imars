@@ -8,12 +8,24 @@ import { Router } from '@angular/router';
   styleUrls: ['./booking-form.component.scss']
 })
 export class BookingFormComponent {
+  showModalFlag: boolean = false;
+  otpValue: string = '';
   constructor(private router: Router) {
 
   }
   actionBooking() {
-    this.router.navigate(['/booking-confirm']);
+    // this.router.navigate(['/booking-confirm']);
 
 
   }
-}
+  showModal() {
+    this.showModalFlag = true;
+  }
+  submitOTP(){
+    // this.hideModal();
+
+  }
+  hideModal() {
+    this.showModalFlag = false;
+    this.otpValue = ''; 
+  }}
