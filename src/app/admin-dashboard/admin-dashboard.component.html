@@ -1,1 +1,666 @@
-<p>admin-dashboard works!</p>
+<div id="page-container" class="page-sidebar-fixed page-header-fixed">
+  <div id="header" class="header navbar-default">
+    <div class="navbar-header">
+      <a href="index.html" class="navbar-brand"
+        ><span class="navbar-logo"></span> <b>Color</b> Admin</a
+      >
+      <button type="button" class="navbar-toggle" data-click="sidebar-toggled">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+    </div>
+    <ul class="navbar-nav navbar-right">
+      <li class="navbar-form">
+        <form action="" method="POST" name="search">
+          <div class="form-group">
+            <input
+              type="text"
+              class="form-control"
+              placeholder="Enter keyword"
+            />
+            <button type="submit" class="btn btn-search">
+              <i class="fa fa-search"></i>
+            </button>
+          </div>
+        </form>
+      </li>
+      <li class="dropdown">
+        <a href="#" data-toggle="dropdown" class="dropdown-toggle f-s-14">
+          <i class="fa fa-bell"></i>
+          <span class="label">5</span>
+        </a>
+        <div class="dropdown-menu media-list dropdown-menu-right">
+          <div class="dropdown-header">NOTIFICATIONS (5)</div>
+          <a href="javascript:;" class="dropdown-item media">
+            <div class="media-left">
+              <i class="fa fa-bug media-object bg-silver-darker"></i>
+            </div>
+            <div class="media-body">
+              <h6 class="media-heading">
+                Server Error Reports
+                <i class="fa fa-exclamation-circle text-danger"></i>
+              </h6>
+              <div class="text-muted f-s-10">3 minutes ago</div>
+            </div>
+          </a>
+          <a href="javascript:;" class="dropdown-item media">
+            <div class="media-left">
+              <img
+                src="../assets/img/user/user-1.jpg"
+                class="media-object"
+                alt=""
+              />
+              <i
+                class="fab fa-facebook-messenger text-blue media-object-icon"
+              ></i>
+            </div>
+            <div class="media-body">
+              <h6 class="media-heading">John Smith</h6>
+              <p>Quisque pulvinar tellus sit amet sem scelerisque tincidunt.</p>
+              <div class="text-muted f-s-10">25 minutes ago</div>
+            </div>
+          </a>
+          <a href="javascript:;" class="dropdown-item media">
+            <div class="media-left">
+              <img
+                src="../assets/img/user/user-2.jpg"
+                class="media-object"
+                alt=""
+              />
+              <i
+                class="fab fa-facebook-messenger text-blue media-object-icon"
+              ></i>
+            </div>
+            <div class="media-body">
+              <h6 class="media-heading">Olivia</h6>
+              <p>Quisque pulvinar tellus sit amet sem scelerisque tincidunt.</p>
+              <div class="text-muted f-s-10">35 minutes ago</div>
+            </div>
+          </a>
+          <a href="javascript:;" class="dropdown-item media">
+            <div class="media-left">
+              <i class="fa fa-plus media-object bg-silver-darker"></i>
+            </div>
+            <div class="media-body">
+              <h6 class="media-heading">New User Registered</h6>
+              <div class="text-muted f-s-10">1 hour ago</div>
+            </div>
+          </a>
+          <a href="javascript:;" class="dropdown-item media">
+            <div class="media-left">
+              <i class="fa fa-envelope media-object bg-silver-darker"></i>
+              <i
+                class="fab fa-google text-warning media-object-icon f-s-14"
+              ></i>
+            </div>
+            <div class="media-body">
+              <h6 class="media-heading">New Email From John</h6>
+              <div class="text-muted f-s-10">2 hour ago</div>
+            </div>
+          </a>
+          <div class="dropdown-footer text-center">
+            <a href="javascript:;">View more</a>
+          </div>
+        </div>
+      </li>
+      <li class="dropdown navbar-user">
+        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+          <img src="../assets/img/user/user-13.jpg" alt="" />
+          <span class="d-none d-md-inline">Adam Schwartz</span>
+          <b class="caret"></b>
+        </a>
+        <div class="dropdown-menu dropdown-menu-right">
+          <a href="javascript:;" class="dropdown-item">Edit Profile</a>
+          <a href="javascript:;" class="dropdown-item"
+            ><span class="badge badge-danger pull-right">2</span> Inbox</a
+          >
+          <a href="javascript:;" class="dropdown-item">Calendar</a>
+          <a href="javascript:;" class="dropdown-item">Setting</a>
+          <div class="dropdown-divider"></div>
+          <a href="javascript:;" class="dropdown-item">Log Out</a>
+        </div>
+      </li>
+    </ul>
+    <!-- end header-nav -->
+  </div>
+
+  <div id="sidebar" class="sidebar">
+    <!-- begin sidebar scrollbar -->
+    <div data-scrollbar="true" data-height="100%">
+      <!-- begin sidebar user -->
+      <ul class="nav">
+        <li class="nav-profile">
+          <a href="javascript:;" data-toggle="nav-profile">
+            <div class="cover with-shadow"></div>
+            <div class="image">
+              <img src="../assets/img/user/user-13.jpg" alt="" />
+            </div>
+            <div class="info">
+              <b class="caret pull-right"></b>Sean Ngu
+              <small>Front end developer</small>
+            </div>
+          </a>
+        </li>
+        <li>
+          <ul class="nav nav-profile">
+            <li>
+              <a href="javascript:;"><i class="fa fa-cog"></i> Settings</a>
+            </li>
+            <li>
+              <a href="javascript:;"
+                ><i class="fa fa-pencil-alt"></i> Send Feedback</a
+              >
+            </li>
+            <li>
+              <a href="javascript:;"
+                ><i class="fa fa-question-circle"></i> Helps</a
+              >
+            </li>
+          </ul>
+        </li>
+      </ul>
+      <!-- end sidebar user -->
+      <!-- begin sidebar nav -->
+      <ul class="nav">
+        <li class="nav-header">Navigation</li>
+        <li class="has-sub active">
+          <a>
+            <b class="caret"></b>
+            <i class="fa fa-th-large"></i>
+            <span>Dashboard</span>
+          </a>
+          <ul class="sub-menu">
+            <li class="active"><a href="index.html">Dashboard v1</a></li>
+            <li><a href="index_v2.html">Dashboard v2</a></li>
+            <li><a href="index_v3.html">Dashboard v3</a></li>
+          </ul>
+        </li>
+        <li class="has-sub">
+          <a href="javascript:;">
+            <span class="badge pull-right">10</span>
+            <i class="fa fa-hdd"></i>
+            <span>Email</span>
+          </a>
+          <ul class="sub-menu">
+            <li><a href="email_inbox.html">Inbox</a></li>
+            <li><a href="email_compose.html">Compose</a></li>
+            <li><a href="email_detail.html">Detail</a></li>
+          </ul>
+        </li>
+      </ul>
+      <!-- end sidebar nav -->
+    </div>
+  </div>
+  <div class="sidebar-bg"></div>
+
+  <div id="content" class="content">
+    <!-- begin breadcrumb -->
+    <ol class="breadcrumb float-xl-right">
+      <li class="breadcrumb-item"><a href="javascript:;">Home</a></li>
+      <li class="breadcrumb-item active">Dashboard</li>
+    </ol>
+    <!-- end breadcrumb -->
+    <!-- begin page-header -->
+    <h1 class="page-header">
+      Dashboard <small>header small text goes here...</small>
+    </h1>
+    <!-- end page-header -->
+
+    <!-- begin row -->
+    <div class="row">
+      <!-- begin col-3 -->
+      <div class="col-xl-3 col-md-6">
+        <div class="widget widget-stats bg-blue">
+          <div class="stats-icon"><i class="fa fa-desktop"></i></div>
+          <div class="stats-info">
+            <h4>TOTAL VISITORS</h4>
+            <p>3,291,922</p>
+          </div>
+          <div class="stats-link">
+            <a href="javascript:;"
+              >View Detail <i class="fa fa-arrow-alt-circle-right"></i
+            ></a>
+          </div>
+        </div>
+      </div>
+      <!-- end col-3 -->
+      <!-- begin col-3 -->
+      <div class="col-xl-3 col-md-6">
+        <div class="widget widget-stats bg-info">
+          <div class="stats-icon"><i class="fa fa-link"></i></div>
+          <div class="stats-info">
+            <h4>BOUNCE RATE</h4>
+            <p>20.44%</p>
+          </div>
+          <div class="stats-link">
+            <a href="javascript:;"
+              >View Detail <i class="fa fa-arrow-alt-circle-right"></i
+            ></a>
+          </div>
+        </div>
+      </div>
+      <!-- end col-3 -->
+      <!-- begin col-3 -->
+      <div class="col-xl-3 col-md-6">
+        <div class="widget widget-stats bg-orange">
+          <div class="stats-icon"><i class="fa fa-users"></i></div>
+          <div class="stats-info">
+            <h4>UNIQUE VISITORS</h4>
+            <p>1,291,922</p>
+          </div>
+          <div class="stats-link">
+            <a href="javascript:;"
+              >View Detail <i class="fa fa-arrow-alt-circle-right"></i
+            ></a>
+          </div>
+        </div>
+      </div>
+      <!-- end col-3 -->
+      <!-- begin col-3 -->
+      <div class="col-xl-3 col-md-6">
+        <div class="widget widget-stats bg-red">
+          <div class="stats-icon"><i class="fa fa-clock"></i></div>
+          <div class="stats-info">
+            <h4>AVG TIME ON SITE</h4>
+            <p>00:12:23</p>
+          </div>
+          <div class="stats-link">
+            <a href="javascript:;"
+              >View Detail <i class="fa fa-arrow-alt-circle-right"></i
+            ></a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-xl-8">
+        <ul
+          class="nav nav-tabs nav-tabs-inverse nav-justified nav-justified-mobile"
+          data-sortable-id="index-2"
+        >
+          <li class="nav-item">
+            <a href="#latest-post" data-toggle="tab" class="nav-link active"
+              ><i class="fa fa-camera fa-lg m-r-5"></i>
+              <span class="d-none d-md-inline">Latest Post</span></a
+            >
+          </li>
+          <li class="nav-item">
+            <a href="#purchase" data-toggle="tab" class="nav-link"
+              ><i class="fa fa-archive fa-lg m-r-5"></i>
+              <span class="d-none d-md-inline">Purchase</span></a
+            >
+          </li>
+          <li class="nav-item">
+            <a href="#email" data-toggle="tab" class="nav-link"
+              ><i class="fa fa-envelope fa-lg m-r-5"></i>
+              <span class="d-none d-md-inline">Email</span></a
+            >
+          </li>
+        </ul>
+        <div class="tab-content" data-sortable-id="index-3">
+          <div class="tab-pane fade active show" id="latest-post">
+            <div class="height-sm" data-scrollbar="true">
+              <ul class="media-list media-list-with-divider">
+                <li class="media media-lg">
+                  <a href="javascript:;" class="pull-left">
+                    <img
+                      class="media-object rounded"
+                      src="../assets/img/gallery/gallery-1.jpg"
+                      alt=""
+                    />
+                  </a>
+                  <div class="media-body">
+                    <h5 class="media-heading">
+                      Aenean viverra arcu nec pellentesque ultrices. In erat
+                      purus, adipiscing nec lacinia at, ornare ac eros.
+                    </h5>
+                    Nullam at risus metus. Quisque nisl purus, pulvinar ut
+                    mauris vel, elementum suscipit eros. Praesent ornare ante
+                    massa, egestas pellentesque orci convallis ut. Curabitur
+                    consequat convallis est, id luctus mauris lacinia vel.
+                    Nullam tristique lobortis mauris, ultricies fermentum lacus
+                    bibendum id. Proin non ante tortor. Suspendisse pulvinar
+                    ornare tellus nec pulvinar. Nam pellentesque accumsan mi,
+                    non pellentesque sem convallis sed. Quisque rutrum erat id
+                    auctor gravida.
+                  </div>
+                </li>
+                <li class="media media-lg">
+                  <a href="javascript:;" class="pull-left">
+                    <img
+                      class="media-object rounded"
+                      src="../assets/img/gallery/gallery-10.jpg"
+                      alt=""
+                    />
+                  </a>
+                  <div class="media-body">
+                    <h5 class="media-heading">
+                      Vestibulum vitae diam nec odio dapibus placerat. Ut ut
+                      lorem justo.
+                    </h5>
+                    Fusce bibendum augue nec fermentum tempus. Sed laoreet
+                    dictum tempus. Aenean ac sem quis nulla malesuada volutpat.
+                    Nunc vitae urna pulvinar velit commodo cursus. Nullam eu
+                    felis quis diam adipiscing hendrerit vel ac turpis. Nam
+                    mattis fringilla euismod. Donec eu ipsum sit amet mauris
+                    iaculis aliquet. Quisque sit amet feugiat odio. Cras
+                    convallis lorem at libero lobortis, placerat lobortis sapien
+                    lacinia. Duis sit amet elit bibendum sapien dignissim
+                    bibendum.
+                  </div>
+                </li>
+                <li class="media media-lg">
+                  <a href="javascript:;" class="pull-left">
+                    <img
+                      class="media-object rounded"
+                      src="../assets/img/gallery/gallery-7.jpg"
+                      alt=""
+                    />
+                  </a>
+                  <div class="media-body">
+                    <h5 class="media-heading">
+                      Maecenas eget turpis luctus, scelerisque arcu id, iaculis
+                      urna. Interdum et malesuada fames ac ante ipsum primis in
+                      faucibus.
+                    </h5>
+                    Morbi placerat est nec pharetra placerat. Ut laoreet nunc
+                    accumsan orci aliquam accumsan. Maecenas volutpat dolor
+                    vitae sapien ultricies fringilla. Suspendisse vitae orci sed
+                    nibh ultrices tristique. Aenean in ante eget urna semper
+                    imperdiet. Pellentesque sagittis a nulla at scelerisque. Nam
+                    augue nulla, accumsan quis nisi a, facilisis eleifend nulla.
+                    Praesent aliquet odio non imperdiet fringilla. Morbi a porta
+                    nunc. Vestibulum ante ipsum primis in faucibus orci luctus
+                    et ultrices posuere cubilia Curae.
+                  </div>
+                </li>
+                <li class="media media-lg">
+                  <a href="javascript:;" class="pull-left">
+                    <img
+                      class="media-object rounded"
+                      src="../assets/img/gallery/gallery-8.jpg"
+                      alt=""
+                    />
+                  </a>
+                  <div class="media-body">
+                    <h5 class="media-heading">
+                      Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                      Donec auctor accumsan rutrum.
+                    </h5>
+                    Fusce augue diam, vestibulum a mattis sit amet, vehicula eu
+                    ipsum. Vestibulum eu mi nec purus tempor consequat.
+                    Vestibulum porta non mi quis cursus. Fusce vulputate cursus
+                    magna, tincidunt sodales ipsum lobortis tincidunt. Mauris
+                    quis lorem ligula. Morbi placerat est nec pharetra placerat.
+                    Ut laoreet nunc accumsan orci aliquam accumsan. Maecenas
+                    volutpat dolor vitae sapien ultricies fringilla. Suspendisse
+                    vitae orci sed nibh ultrices tristique. Aenean in ante eget
+                    urna semper imperdiet. Pellentesque sagittis a nulla at
+                    scelerisque.
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div class="tab-pane fade" id="purchase">
+            <div class="height-sm" data-scrollbar="true">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th>Date</th>
+                    <th class="hidden-sm text-center">Product</th>
+                    <th></th>
+                    <th>Amount</th>
+                    <th>User</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="f-w-600 text-muted">13/02/2013</td>
+                    <td class="hidden-sm text-center">
+                      <a href="javascript:;">
+                        <img
+                          src="../assets/img/product/product-1.png"
+                          alt=""
+                          width="32px"
+                        />
+                      </a>
+                    </td>
+                    <td class="text-nowrap">
+                      <h6>
+                        <a href="javascript:;" class="text-inverse"
+                          >Nunc eleifend lorem eu velit eleifend, <br />eget
+                          faucibus nibh placerat.</a
+                        >
+                      </h6>
+                    </td>
+                    <td class="text-blue f-w-600">$349.00</td>
+                    <td class="text-nowrap">
+                      <a href="javascript:;" class="text-inverse"
+                        >Derick Wong</a
+                      >
+                    </td>
+                  </tr>
+                  <tr>
+                    <td class="f-w-600 text-muted">13/02/2013</td>
+                    <td class="hidden-sm text-center">
+                      <a href="javascript:;">
+                        <img
+                          src="../assets/img/product/product-2.png"
+                          alt=""
+                          width="32px"
+                        />
+                      </a>
+                    </td>
+                    <td class="text-nowrap">
+                      <h6>
+                        <a href="javascript:;" class="text-inverse"
+                          >Nunc eleifend lorem eu velit eleifend, <br />eget
+                          faucibus nibh placerat.</a
+                        >
+                      </h6>
+                    </td>
+                    <td class="text-blue f-w-600">$399.00</td>
+                    <td class="text-nowrap">
+                      <a href="javascript:;" class="text-inverse"
+                        >Derick Wong</a
+                      >
+                    </td>
+                  </tr>
+                  <tr>
+                    <td class="f-w-600 text-muted">13/02/2013</td>
+                    <td class="hidden-sm text-center">
+                      <a href="javascript:;">
+                        <img
+                          src="../assets/img/product/product-3.png"
+                          alt=""
+                          width="32px"
+                        />
+                      </a>
+                    </td>
+                    <td class="text-nowrap">
+                      <h6>
+                        <a href="javascript:;" class="text-inverse"
+                          >Nunc eleifend lorem eu velit eleifend, <br />eget
+                          faucibus nibh placerat.</a
+                        >
+                      </h6>
+                    </td>
+                    <td class="text-blue f-w-600">$499.00</td>
+                    <td class="text-nowrap">
+                      <a href="javascript:;" class="text-inverse"
+                        >Derick Wong</a
+                      >
+                    </td>
+                  </tr>
+                  <tr>
+                    <td class="f-w-600 text-muted">13/02/2013</td>
+                    <td class="hidden-sm text-center">
+                      <a href="javascript:;">
+                        <img
+                          src="../assets/img/product/product-4.png"
+                          alt=""
+                          width="32px"
+                        />
+                      </a>
+                    </td>
+                    <td class="text-nowrap">
+                      <h6>
+                        <a href="javascript:;" class="text-inverse"
+                          >Nunc eleifend lorem eu velit eleifend, <br />eget
+                          faucibus nibh placerat.</a
+                        >
+                      </h6>
+                    </td>
+                    <td class="text-blue f-w-600">$230.00</td>
+                    <td class="text-nowrap">
+                      <a href="javascript:;" class="text-inverse"
+                        >Derick Wong</a
+                      >
+                    </td>
+                  </tr>
+                  <tr>
+                    <td class="f-w-600 text-muted">13/02/2013</td>
+                    <td class="hidden-sm text-center">
+                      <a href="javascript:;">
+                        <img
+                          src="../assets/img/product/product-5.png"
+                          alt=""
+                          width="32px"
+                        />
+                      </a>
+                    </td>
+                    <td class="text-nowrap">
+                      <h6>
+                        <a href="javascript:;" class="text-inverse"
+                          >Nunc eleifend lorem eu velit eleifend, <br />eget
+                          faucibus nibh placerat.</a
+                        >
+                      </h6>
+                    </td>
+                    <td class="text-blue f-w-600">$500.00</td>
+                    <td class="text-nowrap">
+                      <a href="javascript:;" class="text-inverse"
+                        >Derick Wong</a
+                      >
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+          <div class="tab-pane fade" id="email">
+            <div class="height-sm" data-scrollbar="true">
+              <ul class="media-list media-list-with-divider">
+                <li class="media media-sm">
+                  <a href="javascript:;" class="pull-left">
+                    <img
+                      src="../assets/img/user/user-1.jpg"
+                      alt=""
+                      class="media-object rounded-corner"
+                    />
+                  </a>
+                  <div class="media-body">
+                    <a href="javascript:;" class="text-inverse">
+                      <h5 class="media-heading">
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                      </h5>
+                    </a>
+                    <p class="m-b-5">
+                      Aenean mollis arcu sed turpis accumsan dignissim. Etiam
+                      vel tortor at risus tristique convallis. Donec adipiscing
+                      euismod arcu id euismod. Suspendisse potenti. Aliquam
+                      lacinia sapien ac urna placerat, eu interdum mauris
+                      viverra.
+                    </p>
+                    <span class="text-muted f-s-11 f-w-600"
+                      >Received on 04/16/2013, 12.39pm</span
+                    >
+                  </div>
+                </li>
+                <li class="media media-sm">
+                  <a href="javascript:;" class="pull-left">
+                    <img
+                      src="../assets/img/user/user-2.jpg"
+                      alt=""
+                      class="media-object rounded-corner"
+                    />
+                  </a>
+                  <div class="media-body">
+                    <a href="javascript:;" class="text-inverse">
+                      <h5 class="media-heading">
+                        Praesent et sem porta leo tempus tincidunt eleifend et
+                        arcu.
+                      </h5>
+                    </a>
+                    <p class="m-b-5">
+                      Proin adipiscing dui nulla. Duis pharetra vel sem ac
+                      adipiscing. Vestibulum ut porta leo. Pellentesque orci
+                      neque, tempor ornare purus nec, fringilla venenatis elit.
+                      Duis at est non nisl dapibus lacinia.
+                    </p>
+                    <span class="text-muted f-s-11 f-w-600"
+                      >Received on 04/16/2013, 12.39pm</span
+                    >
+                  </div>
+                </li>
+                <li class="media media-sm">
+                  <a href="javascript:;" class="pull-left">
+                    <img
+                      src="../assets/img/user/user-3.jpg"
+                      alt=""
+                      class="media-object rounded-corner"
+                    />
+                  </a>
+                  <div class="media-body">
+                    <a href="javascript:;" class="text-inverse">
+                      <h5 class="media-heading">
+                        Ut mi eros, varius nec mi vel, consectetur convallis
+                        diam.
+                      </h5>
+                    </a>
+                    <p class="m-b-5">
+                      Ut mi eros, varius nec mi vel, consectetur convallis diam.
+                      Nullam eget hendrerit eros. Duis lacinia condimentum justo
+                      at ultrices. Phasellus sapien arcu, fringilla eu pulvinar
+                      id, mattis quis mauris.
+                    </p>
+                    <span class="text-muted f-s-11 f-w-600"
+                      >Received on 04/16/2013, 12.39pm</span
+                    >
+                  </div>
+                </li>
+                <li class="media media-sm">
+                  <a href="javascript:;" class="pull-left">
+                    <img
+                      src="../assets/img/user/user-4.jpg"
+                      alt=""
+                      class="media-object rounded-corner"
+                    />
+                  </a>
+                  <div class="media-body">
+                    <a href="javascript:;" class="text-inverse">
+                      <h5 class="media-heading">
+                        Aliquam nec dolor vel nisl dictum ullamcorper.
+                      </h5>
+                    </a>
+                    <p class="m-b-5">
+                      Aliquam nec dolor vel nisl dictum ullamcorper. Duis vel
+                      magna enim. Aenean volutpat a dui vitae pulvinar. Nullam
+                      ligula mauris, dictum eu ullamcorper quis, lacinia nec
+                      mauris.
+                    </p>
+                    <span class="text-muted f-s-11 f-w-600"
+                      >Received on 04/16/2013, 12.39pm</span
+                    >
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

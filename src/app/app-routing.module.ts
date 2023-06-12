@@ -8,6 +8,8 @@ import { BookingFormComponent } from './booking-form/booking-form.component';
 import { BookingConfirmComponent } from './booking-confirm/booking-confirm.component';
 import { BusDetailsComponent } from './bus-details/bus-details.component';
 import { SearchComponent } from './search/search.component';
+import { ClientDashboardComponent } from './client-dashboard/client-dashboard.component';
+import { AdminDashboardComponent } from './admin-dashboard/admin-dashboard.component';
 
 const routes: Routes = [
   { path: 'home', component: HomeComponent },
@@ -18,6 +20,8 @@ const routes: Routes = [
   { path: 'booking-confirm', component: BookingConfirmComponent },
   { path: 'bus-details', component: BusDetailsComponent },
   { path: 'search', component: SearchComponent },
+  { path: 'client-dashboard', component: ClientDashboardComponent },
+  { path: 'admin-dashboard', component: AdminDashboardComponent },
   { path: '**', component: HomeComponent }
 
 
