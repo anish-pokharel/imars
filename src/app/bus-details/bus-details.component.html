@@ -1,67 +1,21 @@
-<div class="row row-cols-1 row-cols-md-3 g-4">
-    <div class="col">
-        <div class="card h-100">
-            <img src="../../assets/img/about/about-me.jpg" class="card-img-top" alt="Skyscrapers" />
-            <div class="card-body">
-                <h5 class="card-title">Bus Number:1234</h5>
-                <p class="card-text">Seat No:</p>
-            </div>
-            <div class="card-footer">
-                <small class="text-muted">Bus Availabe</small>
-            </div>
+<div class="row row-cols-1 row-cols-md-3 g-4 mx-3">
+    <div class="col-lg-3 my-2  "  *ngFor="let bus of data.buses">
+      <div class="card h-100">
+        <img [src]="bus.img" class="card-img-top" [alt]="bus.number" />
+        <div class="card-body">
+          <h5 class="card-title">Bus Number: {{ bus.number }}</h5>
+          <p class="card-text">Seat No: {{ bus.seatNo }}</p>
         </div>
-    </div>
-    <div class="col">
-        <div class="card h-100">
-            <img src="../../assets/img/about/about-me.jpg" class="card-img-top" alt="Los Angeles Skyscrapers" />
-            <div class="card-body">
-                <h5 class="card-title">Bus Number:1234</h5>
-                <p class="card-text">Seat No:</p>
-            </div>
-            <div class="card-footer">
-                <small class="text-muted">Bus Availabe</small>
-            </div>
+        <div class="m-4">
+          <button class="btn btn-primary" (click)="actionBook()">Book Now</button>
+          <button class="btn btn-primary mx-5" (click)="actionImage()">See Image</button>
         </div>
-    </div>
-    <div class="col">
-        <div class="card h-100">
-            <img src="../../assets/img/about/about-me.jpg" class="card-img-top" alt="Palm Springs Road" />
-            <div class="card-body">
-                <h5 class="card-title">Bus Number:1234</h5>
-                <p class="card-text">Seat No:</p>
-            </div>
-            <div class="m-4">
-                <button class="btn btn-primary" (click)="actionBook()">Book Now</button>
-                <button class="btn btn-primary mx-5" (click)="actionImage()">
-          See Image
-        </button>
-            </div>
-            <div class="card-footer">
-                <small class="text-muted">Bus Availabe</small>
-            </div>
+        <div class="card-footer">
+          <small class="text-muted" *ngIf="bus.available">Bus Available</small>
+          <small class="text-muted" *ngIf="!bus.available">Bus Not Available</small>
         </div>
+      </div>
     </div>
-</div>
+  </div>
+  
 
-<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
-  Launch demo modal
-</button>
-
-<!-- Modal -->
-<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body">...</div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
-          Close
-        </button>
-                <button type="button" class="btn btn-primary">Save changes</button>
-            </div>
-        </div>
-    </div>
-</div>

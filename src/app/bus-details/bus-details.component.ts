@@ -10,6 +10,48 @@ import { Router } from '@angular/router';
 })
 export class BusDetailsComponent {
 
+data= {
+  
+    "buses": [
+      {
+        "number": "Bus-1",
+        "img":"../../assets/img/about/about-me.jpg",
+        "seatNo":"40",
+        "available": true
+      },
+      {
+        "number": "Bus-2",
+        "img":"../../assets/img/about/about-me.jpg",
+        "seatNo":"40",
+        "available": false
+      },
+      {
+        "number": "Bus-3",
+        "img":"../../assets/img/about/about-me.jpg",
+        "seatNo":"20",
+        "available": true
+      },
+      {
+        "number": "Bus-4",
+        "img":"../../assets/img/about/about-me.jpg",
+        "seatNo":"20",
+        "available": false
+      },
+      {
+        "number": "1020",
+        "img":"../../assets/img/about/about-me.jpg",
+        "seatNo":"42",
+        "available": true
+      },
+      {
+        "number": "1030",
+        "img":"../../assets/img/about/about-me.jpg",
+        "seatNo":"24",
+        "available": false
+      }
+    ]
+  
+}
   constructor(
     // private modalSrv$: ModalService,
     private router: Router
