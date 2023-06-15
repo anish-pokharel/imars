@@ -10,6 +10,11 @@ import { BusDetailsComponent } from './bus-details/bus-details.component';
 import { SearchComponent } from './search/search.component';
 import { ClientDashboardComponent } from './client-dashboard/client-dashboard.component';
 import { AdminDashboardComponent } from './admin-dashboard/admin-dashboard.component';
+import { CommingSoonComponent } from './comming-soon/comming-soon.component';
+import { PaymentComponent } from './payment/payment.component';
+import { AdminRejectedComponent } from './admin-rejected/admin-rejected.component';
+import { AdminPendingComponent } from './admin-pending/admin-pending.component';
+import { AdminRegistrationComponent } from './admin-registration/admin-registration.component';
 
 const routes: Routes = [
   { path: 'home', component: HomeComponent },
@@ -22,6 +27,14 @@ const routes: Routes = [
   { path: 'search', component: SearchComponent },
   { path: 'client-dashboard', component: ClientDashboardComponent },
   { path: 'admin-dashboard', component: AdminDashboardComponent },
+  { path: 'comming-soon', component: CommingSoonComponent },
+  { path: 'payment', component: PaymentComponent },
+  { path: 'admin-accepted', component: AdminDashboardComponent },
+  { path: 'admin-rejected', component: AdminRejectedComponent },
+  { path: 'admin-pending', component: AdminPendingComponent },
+  { path: 'admin-registration', component: AdminRegistrationComponent },
+  // { path: 'payment', component: PaymentComponent },
+  { path: '', component: HomeComponent },
   { path: '**', component: HomeComponent }
 
 

@@ -6,5 +6,15 @@ import { Component } from '@angular/core';
   styleUrls: ['./client-dashboard.component.scss']
 })
 export class ClientDashboardComponent {
+  currentPassword: string = '';
+  newPassword: string = '';
+  confirmPassword: string = '';
 
+  changePassword() {
+    if (this.newPassword === this.confirmPassword) {
+      console.log('Password change successful!');
+    } else {
+      console.log('Passwords do not match');
+    }
+  }
 }

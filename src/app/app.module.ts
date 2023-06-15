@@ -15,6 +15,17 @@ import { ClientDashboardComponent } from './client-dashboard/client-dashboard.co
 import { AdminDashboardComponent } from './admin-dashboard/admin-dashboard.component';
 import { SearchComponent } from './search/search.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { CommingSoonComponent } from './comming-soon/comming-soon.component';
+import { NavbarComponent } from './shared/navbar/navbar/navbar.component';
+import { MainNavComponent } from './shared/main-nav/main-nav.component';
+import { PaymentComponent } from './payment/payment.component';
+import { SideMenuComponent } from './shared/side-menu/side-menu.component';
+import { AdminNavbarComponent } from './shared/admin-navbar/admin-navbar.component';
+import { AdminAcceptedComponent } from './admin-accepted/admin-accepted.component';
+import { AdminRejectedComponent } from './admin-rejected/admin-rejected.component';
+import { AdminPendingComponent } from './admin-pending/admin-pending.component';
+import { AdminRegistrationComponent } from './admin-registration/admin-registration.component';
+
 
 
 @NgModule({
@@ -30,13 +41,25 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     FooterComponent,
     ClientDashboardComponent,
     AdminDashboardComponent,
-    SearchComponent
+    SearchComponent,
+    CommingSoonComponent,
+    NavbarComponent,
+    FooterComponent,
+    MainNavComponent,
+    PaymentComponent,
+    SideMenuComponent,
+    AdminNavbarComponent,
+    AdminAcceptedComponent,
+    AdminRejectedComponent,
+    AdminPendingComponent,
+    AdminRegistrationComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     ReactiveFormsModule,
-    FormsModule
+    FormsModule,
+
   ],
   providers: [],
   bootstrap: [AppComponent]

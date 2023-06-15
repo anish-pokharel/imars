@@ -1,21 +1,25 @@
+<app-main-nav></app-main-nav>
 <div class="row row-cols-1 row-cols-md-3 g-4 mx-3">
-    <div class="col-lg-3 my-2  "  *ngFor="let bus of data.buses">
-      <div class="card h-100">
-        <img [src]="bus.img" class="card-img-top" [alt]="bus.number" />
-        <div class="card-body">
-          <h5 class="card-title">Bus Number: {{ bus.number }}</h5>
-          <p class="card-text">Seat No: {{ bus.seatNo }}</p>
-        </div>
-        <div class="m-4">
-          <button class="btn btn-primary" (click)="actionBook()">Book Now</button>
-          <button class="btn btn-primary mx-5" (click)="actionImage()">See Image</button>
-        </div>
-        <div class="card-footer">
-          <small class="text-muted" *ngIf="bus.available">Bus Available</small>
-          <small class="text-muted" *ngIf="!bus.available">Bus Not Available</small>
-        </div>
+  <div class="col-lg-3 my-2" *ngFor="let bus of data.buses">
+    <div class="card h-100">
+      <img [src]="bus.img" class="card-img-top" [alt]="bus.number" />
+      <div class="card-body">
+        <h5 class="card-title">Bus Number: {{ bus.number }}</h5>
+        <p class="card-text">Seat No: {{ bus.seatNo }}</p>
+      </div>
+      <div class="m-4">
+        <button class="btn btn-primary" (click)="actionBook()">Book Now</button>
+        <button class="btn btn-primary mx-5" (click)="actionImage()">
+          See Image
+        </button>
+      </div>
+      <div class="card-footer">
+        <small class="text-muted" *ngIf="bus.available">Bus Available</small>
+        <small class="text-muted" *ngIf="!bus.available"
+          >Bus Not Available</small
+        >
       </div>
     </div>
   </div>
-  
-
+</div>
+<app-footer></app-footer>

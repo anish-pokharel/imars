@@ -21,11 +21,13 @@ export class BookingFormComponent {
   showModal() {
     this.showModalFlag = true;
   }
-  submitOTP(){
+  submitOTP() {
+    this.router.navigate(['/booking-confirm']);
     // this.hideModal();
 
   }
   hideModal() {
     this.showModalFlag = false;
-    this.otpValue = ''; 
-  }}
+    this.otpValue = '';
+  }
+}

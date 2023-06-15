@@ -1,50 +1,70 @@
 <div class="login login-with-news-feed">
-    <!-- begin news-feed -->
-    <div class="news-feed">
-        <div class="news-image" style="background-image: url(../../../assets/img/kathmandu-img-1.jpg)"></div>
-        <div class="news-caption">
-            <h4 class="caption-title"><b>Imars</b></h4>
-            <h4 class="caption-title">Bus Reservation Project</h4>
-        </div>
+  <!-- begin news-feed -->
+  <div class="news-feed">
+    <div
+      class="news-image"
+      style="background-image: url(../../assets/img/bg/bg-home.jpg)"
+    ></div>
+    <div class="news-caption">
+      <h4 class="caption-title"><b>Imars</b></h4>
+      <h4 class="caption-title">Bus Reservation Project</h4>
     </div>
-    <div class="right-content">
-        <div class="login-header" style="margin-top: -30px">
-            <div class="main-logo text-center">
-                <img src="../../../assets/img/logo/main-logo2.png" alt="" width="80" height="65" />
-            </div>
-            <br />
-            <div class="brand text-center" style="font-size: 12px !important">
-                <span> </span> <b>IMARS</b>
-            </div>
-            <br />
-      
-            <br />
-            
+  </div>
+  <div class="right-content">
+    <div class="login-header" style="margin-top: -30px">
+      <div class="main-logo text-center">
+        <!-- <img
+          src="../../../assets/img/logo/main-logo2.png"
+          alt=""
+          width="80"
+          height="65"
+        /> -->
+      </div>
+      <br />
+      <div class="brand text-center" style="font-size: 12px !important">
+        <span> </span> <b>IMARS</b>
+      </div>
+      <br />
+
+      <br />
+    </div>
+    <div class="login-content">
+      <form
+        [formGroup]="loginForm"
+        (submit)="formSubmit()"
+        class="margin-bottom-0"
+      >
+        <div class="form-group m-b-15">
+          <input
+            formControlName="Username"
+            type="text"
+            class="form-control form-control-lg inverse-mode"
+            placeholder="Username"
+            required
+          />
         </div>
-        <div class="login-content">
-            <form [formGroup]="loginForm" (submit)="formSubmit()" class="margin-bottom-0">
-                <div class="form-group m-b-15">
-                    <input formControlName="Username" type="text" class="form-control form-control-lg inverse-mode" placeholder="Username" required />
-                </div>
-                <div class="form-group" style="margin-bottom: 0px !important">
-                    <input formControlName="Password" type="password" class="form-control form-control-lg inverse-mode" placeholder="Password" required />
-                </div>
-                <div class="text-right text-danger m-b-15">
-                    <a class="text-danger" (click)="forgetPasswordModal()">Forget Password?</a
+        <div class="form-group" style="margin-bottom: 0px !important">
+          <input
+            formControlName="Password"
+            type="password"
+            class="form-control form-control-lg inverse-mode"
+            placeholder="Password"
+            required
+          />
+        </div>
+        <div class="text-right text-danger m-b-15">
+          <a class="text-danger" (click)="forgetPasswordModal()"
+            >Forget Password?</a
           >
         </div>
         <div class="login-buttons">
           <button type="submit" class="btn btn-success btn-block btn-lg">
-            Sign me in
+            Sign me
           </button>
         </div>
       </form>
       <hr />
-      <p class="text-center text-grey-darker mb-0">
-"Make a booking"
-    </p>
+      <p class="text-center text-grey-darker mb-0">"Make a booking"</p>
     </div>
-    <!-- end login-content -->
   </div>
-  <!-- end right-container -->
 </div>
