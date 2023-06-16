@@ -9,7 +9,7 @@
       </div>
       <div class="m-4">
         <button class="btn btn-primary" (click)="actionBook()">Book Now</button>
-        <button class="btn btn-primary mx-5" (click)="actionImage()">
+        <button class="btn btn-primary mx-5" (click)="actionImage(content)">
           See Image
         </button>
       </div>
@@ -23,3 +23,26 @@
   </div>
 </div>
 <app-footer></app-footer>
+<ng-template #content let-c="close" let-d="dismiss">
+  <div class="modal-header">
+    <h4 class="modal-title" id="modal-basic-title">Hi there!</h4>
+    <button
+      type="button"
+      class="btn-close"
+      aria-label="Close"
+      (click)="d('Cross click')"
+    ></button>
+  </div>
+  <div class="modal-body">
+    <p>Hello, World!</p>
+  </div>
+  <div class="modal-footer">
+    <button
+      type="button"
+      class="btn btn-outline-dark"
+      (click)="c('Save click')"
+    >
+      Save
+    </button>
+  </div>
+</ng-template>

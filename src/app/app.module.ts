@@ -25,6 +25,10 @@ import { AdminAcceptedComponent } from './admin-accepted/admin-accepted.componen
 import { AdminRejectedComponent } from './admin-rejected/admin-rejected.component';
 import { AdminPendingComponent } from './admin-pending/admin-pending.component';
 import { AdminRegistrationComponent } from './admin-registration/admin-registration.component';
+import { AboutPageComponent } from './shared/about-page/about-page.component';
+import { ServicesComponent } from './shared/services/services.component';
+import { PeekDestinationComponent } from './shared/peek-destination/peek-destination.component';
+import { ContactUsComponent } from './shared/contact-us/contact-us.component';
 
 
 
@@ -52,7 +56,11 @@ import { AdminRegistrationComponent } from './admin-registration/admin-registrat
     AdminAcceptedComponent,
     AdminRejectedComponent,
     AdminPendingComponent,
-    AdminRegistrationComponent
+    AdminRegistrationComponent,
+    AboutPageComponent,
+    ServicesComponent,
+    PeekDestinationComponent,
+    ContactUsComponent
   ],
   imports: [
     BrowserModule,
