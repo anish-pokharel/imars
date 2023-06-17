@@ -6,5 +6,9 @@ import { Component } from '@angular/core';
   styleUrls: ['./admin-dashboard.component.scss']
 })
 export class AdminDashboardComponent {
+  currentSection: string = 'basic';
 
+  showSection(section: string) {
+    this.currentSection = section;
+  }
 }

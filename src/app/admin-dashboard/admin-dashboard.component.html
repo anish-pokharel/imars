@@ -1,7 +1,79 @@
 <app-admin-navbar></app-admin-navbar>
-<app-side-menu> </app-side-menu>
-<div class="content" id="dashboard">Hello its dashboard</div>
-<div class="content" id="accepted">Hello its accepted</div>
-<div class="content" id="dashboard"></div>
-<div class="content" id="dashboard"></div>
-<div class="content" id="dashboard"></div>
+<div id="sidebar" class="sidebar">
+    <div data-scrollbar="true" data-height="100%">
+        <ul class="nav">
+            <li class="nav-profile">
+                <a href="javascript:;" data-toggle="nav-profile">
+                    <div class="cover with-shadow"></div>
+                    <div class="image">
+                        <img src="../assets/img/user/user-13.jpg" alt="" />
+                    </div>
+                    <div class="info">
+                        <b class="caret pull-right"></b>Sean Ngu
+                        <small>Front end developer</small>
+                    </div>
+                </a>
+            </li>
+            <li>
+                <ul class="nav nav-profile">
+                    <li>
+                        <a href="javascript:;"><i class="fa fa-cog"></i> Settings</a>
+                    </li>
+                    <li>
+                        <a href="javascript:;"><i class="fa fa-pencil-alt"></i> Send Feedback</a
+            >
+          </li>
+          <li>
+            <a href="javascript:;"
+              ><i class="fa fa-question-circle"></i> Helps</a
+            >
+          </li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+</div>
+
+<div id="sidebar" class="sidebar">
+  <div data-scrollbar="true" data-height="100%">
+    <ul class="nav">
+      <!-- Nav Profile -->
+    </ul>
+
+    <ul class="nav">
+      <li class="nav-header">Navigation</li>
+      <li class="has-sub">
+        <a (click)="showSection('basic')">Basic Info</a>
+                    </li>
+                    <li class="has-sub">
+                        <a (click)="showSection('accepted')">Accepted</a>
+                    </li>
+                    <li class="has-sub">
+                        <a (click)="showSection('rejected')">Rejected</a>
+                    </li>
+                    <li class="has-sub">
+                        <a (click)="showSection('pending')">Pending</a>
+                    </li>
+                </ul>
+    </div>
+</div>
+
+<div class="sidebar-bg"></div>
+
+<div class="content">
+    <div *ngIf="currentSection === 'basic'">
+        <h2>Basic Info</h2>
+    </div>
+
+    <div *ngIf="currentSection === 'accepted'">
+        <h2>Accepted</h2>
+    </div>
+
+    <div *ngIf="currentSection === 'rejected'">
+        <h2>Rejected</h2>
+    </div>
+
+    <div *ngIf="currentSection === 'pending'">
+        <h2>Pending</h2>
+    </div>
+</div>
