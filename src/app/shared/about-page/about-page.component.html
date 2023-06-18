@@ -1,86 +1,33 @@
 <div>
-    <div class="container text-center">
-        <h2 class="content-title">Our Team</h2>
-        <p class="content-desc">
-            Phasellus suscipit nisi hendrerit metus pharetra dignissim. Nullam nunc ante, viverra quis<br /> ex non, porttitor iaculis nisi.
-        </p>
-        <div class="row mx-3 my-3">
-            <div class="col-lg-3 card my-3">
-                <div class="team">
-                    <div class="image" data-animation="true " data-animation-type="flipInX ">
-                        <img src="../assets/img/user/user-1.jpg " alt="Ryan Teller " />
-                    </div>
-                    <div class="info">
-                        <h3 class="name">Ryan Teller</h3>
-                        <div class="title text-primary">FOUNDER</div>
-                        <p>
-                            Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor.
-                        </p>
-                        <div class="social mx-3 my-3">
-                            <a href="# "><i class="fab fa-facebook-f fa-lg fa-fw"></i></a>
-                            <a href="# "><i class="fab fa-twitter fa-lg fa-fw"></i></a>
-                            <a href="# "><i class="fab fa-google-plus-g fa-lg fa-fw"></i></a>
-                        </div>
-                    </div>
-                </div>
+  <div class="container text-center">
+    <h2 class="content-title">Our Team</h2>
+    <p class="content-desc">
+      Contact the IMARS Team<br />
+      House of love power energy
+    </p>
+
+    <div class="row mx-3 my-3">
+      <div class="col-lg-3 card my-3" *ngFor="let member of team">
+        <div class="team">
+          <div
+            class="image"
+            data-animation="true"
+            data-animation-type="flipInX"
+          >
+            <img [src]="member.image" [alt]="member.name" />
+          </div>
+          <div class="info">
+            <h3 class="name">{{ member.name }}</h3>
+            <div class="title text-primary">{{ member.title }}</div>
+            <p>{{ member.quote }}</p>
+            <div class="social mx-3 my-3">
+              <a *ngFor="let social of member.social" [href]="social.link">
+                <i [class]="social.icon"></i>
+              </a>
             </div>
-            <div class="col-lg-3 card my-3">
-                <div class="team">
-                    <div class="image" data-animation="true " data-animation-type="flipInX ">
-                        <img src="../assets/img/user/user-1.jpg " alt="Ryan Teller " />
-                    </div>
-                    <div class="info">
-                        <h3 class="name">Ryan Teller</h3>
-                        <div class="title text-primary">FOUNDER</div>
-                        <p>
-                            Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor.
-                        </p>
-                        <div class="social mx-3 my-3">
-                            <a href="# "><i class="fab fa-facebook-f fa-lg fa-fw"></i></a>
-                            <a href="# "><i class="fab fa-twitter fa-lg fa-fw"></i></a>
-                            <a href="# "><i class="fab fa-google-plus-g fa-lg fa-fw"></i></a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-3 card my-3">
-                <div class="team">
-                    <div class="image" data-animation="true " data-animation-type="flipInX ">
-                        <img src="../assets/img/user/user-1.jpg " alt="Ryan Teller " />
-                    </div>
-                    <div class="info">
-                        <h3 class="name">Ryan Teller</h3>
-                        <div class="title text-primary">FOUNDER</div>
-                        <p>
-                            Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor.
-                        </p>
-                        <div class="social mx-3 my-3">
-                            <a href="# "><i class="fab fa-facebook-f fa-lg fa-fw"></i></a>
-                            <a href="# "><i class="fab fa-twitter fa-lg fa-fw"></i></a>
-                            <a href="# "><i class="fab fa-google-plus-g fa-lg fa-fw"></i></a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-3 card my-3">
-                <div class="team">
-                    <div class="image" data-animation="true " data-animation-type="flipInX ">
-                        <img src="../assets/img/user/user-1.jpg " alt="Ryan Teller " />
-                    </div>
-                    <div class="info">
-                        <h3 class="name">Ryan Teller</h3>
-                        <div class="title text-primary">FOUNDER</div>
-                        <p>
-                            Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor.
-                        </p>
-                        <div class="social mx-3 my-3">
-                            <a href="# "><i class="fab fa-facebook-f fa-lg fa-fw"></i></a>
-                            <a href="# "><i class="fab fa-twitter fa-lg fa-fw"></i></a>
-                            <a href="# "><i class="fab fa-google-plus-g fa-lg fa-fw"></i></a>
-                        </div>
-                    </div>
-                </div>
-            </div>
+          </div>
         </div>
+      </div>
     </div>
+  </div>
 </div>
