@@ -1,26 +1,27 @@
 <app-admin-navbar></app-admin-navbar>
 <div id="sidebar" class="sidebar">
-    <div data-scrollbar="true" data-height="100%">
-        <ul class="nav">
-            <li class="nav-profile">
-                <a href="javascript:;" data-toggle="nav-profile">
-                    <div class="cover with-shadow"></div>
-                    <div class="image">
-                        <img src="../assets/img/user/user-13.jpg" alt="" />
-                    </div>
-                    <div class="info">
-                        <b class="caret pull-right"></b>Sean Ngu
-                        <small>Front end developer</small>
-                    </div>
-                </a>
-            </li>
-            <li>
-                <ul class="nav nav-profile">
-                    <li>
-                        <a href="javascript:;"><i class="fa fa-cog"></i> Settings</a>
-                    </li>
-                    <li>
-                        <a href="javascript:;"><i class="fa fa-pencil-alt"></i> Send Feedback</a
+  <div data-scrollbar="true" data-height="100%">
+    <ul class="nav">
+      <li class="nav-profile">
+        <a href="javascript:;" data-toggle="nav-profile">
+          <div class="cover with-shadow"></div>
+          <div class="image">
+            <img src="../assets/img/user/user-13.jpg" alt="" />
+          </div>
+          <div class="info">
+            <b class="caret pull-right"></b>Sean Ngu
+            <small>Front end developer</small>
+          </div>
+        </a>
+      </li>
+      <li>
+        <ul class="nav nav-profile">
+          <li>
+            <a href="javascript:;"><i class="fa fa-cog"></i> Settings</a>
+          </li>
+          <li>
+            <a href="javascript:;"
+              ><i class="fa fa-pencil-alt"></i> Send Feedback</a
             >
           </li>
           <li>
@@ -44,36 +45,374 @@
       <li class="nav-header">Navigation</li>
       <li class="has-sub">
         <a (click)="showSection('basic')">Basic Info</a>
-                    </li>
-                    <li class="has-sub">
-                        <a (click)="showSection('accepted')">Accepted</a>
-                    </li>
-                    <li class="has-sub">
-                        <a (click)="showSection('rejected')">Rejected</a>
-                    </li>
-                    <li class="has-sub">
-                        <a (click)="showSection('pending')">Pending</a>
-                    </li>
-                </ul>
-    </div>
+      </li>
+      <li class="has-sub">
+        <a (click)="showSection('accepted')">Accepted</a>
+      </li>
+      <li class="has-sub">
+        <a (click)="showSection('rejected')">Rejected</a>
+      </li>
+      <li class="has-sub">
+        <a (click)="showSection('pending')">Pending</a>
+      </li>
+      <li class="has-sub">
+        <a (click)="showSection('registration')">Registration</a>
+      </li>
+    </ul>
+  </div>
 </div>
 
 <div class="sidebar-bg"></div>
 
 <div class="content">
-    <div *ngIf="currentSection === 'basic'">
-        <h2>Basic Info</h2>
-    </div>
+  <div *ngIf="currentSection === 'basic'">
+    <h2>Basic Info</h2>
+    <div class="row">
+      <!-- begin col-3 -->
+      <div class="col-xl-6 col-md-6">
+        <div class="widget widget-stats bg-teal">
+          <div class="stats-icon stats-icon-lg">
+            <i class="fa fa-bus fa-fw"></i>
+          </div>
+          <div class="stats-content">
+            <div class="stats-title">Accepted</div>
+            <div class="stats-number">123</div>
 
-    <div *ngIf="currentSection === 'accepted'">
-        <h2>Accepted</h2>
-    </div>
+            <div class="stats-desc">Better than last week (70.1%)</div>
+          </div>
+        </div>
+      </div>
 
-    <div *ngIf="currentSection === 'rejected'">
-        <h2>Rejected</h2>
-    </div>
+      <div class="col-xl-6 col-md-6">
+        <div class="widget widget-stats bg-blue">
+          <div class="stats-icon stats-icon-lg">
+            <i class="fa fa-place fa-fw"></i>
+          </div>
+          <div class="stats-content">
+            <div class="stats-title">Rejected</div>
+            <div class="stats-number">180,200</div>
 
-    <div *ngIf="currentSection === 'pending'">
-        <h2>Pending</h2>
+            <div class="stats-desc">Better than last week (40.5%)</div>
+          </div>
+        </div>
+      </div>
+      <div class="col-xl-6 col-md-6">
+        <div class="widget widget-stats bg-indigo">
+          <div class="stats-icon stats-icon-lg">
+            <i class="fa fa-archive fa-fw"></i>
+          </div>
+          <div class="stats-content">
+            <div class="stats-title">Pending</div>
+            <div class="stats-number">38,900</div>
+
+            <div class="stats-desc">Better than last week (76.3%)</div>
+          </div>
+        </div>
+      </div>
+      <div class="col-xl-6 col-md-6">
+        <div class="widget widget-stats bg-dark">
+          <div class="stats-icon stats-icon-lg">
+            <i class="fa fa-comment-alt fa-fw"></i>
+          </div>
+          <div class="stats-content">
+            <div class="stats-title">Buses Available</div>
+            <div class="stats-number">3,988</div>
+
+            <div class="stats-desc">Better than last week (54.9%)</div>
+          </div>
+        </div>
+      </div>
     </div>
+  </div>
+
+  <div *ngIf="currentSection === 'accepted'">
+    <h2>Accepted</h2>
+    <div class="col-xl-12">
+      <div class="panel panel-inverse" data-sortable-id="table-basic-7">
+        <div class="panel-heading">
+          <h4 class="panel-title text-center">Pending Bus</h4>
+        </div>
+
+        <div class="panel-body">
+          <div class="table-responsive">
+            <table class="table table-striped m-b-0">
+              <thead>
+                <tr>
+                  <th>#</th>
+
+                  <th>Bus Number</th>
+                  <th>Username</th>
+                  <th>Email Address</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td class="with-img">
+                    <img
+                      src="../assets/img/user/user-1.jpg"
+                      class="img-rounded height-30"
+                    />
+                  </td>
+                  <td>Nicky Almera</td>
+                  <td>nicky@hotmail.com</td>
+                  <td>nicky@hotmail.com</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- <div *ngIf="currentSection === 'rejected'">
+    <h2>Rejected</h2>
+    <div class="col-xl-12">
+      <div class="panel panel-inverse" data-sortable-id="table-basic-7">
+        <div class="panel-heading">
+          <h4 class="panel-title text-center">Rejected Bus</h4>
+        </div>
+
+        <div class="panel-body">
+          <div class="table-responsive">
+            <table class="table table-striped m-b-0">
+              <thead>
+                <tr>
+                  <th>#</th>
+                  <th>Username</th>
+                  <th>Email Address</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td class="with-img">
+                    <img
+                      src="../assets/img/user/user-1.jpg"
+                      class="img-rounded height-30"
+                    />
+                  </td>
+                  <td>Nicky Almera</td>
+                  <td>nicky@hotmail.com</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div *ngIf="currentSection === 'pending'">
+    <h2>Pending</h2>
+    <div class="col-xl-12">
+      <div class="panel panel-inverse" data-sortable-id="table-basic-7">
+        <div class="panel-heading">
+          <h4 class="panel-title text-center">Pending Bus</h4>
+        </div>
+
+        <div class="panel-body">
+          <div class="table-responsive">
+            <table class="table table-striped m-b-0">
+              <thead>
+                <tr>
+                  <th>#</th>
+                  <th>Username</th>
+                  <th>Email Address</th>
+                  <th>Current</th>
+                  <th>Destination</th>
+                  <th width="1%"></th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td class="with-img">
+                    <img
+                      src="../assets/img/user/user-1.jpg"
+                      class="img-rounded height-30"
+                    />
+                  </td>
+                  <td>Nicky Almera</td>
+                  <td>nicky@hotmail.com</td>
+                  <td>KATHMADU</td>
+                  <td>POKHARA</td>
+                  <td class="with-btn" nowrap>
+                    <a href="#" class="btn btn-sm btn-primary width-60 m-r-2"
+                      >Accept</a
+                    >
+                    <a href="#" class="btn btn-sm btn-white width-60">Delete</a>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div> -->
+  <div *ngIf="currentSection === 'registration'">
+    <h2 class="text-center">Registration</h2>
+
+    <div class="col-xl-10">
+      <div class="card">
+        <h5 class="card-header">Registration</h5>
+        <div class="card-body">
+          <form>
+            <div class="form-group">
+              <label for="image">Image:</label>
+              <input
+                type="file"
+                id="image"
+                name="image"
+                accept="image/*"
+                class="form-control-file"
+              />
+            </div>
+            <div class="form-group">
+              <label for="image1">Image 2:</label>
+              <input
+                type="file"
+                id="image"
+                name="image"
+                accept="image/*"
+                class="form-control-file"
+              />
+            </div>
+            <div class="form-group">
+              <label for="image2">Image3:</label>
+              <input
+                type="file"
+                id="image"
+                name="image"
+                accept="image/*"
+                class="form-control-file"
+              />
+            </div>
+            <div class="form-group">
+              <label for="image3">Image4:</label>
+              <input
+                type="file"
+                id="image"
+                name="image"
+                accept="image/*"
+                class="form-control-file"
+              />
+            </div>
+
+            <div class="form-group">
+              <label for="busNumber">Bus Number:</label>
+              <input
+                type="text"
+                id="busNumber"
+                name="busNumber"
+                class="form-control"
+              />
+            </div>
+            <div class="form-group">
+              <label for="busType">Bus Type:</label>
+              <select id="busType" name="busType" class="form-control">
+                <option value="deluxe">Deluxe</option>
+                <option value="superDeluxe">Super Deluxe</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label for="seatNumber">Seat Number:</label>
+              <input
+                type="text"
+                id="seatNumber"
+                name="seatNumber"
+                class="form-control"
+              />
+            </div>
+
+            <button type="submit" class="btn btn-primary">Submit</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Pending Requests Table -->
+  <div *ngIf="currentSection === 'pending'">
+    <h2>Pending</h2>
+    <div class="col-xl-12">
+      <div class="panel panel-inverse" data-sortable-id="table-basic-7">
+        <div class="panel-heading">
+          <h4 class="panel-title text-center">Pending Bus</h4>
+        </div>
+        <div class="panel-body">
+          <div class="table-responsive">
+            <table class="table table-striped m-b-0">
+              <thead>
+                <tr>
+                  <th>#</th>
+                  <th>Username</th>
+                  <th>Email Address</th>
+                  <th>Current</th>
+                  <th>Destination</th>
+                  <th width="1%"></th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let request of acceptedRequests">
+                  <td class="with-img">
+                    <img
+                      src="../assets/img/user/user-1.jpg"
+                      class="img-rounded height-30"
+                    />
+                  </td>
+                  <td>{{ request.username }}</td>
+                  <td>{{ request.email }}</td>
+                  <td>{{ request.current }}</td>
+                  <td>{{ request.destination }}</td>
+                  <td class="with-btn" nowrap>
+                    <a href="#" class="btn btn-sm btn-primary width-60 m-r-2"
+                      >Accept</a
+                    >
+                    <a href="#" class="btn btn-sm btn-white width-60">Delete</a>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Rejected Requests Table -->
+  <div *ngIf="currentSection === 'rejected'">
+    <h2>Rejected</h2>
+    <div class="col-xl-12">
+      <div class="panel panel-inverse" data-sortable-id="table-basic-7">
+        <div class="panel-heading">
+          <h4 class="panel-title text-center">Rejected Bus</h4>
+        </div>
+        <div class="panel-body">
+          <div class="table-responsive">
+            <table class="table table-striped m-b-0">
+              <thead>
+                <tr>
+                  <th>#</th>
+                  <th>Username</th>
+                  <th>Email Address</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let request of rejectedRequests">
+                  <td class="with-img">
+                    <img
+                      src="../assets/img/user/user-1.jpg"
+                      class="img-rounded height-30"
+                    />
+                  </td>
+                  <td>{{ request.username }}</td>
+                  <td>{{ request.email }}</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
