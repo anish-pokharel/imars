@@ -16,13 +16,18 @@
         </div>
         <div class="col-md-4 col-md-pull-7">
           <div class="booking-form">
-            <form>
+            <form
+               action="/booking-form"
+               method="POST"
+            >
               <div class="form-group">
                 <span class="form-label">Your Origin</span>
                 <input
                   class="form-control"
                   type="text"
                   placeholder="Enter a Origin Placce"
+                  formControlName="Origin"
+                  required
                 />
               </div>
               <div class="form-group">
@@ -31,6 +36,8 @@
                   class="form-control"
                   type="text"
                   placeholder="Enter a destination "
+                  formControlName="Destination"
+                  required
                 />
               </div>
               <div class="form-group">
@@ -39,6 +46,8 @@
                   class="form-control"
                   type="email"
                   placeholder="Enter Your Email "
+                  formControlName="Email"
+                  required
                 />
               </div>
 
@@ -46,13 +55,13 @@
                 <div class="col-sm-6">
                   <div class="form-group">
                     <span class="form-label">Booking Date</span>
-                    <input class="form-control" type="date" required />
+                    <input class="form-control" type="date" formControlName="Name" required />
                   </div>
                 </div>
                 <div class="col-sm-6">
                   <div class="form-group">
                     <span class="form-label">Booking Ending Date</span>
-                    <input class="form-control" type="date" required />
+                    <input class="form-control" type="date" formControlName="Name" required />
                   </div>
                 </div>
               </div>

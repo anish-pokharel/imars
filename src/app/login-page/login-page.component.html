@@ -21,16 +21,18 @@
     </div>
     <div class="login-content">
       <form
+        action="/registration-page"
+        method="POST"
         [formGroup]="loginForm"
         (submit)="formSubmit()"
         class="margin-bottom-0"
       >
         <div class="form-group m-b-15">
           <input
-            formControlName="Username"
+            formControlName="Email"
             type="text"
             class="form-control form-control-lg inverse-mode"
-            placeholder="Username"
+            placeholder="Email"
             required
           />
         </div>
