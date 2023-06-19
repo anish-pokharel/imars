@@ -1,15 +1,23 @@
-import { Component, ElementRef, ViewChild } from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 // import { ModalService } from '../service/modal/modal.service';
 import { Router } from '@angular/router';
+import { CarouselConfig } from 'ngx-bootstrap/carousel';
+
 
 import { NgbModalConfig, NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { ModalService } from '../service/modal/modal.service';
 
 @Component({
   selector: 'app-bus-details',
   templateUrl: './bus-details.component.html',
   styleUrls: ['./bus-details.component.scss']
 })
-export class BusDetailsComponent {
+export class BusDetailsComponent implements OnInit {
+  isModalOpen: boolean = false;
+  param: any;
+
+
+
 
   data = {
 
@@ -17,6 +25,10 @@ export class BusDetailsComponent {
       {
         "number": "Bus-1",
         "img": "../../assets/img/about/about-me.jpg",
+        "img1": "../../assets/img/about/about-me.jpg",
+        "img2": "../../assets/img/about/about-me.jpg",
+        "img3": "../../assets/img/about/about-me.jpg",
+        "img4": "../../assets/img/about/about-me.jpg",
         "seatNo": "40",
         "available": true
       },
@@ -56,6 +68,8 @@ export class BusDetailsComponent {
   constructor(
     // private modalSrv$: ModalService,
     private modalService: NgbModal,
+    private modalSrv$: ModalService,
+
     private router: Router
   ) { }
   actionBook() {
@@ -67,4 +81,14 @@ export class BusDetailsComponent {
 
   }
   onSubmit() { }
+  closeModal() {
+    this.modalService.dismissAll();
+    alert('wanna close')
+  }
+
+
+  ngOnInit(): void {
+
+  }
+
 }
