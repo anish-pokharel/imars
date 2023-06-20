@@ -9,6 +9,15 @@ export class ClientDashboardComponent {
   currentPassword: string = '';
   newPassword: string = '';
   confirmPassword: string = '';
+  users: any[] = [
+    {
+      "name": "John Smith",
+      "username": "jsmith91",
+      "location": "New York, USA",
+      "occupation": "Software Engineer",
+      "bio": "Passionate software engineer with 5 years of experience...",
+      "interests": "Technology, software development, programming languages"
+    },]
 
   changePassword() {
     if (this.newPassword === this.confirmPassword) {

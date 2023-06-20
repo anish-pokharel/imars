@@ -19,19 +19,41 @@
             <form>
               <div class="form-group">
                 <span class="form-label">Your Origin</span>
-                <input
+                <!-- <input
                   class="form-control"
                   type="text"
                   placeholder="Enter a Origin Placce"
-                />
+                /> -->
+                <select
+                  class="form-control"
+                  [(ngModel)]="origin"
+                  name="origin"
+                  required
+                >
+                  <option value="">Select an origin</option>
+                  <option *ngFor="let place of places" [value]="place">
+                    {{ place }}
+                  </option>
+                </select>
               </div>
               <div class="form-group">
                 <span class="form-label">Your Destination</span>
-                <input
+                <!-- <input
                   class="form-control"
                   type="text"
                   placeholder="Enter a destination "
-                />
+                /> -->
+                <select
+                  class="form-control"
+                  [(ngModel)]="destination"
+                  name="destination"
+                  required
+                >
+                  <option value="">Select a destination</option>
+                  <option *ngFor="let place of places" [value]="place">
+                    {{ place }}
+                  </option>
+                </select>
               </div>
               <div class="form-group">
                 <span class="form-label">Email</span>
@@ -46,19 +68,50 @@
                 <div class="col-sm-6">
                   <div class="form-group">
                     <span class="form-label">Booking Date</span>
-                    <input class="form-control" type="date" required />
+                    <input
+                      class="form-control"
+                      type="date"
+                      [min]="minDate"
+                      [(ngModel)]="bookingDate"
+                      (ngModelChange)="calculateTotalFee()"
+                      required
+                    />
                   </div>
                 </div>
                 <div class="col-sm-6">
                   <div class="form-group">
                     <span class="form-label">Booking Ending Date</span>
-                    <input class="form-control" type="date" required />
+                    <input
+                      class="form-control"
+                      type="date"
+                      [min]="minEndDate"
+                      [(ngModel)]="endingDate"
+                      (ngModelChange)="calculateTotalFee()"
+                      required
+                    />
                   </div>
                 </div>
               </div>
 
+              <div class="form-group">
+                <span class="form-label">Total Fee</span>
+                <input
+                  class="form-control"
+                  type="text"
+                  readonly
+                  [(ngModel)]="totalFee"
+                />
+              </div>
+
               <div class="form-btn">
-                <button class="submit-btn" (click)="showModal()">Book</button>
+                <!-- <button class="submit-btn" (click)="showModal()">Book</button> -->
+                <button
+                  class="submit-btn"
+                  [disabled]="isSubmitDisabled()"
+                  (click)="showModal()"
+                >
+                  Book
+                </button>
               </div>
             </form>
           </div>
@@ -92,11 +145,13 @@
         />
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-primary" (click)="submitOTP()">
-          Submit
-        </button>
+        <button
+          type="button"
+          class="btn btn-primary"
+          (click)="submitOTP()"
+        ></button>
       </div>
     </div>
   </div>
 </div>
-<app-footer></app-footer>
+<!-- <app-footer></app-footer> -->
