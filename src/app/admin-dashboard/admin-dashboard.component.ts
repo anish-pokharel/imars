@@ -9,14 +9,25 @@ export class AdminDashboardComponent {
   currentSection: string = 'basic';
   acceptedRequests: any[];
   rejectedRequests: any[];
-
+  contacts: any[] = [
+    {
+      "name": "John Smith",
+      "email": "john@example.com",
+      "message": "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+    },
+    {
+      "name": "Jane Doe",
+      "email": "jane@example.com",
+      "message": "Pellentesque eget nulla dapibus, commodo turpis sit amet, volutpat elit."
+    },
+  ];
 
 
 
   constructor() {
-    this.currentSection = 'pending'; // Set the initial section to 'pending'
-    this.acceptedRequests = []; // Initialize the array for accepted requests
-    this.rejectedRequests = []; // Initialize the array for rejected requests
+    this.currentSection = 'pending';
+    this.acceptedRequests = [];
+    this.rejectedRequests = [];
   }
   showSection(section: string) {
     this.currentSection = section;
