@@ -1,13 +1,14 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-booking-form',
   templateUrl: './booking-form.component.html',
-  styleUrls: ['./booking-form.component.scss'],
+  styleUrls: ['./booking-form.component.scss']
 })
-export class BookingFormComponent {
-  origin: string | undefined;
+export class BookingFormComponent implements OnInit {
+  origin!: string;
   destination: string | undefined;
   minDate: string;
   minEndDate: string;
@@ -45,6 +46,13 @@ export class BookingFormComponent {
     this.showModalFlag = false;
     this.otpValue = '';
   }
+  ngOnInit(): void {
+  }
+      
+
+  isSubmitDisabled() :boolean {
+    return this.origin === this.destination;
+  }
 
   formatDate(date: Date): string {
     const year = date.getFullYear();
@@ -65,14 +73,4 @@ export class BookingFormComponent {
     this.totalFee = days * feePerDay;
   }
 
-  isSubmitDisabled(): boolean {
-    return (
-      !this.origin ||
-      !this.destination ||
-      !this.bookingDate ||
-      !this.endingDate
-      ||
-      !this.totalFee
-    );
-  }
 }

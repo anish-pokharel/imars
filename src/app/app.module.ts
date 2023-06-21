@@ -29,6 +29,7 @@ import { AboutPageComponent } from './shared/about-page/about-page.component';
 import { ServicesComponent } from './shared/services/services.component';
 import { PeekDestinationComponent } from './shared/peek-destination/peek-destination.component';
 import { ContactUsComponent } from './shared/contact-us/contact-us.component';
+import { HttpClientModule } from '@angular/common/http';
 
 
 
@@ -67,6 +68,7 @@ import { ContactUsComponent } from './shared/contact-us/contact-us.component';
     AppRoutingModule,
     ReactiveFormsModule,
     FormsModule,
+    HttpClientModule
 
   ],
   providers: [],

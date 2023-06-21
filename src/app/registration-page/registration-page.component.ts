@@ -1,49 +1,57 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { HttpClient,HttpErrorResponse } from '@angular/common/http';
 
 @Component({
   selector: 'app-registration-page',
   templateUrl: './registration-page.component.html',
   styleUrls: ['./registration-page.component.scss']
 })
-export class RegistrationPageComponent {
+export class RegistrationPageComponent implements OnInit {
   registerForm: FormGroup;
 
 
-  constructor(private formBuilder: FormBuilder, private router: Router) {
+  constructor(private formBuilder: FormBuilder, private router: Router, private http: HttpClient) {
     this.registerForm = this.formBuilder.group({
-      firstName: ['', Validators.required],
-      lastName: ['', Validators.required],
-      email: ['', [Validators.required, Validators.email]],
-      confirmEmail: ['', [Validators.required, Validators.email]],
-      password: ['', Validators.required],
-      agreementCheckbox: [false, Validators.requiredTrue]
+      Name: ['', Validators.required],
+      Email: ['', [Validators.required, Validators.email]],
+      Address: ['',Validators.required],
+      Phone: ['',Validators.required],
+      Gender: [false,Validators.requiredTrue],
+      Password: ['', Validators.required],
+      ConfirmPassword: ['', Validators.required],
+      //AgreementCheckbox: [false, Validators.requiredTrue]
     });
   }
 
 
   onSubmit() {
-    // if (!this.registerForm.invalid) {
-    // alert("Please enter valid information.");
-    // return;
-    this.router.navigate(['./login-page']);
+ if (!this.registerForm.invalid) {
+     alert("Please enter valid information.");
+     return;
 
-
-    // }
-    // else {
-    // return
-    // }
+     }
 
     // if (!this.registerForm.value.agreementCheckbox) {
     // alert("Please agree to the Terms and Data Policy.");
     // return;
     // }
-
-    const firstName = this.registerForm.value.firstName;
-    const lastName = this.registerForm.value.lastName;
-    const email = this.registerForm.value.email;
-    const password = this.registerForm.value.password;
+    const formData = this.registerForm.value;
+    this.http.post('http://localhost:3000/registration-page', formData).subscribe(
+      (response) => {
+        console.log('User registered successfully');
+        this.router.navigate(['./login-page']);
+      },
+      (error: HttpErrorResponse) => {
+        console.error('Error registering user:', error);
+        alert('Error registering user. Please try again later.');
+      }
+    );
 
   }
+  ngOnInit(): void {
+      
+  }
+
 }

@@ -16,8 +16,8 @@
     </h1>
     <div class="register-content">
       <form
-        action=""
-        method="GET"
+        action="/registration-page"
+        method="POST"
         class="margin-bottom-0"
         [formGroup]="registerForm"
         (ngSubmit)="onSubmit()"
@@ -30,18 +30,12 @@
             <input
               type="text"
               class="form-control"
-              placeholder="First name"
+              placeholder="Name"
+              formControlName="Name"
               required
             />
           </div>
-          <div class="col-md-6 m-b-15">
-            <input
-              type="text"
-              class="form-control"
-              placeholder="Last name"
-              required
-            />
-          </div>
+         
         </div>
         <label class="control-label"
           >Email <span class="text-danger">*</span></label
@@ -52,23 +46,63 @@
               type="text"
               class="form-control"
               placeholder="Email address"
+              formControlName="Email"
               required
             />
           </div>
         </div>
         <label class="control-label"
-          >Re-enter Email <span class="text-danger">*</span></label
+        >Address <span class="text-danger">*</span></label
+      >
+        <div class="col-md-6 m-b-15">
+          <input
+            type="text"
+            class="form-control"
+            placeholder="Address"
+            formControlName="Address"
+            required
+          />
+        </div>
+        <label class="control-label"
+          >Phone Number <span class="text-danger">*</span></label
         >
         <div class="row m-b-15">
           <div class="col-md-12">
             <input
               type="text"
               class="form-control"
-              placeholder="Re-enter email address"
+              placeholder="Phone-Number"
+              formControlName="Phone"
               required
             />
           </div>
         </div>
+        <label class="control-label"
+        >Gender <span class="text-danger">*</span></label
+      >
+        <div class="row m-b-15">
+          <div class="col-md-12">
+            <label>
+              <input
+                type="radio"
+                formControlName="Gender"
+                value="Female"
+                required
+              />
+              Female
+            </label>
+            <label>
+              <input
+                type="radio"
+                formControlName="Gender"
+                value="Male"
+                required
+              />
+              Male
+            </label>
+          </div>
+        </div>
+        
         <label class="control-label"
           >Password <span class="text-danger">*</span></label
         >
@@ -78,11 +112,26 @@
               type="password"
               class="form-control"
               placeholder="Password"
+              formControlName="Password"
               required
             />
           </div>
         </div>
-        <div class="checkbox checkbox-css m-b-30">
+        <label class="control-label"
+          >Confirm Password <span class="text-danger">*</span></label
+        >
+        <div class="row m-b-15">
+          <div class="col-md-12">
+            <input
+              type="password"
+              class="form-control"
+              placeholder="Confirm Password"
+              formControlName="ConfirmPassword"
+              required
+            />
+          </div>
+        </div>
+        <!-- <div class="checkbox checkbox-css m-b-30">
           <div class="checkbox checkbox-css m-b-30">
             <input type="checkbox" id="agreement_checkbox" value="" />
             <label for="agreement_checkbox">
@@ -92,7 +141,7 @@
               <a href="">Cookie Use</a>.
             </label>
           </div>
-        </div>
+        </div> -->
         <div class="register-buttons">
           <button type="submit" class="btn btn-primary btn-block btn-lg">
             <!-- [disabled]="registerForm.invalid" -->
