@@ -4,10 +4,10 @@ import { Router } from '@angular/router';
 @Component({
   selector: 'app-booking-form',
   templateUrl: './booking-form.component.html',
-  styleUrls: ['./booking-form.component.scss']
+  styleUrls: ['./booking-form.component.scss'],
 })
 export class BookingFormComponent {
-  origin!: string;
+  origin: string | undefined;
   destination: string | undefined;
   minDate: string;
   minEndDate: string;
@@ -46,10 +46,6 @@ export class BookingFormComponent {
     this.otpValue = '';
   }
 
-  isSubmitDisabled(): boolean {
-    return this.origin === this.destination;
-  }
-
   formatDate(date: Date): string {
     const year = date.getFullYear();
     const month = this.padZero(date.getMonth() + 1);
@@ -67,5 +63,16 @@ export class BookingFormComponent {
     const days = Math.ceil((endDate.getTime() - startDate.getTime()) / (1000 * 60 * 60 * 24));
     const feePerDay = 10000;
     this.totalFee = days * feePerDay;
+  }
+
+  isSubmitDisabled(): boolean {
+    return (
+      !this.origin ||
+      !this.destination ||
+      !this.bookingDate ||
+      !this.endingDate
+      ||
+      !this.totalFee
+    );
   }
 }
