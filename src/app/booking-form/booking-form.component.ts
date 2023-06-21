@@ -1,23 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-<<<<<<< HEAD
-import { HttpClient,HttpErrorResponse } from '@angular/common/http';
-=======
->>>>>>> 5bf962f7c69c6bca12b46cb118c3df76b0bd72b7
 
 @Component({
   selector: 'app-booking-form',
   templateUrl: './booking-form.component.html',
   styleUrls: ['./booking-form.component.scss']
 })
-<<<<<<< HEAD
 export class BookingFormComponent implements OnInit {
-  showModalFlag: boolean = false;
-  otpValue: string = '';
-  constructor(private router: Router, private http: HttpClient) {
-=======
-export class BookingFormComponent {
   origin!: string;
   destination: string | undefined;
   minDate: string;
@@ -31,7 +21,6 @@ export class BookingFormComponent {
   bookingDate!: string;
   endingDate!: string;
   totalFee!: number;
->>>>>>> 5bf962f7c69c6bca12b46cb118c3df76b0bd72b7
 
   constructor(private router: Router) {
     const today = new Date();
@@ -57,12 +46,11 @@ export class BookingFormComponent {
     this.showModalFlag = false;
     this.otpValue = '';
   }
-<<<<<<< HEAD
   ngOnInit(): void {
+  }
       
-=======
 
-  isSubmitDisabled(): boolean {
+  isSubmitDisabled() :boolean {
     return this.origin === this.destination;
   }
 
@@ -83,6 +71,6 @@ export class BookingFormComponent {
     const days = Math.ceil((endDate.getTime() - startDate.getTime()) / (1000 * 60 * 60 * 24));
     const feePerDay = 10000;
     this.totalFee = days * feePerDay;
->>>>>>> 5bf962f7c69c6bca12b46cb118c3df76b0bd72b7
   }
+
 }
