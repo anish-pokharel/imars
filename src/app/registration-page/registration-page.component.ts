@@ -27,11 +27,16 @@ export class RegistrationPageComponent implements OnInit {
 
 
   onSubmit() {
- if (!this.registerForm.invalid) {
+    if (this.registerForm.value.Password === this.registerForm.value.ConfirmPassword) {
+      console.log('Password matched');
+   
+  
+    if (!this.registerForm.invalid) {
      alert("Please enter valid information.");
      return;
 
-     }
+     } 
+   
 
     // if (!this.registerForm.value.agreementCheckbox) {
     // alert("Please agree to the Terms and Data Policy.");
@@ -48,7 +53,10 @@ export class RegistrationPageComponent implements OnInit {
         alert('Error registering user. Please try again later.');
       }
     );
-
+   }
+    else {
+    alert('Passwords do not match');
+    }
   }
   ngOnInit(): void {
       
