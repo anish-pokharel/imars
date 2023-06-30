@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { DatePipe } from '@angular/common';
+import { Component, OnInit } from '@angular/core';
 import KhaltiCheckout from "khalti-checkout-web";
 
 
@@ -7,7 +8,21 @@ import KhaltiCheckout from "khalti-checkout-web";
   templateUrl: './booking-confirm.component.html',
   styleUrls: ['./booking-confirm.component.scss']
 })
-export class BookingConfirmComponent {
+export class BookingConfirmComponent implements OnInit {
+
+  currentDate: string | undefined;
+  bookingSlipNumber: number = 1;
+
+  constructor(private datePipe: DatePipe) { }
+
+  ngOnInit(): void {
+    const currentDate = new Date();
+    const formattedDate = this.datePipe.transform(currentDate, 'longDate');
+    this.currentDate = formattedDate || '';
+  }
+  incrementBookingSlipNumber(): void {
+    this.bookingSlipNumber++;
+  }
 
   exportAsPDF() {
     const pdfData = '<your PDF data>';

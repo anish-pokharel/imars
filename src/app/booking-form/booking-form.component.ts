@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
-
 @Component({
   selector: 'app-booking-form',
   templateUrl: './booking-form.component.html',
@@ -9,7 +8,6 @@ import { Router } from '@angular/router';
 })
 export class BookingFormComponent implements OnInit {
   showModalFlag: boolean = false;
-  // otpValue: string = '';
   origin!: string;
   destination: string | undefined;
   email: string | undefined;
@@ -19,28 +17,51 @@ export class BookingFormComponent implements OnInit {
   minEndingDate: string | undefined;
   totalPrice: number | undefined;
   otpValue: string = '';
+
   constructor(private router: Router) { }
 
-  actionBooking() {
-    // this.router.navigate(['/booking-confirm']);
-  }
-
   ngOnInit(): void {
-    // Set the minimum booking date
     const today = new Date();
-    today.setDate(today.getDate() + 1); // Booking date should start from 2 days after the current date
+    today.setDate(today.getDate() + 2); // Booking date should start from 2 days after the current date
     this.minBookingDate = this.formatDate(today);
-
-    // Set the default booking date to be today
     this.bookingDate = this.formatDate(today);
 
-    // Set the default ending date to be one day after the booking date
     const defaultEndingDate = new Date(today);
     defaultEndingDate.setDate(defaultEndingDate.getDate() + 1); // Default duration of 1 day
     this.endingDate = this.formatDate(defaultEndingDate);
+    this.minEndingDate = this.formatDate(defaultEndingDate);
   }
 
+  updateMinEndingDate() {
+    if (this.bookingDate) {
+      const bookingDate = new Date(this.bookingDate);
+      bookingDate.setDate(bookingDate.getDate() + 1); // Ending date should start from 1 day after the booking date
+      this.minEndingDate = this.formatDate(bookingDate);
+    }
+  }
 
+  isBookingDateValid(): boolean {
+    if (!this.bookingDate) {
+      return false;
+    }
+
+    const bookingDate = new Date(this.bookingDate);
+    const today = new Date();
+    today.setDate(today.getDate() + 2); // Booking date should start from 2 days after the current date
+
+    return bookingDate >= today;
+  }
+
+  isEndingDateValid(): boolean {
+    if (!this.endingDate || !this.bookingDate) {
+      return false;
+    }
+
+    const endingDate = new Date(this.endingDate);
+    const bookingDate = new Date(this.bookingDate);
+
+    return endingDate > bookingDate;
+  }
 
   showModal() {
     // Check if any required field is empty
@@ -51,7 +72,6 @@ export class BookingFormComponent implements OnInit {
     this.showModalFlag = true;
   }
 
-
   submitOTP() {
     if (this.otpValue === '4646') {
       this.router.navigate(['/booking-confirm']);
@@ -59,7 +79,6 @@ export class BookingFormComponent implements OnInit {
     } else {
       alert('Invalid OTP');
     }
-
   }
 
   hideModal() {

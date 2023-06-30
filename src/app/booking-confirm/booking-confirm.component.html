@@ -20,8 +20,9 @@
           href="javascript:;"
           onclick="window.print()"
           class="btn btn-sm btn-white m-b-10"
-          ><i class="fa fa-print t-plus-1 fa-fw fa-lg"></i> Print</a
         >
+          <i class="fa fa-print t-plus-1 fa-fw fa-lg"></i> Print
+        </a>
       </span>
       IMARS
     </div>
@@ -31,29 +32,23 @@
         <h4>FROM</h4>
         <address class="m-t-5 m-b-5">
           <strong class="text-inverse">kATHMANDU</strong><br />
-          <!-- Street Address<br />
-          City, Zip Code<br />
-          Phone: (123) 456-7890<br />
-          Fax: (123) 456-7890 -->
         </address>
       </div>
       <div class="invoice-to">
         <h4>TO</h4>
         <address class="m-t-5 m-b-5">
           <strong class="text-inverse">Pokhara</strong><br />
-          <!-- Street Address<br />
-          City, Zip Code<br />
-          Phone: (123) 456-7890<br />
-          Fax: (123) 456-7890 -->
         </address>
       </div>
       <div class="invoice-date">
         <small>Invoice / July period</small>
-        <div class="date text-inverse m-t-5">August 3,2012</div>
+        <div class="date text-inverse m-t-5">{{ currentDate }}</div>
+
         <div class="invoice-detail">
-          #0000123DSS<br />
+          #{{ bookingSlipNumber }}<br />
           Bus Booking slip
         </div>
+        <!-- Bus Booking slip -->
       </div>
     </div>
     <!-- end invoice-header -->
@@ -73,13 +68,11 @@
           <tbody>
             <tr>
               <td>
-                <span class="text-inverse"
-                  >Website design &amp; development</span
-                ><br />
-                <small
-                  >Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed
-                  id sagittis arcu.</small
-                >
+                <span class="text-inverse"> Bus Booking </span><br />
+                <small>
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed
+                  id sagittis arcu.
+                </small>
               </td>
               <td class="text-center">.00</td>
               <td class="text-center">50</td>
@@ -87,45 +80,32 @@
             </tr>
             <tr>
               <td>
-                <span class="text-inverse">Branding</span><br />
-                <small
-                  >Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed
-                  id sagittis arcu.</small
-                >
+                <span class="text-inverse">food</span><br />
+                <small>
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed
+                  id sagittis arcu.
+                </small>
               </td>
               <td class="text-center">50.00</td>
               <td class="text-center">40</td>
               <td class="text-right">2,000.00</td>
             </tr>
-            <tr>
-              <td>
-                <span class="text-inverse">Redesign Service</span><br />
-                <small
-                  >Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed
-                  id sagittis arcu.</small
-                >
-              </td>
-              <td class="text-center">50.00</td>
-              <td class="text-center">50</td>
-              <td class="text-right">2,500.00</td>
-            </tr>
           </tbody>
         </table>
       </div>
-      <!-- end table-responsive -->
-      <!-- begin invoice-price -->
+
       <div class="invoice-price">
         <div class="invoice-price-left">
           <div class="invoice-price-row">
             <div class="sub-price">
-              <small>SUBTOTAL</small>
+              <small>Bus Book</small>
               <span class="text-inverse">4,500.00</span>
             </div>
             <div class="sub-price">
               <i class="fa fa-plus text-muted"></i>
             </div>
             <div class="sub-price">
-              <small>PAYPAL FEE (5.4%)</small>
+              <small>FOOD</small>
               <span class="text-inverse">108.00</span>
             </div>
           </div>
@@ -140,8 +120,7 @@
     <!-- end invoice-content -->
     <!-- begin invoice-note -->
     <div class="invoice-note">
-      * Make all cheques payable to [Your Company Name]<br />
-      * Payment is due within 30 days<br />
+      * Make all cheques payable tr /> * Payment is due within 30 days<br />
       * If you have any questions concerning this invoice, contact [Name, Phone
       Number, Email]
     </div>
@@ -161,8 +140,6 @@
         >
       </p>
     </div>
-    <!-- end invoice-footer -->
   </div>
-  <!-- end invoice -->
 </div>
 <app-footer></app-footer>
