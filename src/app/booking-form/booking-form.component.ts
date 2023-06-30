@@ -5,10 +5,15 @@ import { Router } from '@angular/router';
 @Component({
   selector: 'app-booking-form',
   templateUrl: './booking-form.component.html',
-  styleUrls: ['./booking-form.component.scss']
+  styleUrls: ['./booking-form.component.scss'],
 })
+<<<<<<< HEAD
 export class BookingFormComponent implements OnInit {
   origin!: string;
+=======
+export class BookingFormComponent {
+  origin: string | undefined;
+>>>>>>> 7a0c55292614fff8a9ac867bd41f95988f2783ce
   destination: string | undefined;
   minDate: string;
   minEndDate: string;
@@ -50,10 +55,13 @@ export class BookingFormComponent implements OnInit {
   }
       
 
+<<<<<<< HEAD
   isSubmitDisabled() :boolean {
     return this.origin === this.destination;
   }
 
+=======
+>>>>>>> 7a0c55292614fff8a9ac867bd41f95988f2783ce
   formatDate(date: Date): string {
     const year = date.getFullYear();
     const month = this.padZero(date.getMonth() + 1);
@@ -73,4 +81,17 @@ export class BookingFormComponent implements OnInit {
     this.totalFee = days * feePerDay;
   }
 
+<<<<<<< HEAD
+=======
+  isSubmitDisabled(): boolean {
+    return (
+      !this.origin ||
+      !this.destination ||
+      !this.bookingDate ||
+      !this.endingDate
+      ||
+      !this.totalFee
+    );
+  }
+>>>>>>> 7a0c55292614fff8a9ac867bd41f95988f2783ce
 }
