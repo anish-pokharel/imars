@@ -1,8 +1,6 @@
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
-// import { ModalService } from '../service/modal/modal.service';
 import { Router } from '@angular/router';
-import { CarouselConfig } from 'ngx-bootstrap/carousel';
-
+import { CarouselComponent } from 'ngx-bootstrap/carousel';
 
 import { NgbModalConfig, NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { ModalService } from '../service/modal/modal.service';
@@ -15,9 +13,7 @@ import { ModalService } from '../service/modal/modal.service';
 export class BusDetailsComponent implements OnInit {
   isModalOpen: boolean = false;
   param: any;
-
-
-
+  selectedBusImage!: string;
 
   data = {
 
@@ -66,24 +62,20 @@ export class BusDetailsComponent implements OnInit {
 
   }
   constructor(
-    // private modalSrv$: ModalService,
     private modalService: NgbModal,
-    private modalSrv$: ModalService,
 
     private router: Router
   ) { }
   actionBook() {
     this.router.navigate(['/booking-form']);
   }
-  actionImage(content: any) {
-    this.modalService.open(content);
-
-
+  actionImage(content: any, busImage: string) {
+    this.selectedBusImage = busImage;
+    this.modalService.open(content, { centered: true });
   }
   onSubmit() { }
   closeModal() {
     this.modalService.dismissAll();
-    alert('wanna close')
   }
 
 

@@ -1,23 +1,30 @@
 <div class="register register-with-news-feed">
-    <div class="news-feed">
-        <div class="news-image" style="background-image: url(../../assets/img/bg/bg-action.jpg)"></div>
-        <div class="news-caption">
-            <h4 class="caption-title"><b>Color</b> Admin App</h4>
-            <p>
-                As a Color Admin app administrator, you use the Color Admin console to manage your organization’s account, such as add new users, manage security settings, and turn on the services you want your team to access.
-            </p>
-        </div>
+  <div class="news-feed">
+    <div
+      class="news-image"
+      style="background-image: url(../../assets/img/bg/bg-action.jpg)"
+    ></div>
+    <div class="news-caption">
+      <h4 class="caption-title"><b>IM</b> ARS</h4>
+      <p>
+        As a Color Admin app administrator, you use the Color Admin console to
+        manage your organization’s account, such as add new users, manage
+        security settings, and turn on the services you want your team to
+        access.
+      </p>
     </div>
-    <div class="right-content">
-        <h1 class="register-header">
-            Sign Up
-            <small>Create your Color Admin Account. It’s free and always will be.</small
+  </div>
+  <div class="right-content">
+    <h1 class="register-header">
+      Sign Up
+      <small
+        >Create your Color Admin Account. It’s free and always will be.</small
       >
     </h1>
     <div class="register-content">
       <form
-        action=""
-        method="GET"
+        action="/registration-page"
+        method="POST"
         class="margin-bottom-0"
         [formGroup]="registerForm"
         (ngSubmit)="onSubmit()"
@@ -30,15 +37,8 @@
             <input
               type="text"
               class="form-control"
-              placeholder="First name"
-              required
-            />
-          </div>
-          <div class="col-md-6 m-b-15">
-            <input
-              type="text"
-              class="form-control"
-              placeholder="Last name"
+              placeholder="Name"
+              formControlName="Name"
               required
             />
           </div>
@@ -52,23 +52,63 @@
               type="text"
               class="form-control"
               placeholder="Email address"
+              formControlName="Email"
               required
             />
           </div>
         </div>
         <label class="control-label"
-          >Re-enter Email <span class="text-danger">*</span></label
+          >Address <span class="text-danger">*</span></label
+        >
+        <div class="col-md-6 m-b-15">
+          <input
+            type="text"
+            class="form-control"
+            placeholder="Address"
+            formControlName="Address"
+            required
+          />
+        </div>
+        <label class="control-label"
+          >Phone Number <span class="text-danger">*</span></label
         >
         <div class="row m-b-15">
           <div class="col-md-12">
             <input
               type="text"
               class="form-control"
-              placeholder="Re-enter email address"
+              placeholder="Phone-Number"
+              formControlName="Phone"
               required
             />
           </div>
         </div>
+        <label class="control-label"
+          >Gender <span class="text-danger">*</span></label
+        >
+        <div class="row m-b-15">
+          <div class="col-md-12">
+            <label>
+              <input
+                type="radio"
+                formControlName="Gender"
+                value="Female"
+                required
+              />
+              Female
+            </label>
+            <label>
+              <input
+                type="radio"
+                formControlName="Gender"
+                value="Male"
+                required
+              />
+              Male
+            </label>
+          </div>
+        </div>
+
         <label class="control-label"
           >Password <span class="text-danger">*</span></label
         >
@@ -78,11 +118,26 @@
               type="password"
               class="form-control"
               placeholder="Password"
+              formControlName="Password"
               required
             />
           </div>
         </div>
-        <div class="checkbox checkbox-css m-b-30">
+        <label class="control-label"
+          >Confirm Password <span class="text-danger">*</span></label
+        >
+        <div class="row m-b-15">
+          <div class="col-md-12">
+            <input
+              type="password"
+              class="form-control"
+              placeholder="Confirm Password"
+              formControlName="ConfirmPassword"
+              required
+            />
+          </div>
+        </div>
+        <!-- <div class="checkbox checkbox-css m-b-30">
           <div class="checkbox checkbox-css m-b-30">
             <input type="checkbox" id="agreement_checkbox" value="" />
             <label for="agreement_checkbox">
@@ -92,7 +147,7 @@
               <a href="">Cookie Use</a>.
             </label>
           </div>
-        </div>
+        </div> -->
         <div class="register-buttons">
           <button type="submit" class="btn btn-primary btn-block btn-lg">
             <!-- [disabled]="registerForm.invalid" -->

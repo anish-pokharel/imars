@@ -30,7 +30,10 @@
               <div class="card-body">
                 <h5 class="card-title">{{ entry.title }}</h5>
                 <p class="card-text">{{ entry.paragraph }}</p>
-                <button class="btn btn-primary" (click)="actionDetails()">
+                <button
+                  class="btn btn-primary"
+                  (click)="navigateToPage(entry.button.text)"
+                >
                   {{ entry.button.text }}
                 </button>
               </div>

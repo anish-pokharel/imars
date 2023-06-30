@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
 
@@ -7,7 +7,8 @@ import { Router } from '@angular/router';
   templateUrl: './main-page.component.html',
   styleUrls: ['./main-page.component.scss']
 })
-export class MainPageComponent {
+export class MainPageComponent implements OnInit {
+
   constructor(private router: Router) { }
 
 
@@ -19,10 +20,10 @@ export class MainPageComponent {
     "work": [
       {
         "image": "https://mdbcdn.b-cdn.net/img/new/standard/nature/111.webp",
-        "title": "Bud Reaservation",
+        "title": "Bus Reaservation",
         "paragraph": "This is the Bud reservation.",
         "button": {
-          "text": "Read More",
+          "text": "Book Bus",
         }
       },
       {
@@ -43,6 +44,18 @@ export class MainPageComponent {
       }
     ]
 
+  }
+
+  ngOnInit(): void {
+
+  }
+
+  navigateToPage(buttonText: string) {
+    if (buttonText === 'Book Bus') {
+      this.router.navigate(['/bus-details']);
+    } else if (buttonText === 'Read More' || buttonText === 'Read More2') {
+      this.router.navigate(['/comming-soon']);
+    }
   }
 
 }
