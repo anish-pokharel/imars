@@ -3,7 +3,7 @@
   <div class="section-center">
     <div class="container">
       <div class="row">
-        <div class="col-md-7 col-md-push-5">
+        <div class="col-md-7 col-sm-7 push-md-5">
           <div class="booking-cta">
             <h1>Make your reservation</h1>
             <p>
@@ -14,56 +14,80 @@
             </p>
           </div>
         </div>
-        <div class="col-md-4 col-md-pull-7">
-          <div class="booking-form">
-            <form>
-              <div class="form-group">
-                <span class="form-label">Your Origin</span>
-                <input
-                  class="form-control"
-                  type="text"
-                  placeholder="Enter a Origin Placce"
-                />
-              </div>
-              <div class="form-group">
-                <span class="form-label">Your Destination</span>
-                <input
-                  class="form-control"
-                  type="text"
-                  placeholder="Enter a destination "
-                />
-              </div>
-              <div class="form-group">
-                <span class="form-label">Email</span>
-                <input
-                  class="form-control"
-                  type="email"
-                  placeholder="Enter Your Email "
-                />
-              </div>
-
-              <div class="row">
-                <div class="col-sm-6">
-                  <div class="form-group">
-                    <span class="form-label">Booking Date</span>
-                    <input class="form-control" type="date" required />
+      
+          <div class="col-md-5 col-sm-5 pull-md-7">
+            <div class="booking-form">
+              <form>
+                <div class="form-group">
+                  <span class="form-label">Your Origin</span>
+                  <input
+                    class="form-control"
+                    type="text"
+                    placeholder="Enter a Origin Placce"
+                  />
+                </div>
+                <div class="form-group">
+                  <span class="form-label">Your Destination</span>
+                  <input
+                    class="form-control"
+                    type="text"
+                    placeholder="Enter a destination "
+                  />
+                </div>
+                <div class="form-group">
+                  <span class="form-label">Email</span>
+                  <input
+                    class="form-control"
+                    type="email"
+                    placeholder="Enter Your Email "
+                  />
+                </div>
+  
+                <div class="row">
+                  <div class="col-sm-6">
+                    <div class="form-group">
+                      <span class="form-label">Booking Date</span>
+                      <input class="form-control" type="date" required />
+                    </div>
+                  </div>
+                 
+                  <div class="col-sm-6">
+                    <div class="form-group">
+                      <span class="form-label">Booking Ending Date</span>
+                      <input class="form-control" type="date" required />
+                    </div>
                   </div>
                 </div>
-                <div class="col-sm-6">
-                  <div class="form-group">
-                    <span class="form-label">Booking Ending Date</span>
-                    <input class="form-control" type="date" required />
+                <div class="form-group">
+                  
+                  <div class="dropdown">
+                    <button class="btn btn-primary dropdown-toggle bg-gray" type="button" id="foodNamingDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                      Select type
+                    </button>
+                    <span class="form-label">Food</span>
+                   
+                    
+                    <div class="dropdown-menu" aria-labelledby="foodNamingDropdown">
+                      <label class="dropdown-item">
+                        <input type="checkbox" name="food" value="veg"> Veg
+                      </label>
+                      <label class="dropdown-item">
+                        <input type="checkbox" name="food" value="non-veg"> Non-Veg
+                      </label>
+                    </div>
                   </div>
+                  <button class="btn bg-gray mt-3 btn-primary" (click)="submitFood()">Total price</button>
+    
                 </div>
-              </div>
-
-              <div class="form-btn">
-                <button class="submit-btn" (click)="showModal()">Book</button>
-              </div>
-            </form>
+                
+                <div class="form-btn text-center">
+                  <button class="submit-btn" (click)="showModal()">Book</button>
+                </div>
+              </form>
+            </div>
           </div>
         </div>
-      </div>
+       
     </div>
   </div>
 </div>

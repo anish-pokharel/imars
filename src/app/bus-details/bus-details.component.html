@@ -8,13 +8,13 @@
         <p class="card-text">Seat No: {{ bus.seatNo }}</p>
       </div>
       <div class="m-4">
-        <button class="btn btn-primary" (click)="actionBook()">Book Now</button>
-        <button
-          class="btn btn-primary mx-5"
-          (click)="actionImage(contentModal)"
-        >
-          See Image
-        </button>
+        <div class="d-flex ">
+          <button class="btn btn-primary" (click)="actionBook()
+          ">Book Now</button>
+          <button class="btn btn-primary mx-5 width-3"(click)="actionImage(contentModal)"> See Image </button>
+         
+        </div>
+          
       </div>
       <div
         class="card-footer"
@@ -32,7 +32,7 @@
   <div class="col-lg-3 my-2" *ngFor="let bus of data.buses">
     <div class="card h-100">
       <div class="card-img-container">
-        <div
+        <div>
           id="carousel-{{ bus.number }}"
           class="carousel slide"
           data-ride="carousel"

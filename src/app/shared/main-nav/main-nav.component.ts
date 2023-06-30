@@ -7,4 +7,11 @@ import { Component } from '@angular/core';
 })
 export class MainNavComponent {
 
+  activePage: string = 'home';   // Assuming 'home' is the default active page
+  setActivePage(page: string) {
+    this.activePage = page;
+  }
+  
+
 }
+

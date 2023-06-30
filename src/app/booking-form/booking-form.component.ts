@@ -30,4 +30,12 @@ export class BookingFormComponent {
     this.showModalFlag = false;
     this.otpValue = '';
   }
+
+  submitFood() {
+    const checkboxes = document.querySelectorAll('input[name="food"]:checked');
+    const selectedOptions = Array.from(checkboxes).map(checkbox => (checkbox as HTMLInputElement).value);
+
+    console.log('Selected:', selectedOptions);
+    // Perform actions with the selected options
+  }
 }

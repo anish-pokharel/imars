@@ -24,7 +24,7 @@ export class BusDetailsComponent implements OnInit {
     "buses": [
       {
         "number": "Bus-1",
-        "img": "../../assets/img/about/about-me.jpg",
+        "img": "../../assets/img/Bus/Bus1_auto_x2.jpg",
         "img1": "../../assets/img/about/about-me.jpg",
         "img2": "../../assets/img/about/about-me.jpg",
         "img3": "../../assets/img/about/about-me.jpg",
@@ -34,13 +34,13 @@ export class BusDetailsComponent implements OnInit {
       },
       {
         "number": "Bus-2",
-        "img": "../../assets/img/about/about-me.jpg",
+        "img": "../../assets/img/Bus/Bus2_auto_x2.jpg",
         "seatNo": "40",
         "available": false
       },
       {
         "number": "Bus-3",
-        "img": "../../assets/img/about/about-me.jpg",
+        "img": "../../assets/img/Bus/Bus3_auto_x2.jpg",
         "seatNo": "20",
         "available": true
       },
