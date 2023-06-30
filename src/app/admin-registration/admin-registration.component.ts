@@ -6,5 +6,5 @@ import { Component } from '@angular/core';
   styleUrls: ['./admin-registration.component.scss']
 })
 export class AdminRegistrationComponent {
-
+ 
 }

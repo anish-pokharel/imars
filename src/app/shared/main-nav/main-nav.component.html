@@ -8,8 +8,7 @@
               src="../../assets/img/flag/flag-english.png"
               class="flag-img"
               alt="" />
-            English <b class="caret"></b
-          ></a>
+            English <b class="caret"></b></a>
           <ul class="dropdown-menu">
             <li>
               <a href="#" class="dropdown-item"
@@ -114,47 +113,49 @@
         </a>
       </div>
 
-      <div class="header-nav">
+      <div class="header-nav" >
         <!-- <div class="collapse navbar-collapse text-dark" id="navbar-collapsee"> -->
-        <div>
-          <ul class="">
+        <div >
+          <nav class="navbar-nav " >
             <!-- <li class="active"> -->
-            <li class="active">
-              <a routerLink="/main-page">Home </a>
+            <li class="active nav-item" [ngClass]="{ 'active': activePage === 'home' }">
+              <a routerLink="/main-page" class="navlink">Home </a>
             </li>
             <!-- <li class="active">
               <a routerLink="/registration-page">New Member</a>
             </li> -->
-            <li class="active text-dark">
-              <a routerLink="/bus-details">Bus Details</a>
+            <li class="active text-dark nav-item navlink" [ngClass]="{ 'active': activePage === 'bus-details' }">
+              <a routerLink="/bus-details" class="">Bus-Details</a>
             </li>
-            <li class="active">
-              <a routerLink="/booking-form">Booking Form</a>
+            <li class="active nav-item" [ngClass]="{ 'active': activePage === 'booking-form' }">
+              <a  routerLink="/booking-form" class="navlink">Booking Form</a>
             </li>
-            <li class="active">
-              <a routerLink="/booking-confirm">Booking slip</a>
+            <li class="active nav-item" [ngClass]="{ 'active': activePage === 'booking-slip' }">
+              <a routerLink="/booking-confirm" class="navlink">Booking slip</a>
             </li>
-            <li class="active">
-              <a routerLink="/payment">Payment</a>
+            <li class="active nav-item" [ngClass]="{ 'active': activePage === 'payment' }">
+              <a  routerLink="/payment" class="navlink">Payment</a>
             </li>
-            <li class="active">
-              <a routerLink="/client-dashboard">User</a>
+            <li class="active nav-item" [ngClass]="{ 'active': activePage === 'user' }">
+              <a  routerLink="/client-dashboard" class="navlink">User</a>
             </li>
-            <li class="active">
-              <a routerLink="/admin-dashboard">DASHBOARD</a>
-            </li>
-            <li class="dropdown active">
-              <a href="#" class="dropdown-toggle" data-toggle="dropdown"
-                >Bus category
+          
+            <li class="dropdown active nav-item" [ngClass]="{ 'active': activePage === 'bus-category' }">
+              <a  href="#" class="dropdown-togglec navlink" data-toggle="dropdown"
+              class="navlink"
+                >Bus-category
               </a>
-              <div class="dropdown-menu dropdown-menu-right">
-                <a routerLink="javascript:;" class="dropdown-item">Delux</a>
-                <a routerLink="javascript:;" class="dropdown-item"
+              <div class="dropdown-menu dropdown-menu-right" claass="navlink">
+                <a  routerLink="javascript:;" class="dropdown-item">Delux</a>
+                <a  routerLink="javascript:;" class="dropdown-item"
                   >Super Delux</a
                 >
               </div>
             </li>
-          </ul>
+            <li class="active nav-item" [ngClass]="{ 'active': activePage === 'dashboard' }">
+              <a  routerLink="/admin-dashboard" class="navlink">DASHBOARD</a>
+            </li>
+          </nav>
         </div>
       </div>
     </div>
