@@ -35,31 +35,8 @@
   </div>
 </div>
 
-<!-- <div class="row row-cols-1 row-cols-md-3 g-4 mx-3">
-  <div class="col-lg-3 my-2" *ngFor="let bus of data.buses">
-    <div class="card h-100" *ngIf="bus.available">
-      <img [src]="bus.img" class="card-img-top" [alt]="bus.number" />
-      <div class="card-body">
-        <h5 class="card-title">Bus Number: {{ bus.number }}</h5>
-        <p class="card-text">Seat No: {{ bus.seatNo }}</p>
-      </div>
-      <div class="m-4">
-        <button class="btn btn-primary" (click)="actionBook()">Book Now</button>
-        <button
-          class="btn btn-primary mx-5"
-          (click)="actionImage(contentModal, bus.img)"
-        >
-          See Image
-        </button>
-      </div>
-      <div class="card-footer bg-success">
-        <small class="text-light">Bus Available</small>
-            </div>
-        </div>
-    </div>
-</div> -->
-
 <app-footer></app-footer>
+
 <ng-template #contentModal let-c="close" let-d="dismiss">
   <div class="modal-header">
     <h4 class="modal-title" id="modal-basic-title">Hi there!</h4>

@@ -30,27 +30,35 @@ export class BookingFormComponent implements OnInit {
   }
 
   actionBooking() {
-    // this.router.navigate(['/booking-confirm']);
+    this.showModal();
   }
+  confirmOTP() {
+    this.submitOTP(); // Call the existing method for submitting OTP
 
+    // Route to the invoice page after OTP confirmation
+    this.router.navigate(['/booking-confirm']);
+  }
   showModal() {
     this.showModalFlag = true;
   }
 
+  // submitOTP() {
+  //   this.router.navigate(['/booking-confirm']);
+  //   // this.hideModal();
+  // }
   submitOTP() {
-    this.router.navigate(['/booking-confirm']);
-    // this.hideModal();
+    this.hideModal();
+    this.confirmOTP();
   }
-
   hideModal() {
     this.showModalFlag = false;
     this.otpValue = '';
   }
   ngOnInit(): void {
   }
-      
 
-  isSubmitDisabled() :boolean {
+
+  isSubmitDisabled(): boolean {
     return this.origin === this.destination;
   }
 
@@ -65,12 +73,17 @@ export class BookingFormComponent implements OnInit {
     return num < 10 ? `0${num}` : `${num}`;
   }
 
+  // calculateTotalFee() {
+  //   const startDate = new Date(this.bookingDate);
+  //   const endDate = new Date(this.endingDate);
+  //   const days = Math.ceil((endDate.getTime() - startDate.getTime()) / (1000 * 60 * 60 * 24));
+  //   const feePerDay = 10000;
+  //   this.totalFee = days * feePerDay;
+  // }
   calculateTotalFee() {
     const startDate = new Date(this.bookingDate);
     const endDate = new Date(this.endingDate);
     const days = Math.ceil((endDate.getTime() - startDate.getTime()) / (1000 * 60 * 60 * 24));
-    const feePerDay = 10000;
-    this.totalFee = days * feePerDay;
+    this.totalFee = days * this.perDayValue;
   }
-
 }

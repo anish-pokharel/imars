@@ -16,17 +16,10 @@
         </div>
         <div class="col-md-4 col-md-pull-7">
           <div class="booking-form">
-            <form
-               action="/booking-form"
-               method="POST"
-            >
+            <form action="/booking-form" method="POST">
               <div class="form-group">
                 <span class="form-label">Your Origin</span>
-                <!-- <input
-                  class="form-control"
-                  type="text"
-                  placeholder="Enter a Origin Placce"
-                /> -->
+
                 <select
                   class="form-control"
                   [(ngModel)]="origin"
@@ -41,11 +34,7 @@
               </div>
               <div class="form-group">
                 <span class="form-label">Your Destination</span>
-                <!-- <input
-                  class="form-control"
-                  type="text"
-                  placeholder="Enter a destination "
-                /> -->
+
                 <select
                   class="form-control"
                   [(ngModel)]="destination"
@@ -150,11 +139,9 @@
         />
       </div>
       <div class="modal-footer">
-        <button
-          type="button"
-          class="btn btn-primary"
-          (click)="submitOTP()"
-        ></button>
+        <button type="submit" class="btn btn-success" (click)="confirmOTP()">
+          Submit OTP
+        </button>
       </div>
     </div>
   </div>
