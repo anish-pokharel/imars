@@ -30,6 +30,7 @@ import { ServicesComponent } from './shared/services/services.component';
 import { PeekDestinationComponent } from './shared/peek-destination/peek-destination.component';
 import { ContactUsComponent } from './shared/contact-us/contact-us.component';
 import { HttpClientModule } from '@angular/common/http';
+import { DatePipe } from '@angular/common';
 
 
 @NgModule({
@@ -70,7 +71,7 @@ import { HttpClientModule } from '@angular/common/http';
     HttpClientModule
 
   ],
-  providers: [],
+  providers: [DatePipe],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -1,4 +1,5 @@
 <app-main-nav></app-main-nav>
+
 <div id="booking" class="section">
   <div class="section-center">
     <div class="container">
@@ -32,12 +33,10 @@
                 <span class="form-label">Your Destination</span>
                 <select
                   class="form-control"
-                  type="text"
-                  placeholder="Enter a Destination"
                   [(ngModel)]="destination"
                   name="destination"
                 >
-                  <option value="">Select an Origin Place</option>
+                  <option value="">Select a Destination Place</option>
                   <option value="Place 1">Place 1</option>
                   <option value="Place 2">Place 2</option>
                   <option value="Place 3">Place 3</option>
@@ -64,6 +63,7 @@
                       type="date"
                       [min]="minBookingDate"
                       [(ngModel)]="bookingDate"
+                      (ngModelChange)="updateMinEndingDate()"
                       name="bookingDate"
                       required
                     />
@@ -152,7 +152,7 @@
         </button>
       </div>
       <div class="modal-body">
-        <label for="otp">Enter OTP:</label>
+        <label for="otp">Enter Pin 4646</label>
         <input
           type="text"
           id="otp"
@@ -169,4 +169,5 @@
     </div>
   </div>
 </div>
+
 <app-footer></app-footer>
