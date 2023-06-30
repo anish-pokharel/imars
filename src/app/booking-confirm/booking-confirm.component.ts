@@ -9,6 +9,21 @@ import KhaltiCheckout from "khalti-checkout-web";
 })
 export class BookingConfirmComponent {
 
+  exportAsPDF() {
+    const pdfData = '<your PDF data>';
+
+    const blob = new Blob([pdfData], { type: 'application/pdf' });
+
+    const url = window.URL.createObjectURL(blob);
+
+    const link = document.createElement('a');
+    link.href = url;
+    link.download = 'file.pdf';
+
+    link.click();
+
+    window.URL.revokeObjectURL(url);
+  }
 
 
 

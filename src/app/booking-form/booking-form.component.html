@@ -1,100 +1,172 @@
+<app-main-nav></app-main-nav>
 <div id="booking" class="section">
-    <div class="section-center">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-7 col-md-push-5">
-                    <div class="booking-cta">
-                        <h1>Make your reservation</h1>
-                        <p>
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Animi facere, soluta magnam consectetur molestias itaque ad sint fugit architecto incidunt iste culpa perspiciatis possimus voluptates aliquid consequuntur cumque quasi. Perspiciatis.
-                        </p>
-                    </div>
+  <div class="section-center">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-7 col-sm-7 push-md-5">
+          <div class="booking-cta">
+            <h1>Make your reservation</h1>
+            <p>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Animi
+              facere, soluta magnam consectetur molestias itaque ad sint fugit
+              architecto incidunt iste culpa perspiciatis possimus voluptates
+              aliquid consequuntur cumque quasi. Perspiciatis.
+            </p>
+          </div>
+        </div>
+
+        <div class="col-md-5 col-sm-5 pull-md-7">
+          <div class="booking-form">
+            <form>
+              <div class="form-group">
+                <span class="form-label">Your Origin</span>
+                <select class="form-control" [(ngModel)]="origin" name="origin">
+                  <option value="">Select an Origin Place</option>
+                  <option value="Place 1">Place 1</option>
+                  <option value="Place 2">Place 2</option>
+                  <option value="Place 3">Place 3</option>
+                  <!-- Add more options as needed -->
+                </select>
+              </div>
+              <div class="form-group">
+                <span class="form-label">Your Destination</span>
+                <select
+                  class="form-control"
+                  type="text"
+                  placeholder="Enter a Destination"
+                  [(ngModel)]="destination"
+                  name="destination"
+                >
+                  <option value="">Select an Origin Place</option>
+                  <option value="Place 1">Place 1</option>
+                  <option value="Place 2">Place 2</option>
+                  <option value="Place 3">Place 3</option>
+                  <!-- Add more options as needed -->
+                </select>
+              </div>
+              <div class="form-group">
+                <span class="form-label">Email</span>
+                <input
+                  class="form-control"
+                  type="email"
+                  placeholder="Enter Your Email"
+                  [(ngModel)]="email"
+                  name="email"
+                />
+              </div>
+
+              <div class="row">
+                <div class="col-sm-6">
+                  <div class="form-group">
+                    <span class="form-label">Booking Date</span>
+                    <input
+                      class="form-control"
+                      type="date"
+                      [min]="minBookingDate"
+                      [(ngModel)]="bookingDate"
+                      name="bookingDate"
+                      required
+                    />
+                  </div>
                 </div>
-                <div class="col-md-4 col-md-pull-7">
-                    <div class="booking-form">
-                        <form>
-                            <div class="form-group">
-                                <span class="form-label">Your Origin</span>
-                                <select class="form-control" [(ngModel)]="origin" name="origin" required>
-                  <option value="">Select an origin</option>
-                  <option *ngFor="let place of places" [value]="place">
-                    {{ place }}
-                  </option>
-                </select>
-                            </div>
-                            <div class="form-group">
-                                <span class="form-label">Your Destination</span>
-                                <select class="form-control" [(ngModel)]="destination" name="destination" required>
-                  <option value="">Select a destination</option>
-                  <option *ngFor="let place of places" [value]="place">
-                    {{ place }}
-                  </option>
-                </select>
-                            </div>
-                            <div class="form-group">
-                                <span class="form-label">Email</span>
-                                <input class="form-control" type="email" placeholder="Enter Your Email" />
-                            </div>
 
-                            <div class="row">
-                                <div class="col-sm-6">
-                                    <div class="form-group">
-                                        <span class="form-label">Booking Date</span>
-                                        <input class="form-control" type="date" [min]="minDate" [(ngModel)]="bookingDate" name="bookingDate" (ngModelChange)="calculateTotalFee()" required />
-                                    </div>
-                                </div>
-                                <div class="col-sm-6">
-                                    <div class="form-group">
-                                        <span class="form-label">Booking Ending Date</span>
+                <div class="col-sm-6">
+                  <div class="form-group">
+                    <span class="form-label">Ending Date</span>
+                    <input
+                      class="form-control"
+                      type="date"
+                      [min]="minEndingDate"
+                      [(ngModel)]="endingDate"
+                      name="endingDate"
+                      required
+                    />
+                  </div>
+                </div>
+              </div>
+              <div class="form-group">
+                <div class="dropdown">
+                  <button
+                    class="btn btn-primary dropdown-toggle bg-gray"
+                    type="button"
+                    id="foodNamingDropdown"
+                    data-toggle="dropdown"
+                    aria-haspopup="true"
+                    aria-expanded="false"
+                  >
+                    Select type
+                  </button>
+                  <span class="form-label">Food</span>
 
-                                        <input class="form-control" type="date" [min]="minEndDate" [(ngModel)]="endingDate" name="endingDate" (ngModelChange)="calculateTotalFee()" required />
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="form-group">
-                                <span class="form-label">Total Fee</span>
-                                <input class="form-control" type="text" readonly [(ngModel)]="totalFee" name="totalFee" />
-                            </div>
-
-                            <div class="form-btn">
-                                <button class="submit-btn" [disabled]="isSubmitDisabled()" (click)="showModal()">
-                  Book
+                  <div
+                    class="dropdown-menu"
+                    aria-labelledby="foodNamingDropdown"
+                  >
+                    <label class="dropdown-item">
+                      <input type="checkbox" name="food" value="veg" /> Veg
+                    </label>
+                    <label class="dropdown-item">
+                      <input type="checkbox" name="food" value="non-veg" />
+                      Non-Veg
+                    </label>
+                  </div>
+                </div>
+                <button
+                  class="btn bg-gray mt-3 btn-primary"
+                  (click)="calculateTotalPrice()"
+                >
+                  Total price
                 </button>
-                            </div>
-                        </form>
-                    </div>
-                </div>
-            </div>
+                <input
+                  class="form-control"
+                  type="text"
+                  [(ngModel)]="totalPrice"
+                  [readonly]="true"
+                  name="totalPrice"
+                  placeholder="Total Charges"
+                />
+              </div>
+
+              <div class="form-btn text-center">
+                <button class="submit-btn" (click)="showModal()">Book</button>
+              </div>
+            </form>
+          </div>
         </div>
+      </div>
     </div>
+  </div>
 </div>
 
-<!-- Add modal code at the end of the template -->
-<div class="modal" [class.show]="showModalFlag">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title">Booking Summary</h5>
-                <button type="button" class="close" (click)="hideModal()">
-          <span aria-hidden="true">&times;</span>
+<div
+  id="myModal"
+  class="modal"
+  [ngStyle]="{ display: showModalFlag ? 'block' : 'none' }"
+>
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Enter OTP</h5>
+        <button type="button" class="close" (click)="hideModal()">
+          <span>&times;</span>
         </button>
-            </div>
-            <div class="modal-body">
-                <p>Origin: {{ origin }}</p>
-                <p>Destination: {{ destination }}</p>
-                <p>Booking Date: {{ bookingDate }}</p>
-                <p>Ending Date: {{ endingDate }}</p>
-                <p>Total Fee: {{ totalFee }}</p>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-primary" (click)="submitOTP()">
-          Confirm Booking
+      </div>
+      <div class="modal-body">
+        <label for="otp">Enter OTP:</label>
+        <input
+          type="text"
+          id="otp"
+          name="otp"
+          [(ngModel)]="otpValue"
+          class="form-control"
+        />
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary" (click)="submitOTP()">
+          Submit
         </button>
-                <button type="button" class="btn btn-secondary" (click)="hideModal()">
-          Cancel
-        </button>
-            </div>
-        </div>
+      </div>
     </div>
+  </div>
 </div>
+<app-footer></app-footer>

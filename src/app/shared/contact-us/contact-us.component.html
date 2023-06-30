@@ -40,47 +40,57 @@
         data-animation="true"
         data-animation-type="fadeInRight"
       >
-        <form class="form-horizontal">
-          <div class="form-group row m-b-15">
+      <div class="">
+        <form class="form-horizontal ">
+          <div class="form-group row m-b-15 ">
             <label class="col-form-label col-md-3 text-md-right"
-              >Name <span class="text-primary">*</span></label
-            >
+              ><strong>Name</strong><span class="text-primary"></span></label>
             <div class="col-md-9">
-              <input type="text" class="form-control" />
+              <input type="text" class="form-control" placeholder="" 
+              (mouseover)="showMessagen()" 
+              (mouseleave)="hideMessagen()"
+              (input)="onInputChange($event)"/>
+              <p class="text-blue"*ngIf="isHovering">enter your name</p>
             </div>
           </div>
           <div class="form-group row m-b-15">
             <label class="col-form-label col-md-3 text-md-right"
-              >Email <span class="text-primary">*</span></label
+              ><strong>Email</strong><span class="text-primary"></span></label
             >
             <div class="col-md-9">
-              <input
-                type="text"
-                class="form-control"
-                [(ngModel)]="email"
-                name="email"
-                pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$"
-                required
-              />
+              <input type="text" class="form-control" (mouseover)="showMessagee()" (mouseout)="hideMessagee() "/>
+              <p class="text-blue"*ngIf="isSliding">enter your email</p>
+
             </div>
           </div>
           <div class="form-group row m-b-15">
             <label class="col-form-label col-md-3 text-md-right"
-              >Message <span class="text-primary">*</span></label
+              ><strong>Message </strong><span class="text-primary"></span></label
             >
             <div class="col-md-9">
-              <textarea class="form-control" rows="10"></textarea>
+              <textarea class="form-control" rows="10" placeholder="" ></textarea>
+              
+
             </div>
           </div>
           <div class="form-group row m-b-15">
             <label class="col-form-label col-md-3 text-md-right"></label>
-            <div class="col-md-9 text-left">
-              <button type="submit" class="btn btn-theme btn-primary btn-block">
-                Send Message
-              </button>
+            <div class="row">
+              <div class="col-md-10 p-2 col-md-4 col-md-push-8">
+                <button  type="submit" class="btn col-md-4 col-md-pull-8 btn-primary text-center">
+                  Send Message
+                </button>
+  
+              </div>
+              <div class="col-md-12 col-md-pull-4">
+                If you aren't register??<a class="text-blue" href="registration-page" 
+                router-link="/registration-page">click here</a>
+              </div>
             </div>
           </div>
         </form>
+      </div>
+        
       </div>
     </div>
   </div>
