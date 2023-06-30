@@ -5,10 +5,15 @@ import { Router } from '@angular/router';
 @Component({
   selector: 'app-booking-form',
   templateUrl: './booking-form.component.html',
-  styleUrls: ['./booking-form.component.scss']
+  styleUrls: ['./booking-form.component.scss'],
 })
+<<<<<<< HEAD
 export class BookingFormComponent implements OnInit {
   origin!: string;
+=======
+export class BookingFormComponent {
+  origin: string | undefined;
+>>>>>>> 7a0c55292614fff8a9ac867bd41f95988f2783ce
   destination: string | undefined;
   minDate: string;
   minEndDate: string;
@@ -30,38 +35,33 @@ export class BookingFormComponent implements OnInit {
   }
 
   actionBooking() {
-    this.showModal();
+    // this.router.navigate(['/booking-confirm']);
   }
-  confirmOTP() {
-    this.submitOTP(); // Call the existing method for submitting OTP
 
-    // Route to the invoice page after OTP confirmation
-    this.router.navigate(['/booking-confirm']);
-  }
   showModal() {
     this.showModalFlag = true;
   }
 
-  // submitOTP() {
-  //   this.router.navigate(['/booking-confirm']);
-  //   // this.hideModal();
-  // }
   submitOTP() {
-    this.hideModal();
-    this.confirmOTP();
+    this.router.navigate(['/booking-confirm']);
+    // this.hideModal();
   }
+
   hideModal() {
     this.showModalFlag = false;
     this.otpValue = '';
   }
   ngOnInit(): void {
   }
+      
 
-
-  isSubmitDisabled(): boolean {
+<<<<<<< HEAD
+  isSubmitDisabled() :boolean {
     return this.origin === this.destination;
   }
 
+=======
+>>>>>>> 7a0c55292614fff8a9ac867bd41f95988f2783ce
   formatDate(date: Date): string {
     const year = date.getFullYear();
     const month = this.padZero(date.getMonth() + 1);
@@ -73,17 +73,25 @@ export class BookingFormComponent implements OnInit {
     return num < 10 ? `0${num}` : `${num}`;
   }
 
-  // calculateTotalFee() {
-  //   const startDate = new Date(this.bookingDate);
-  //   const endDate = new Date(this.endingDate);
-  //   const days = Math.ceil((endDate.getTime() - startDate.getTime()) / (1000 * 60 * 60 * 24));
-  //   const feePerDay = 10000;
-  //   this.totalFee = days * feePerDay;
-  // }
   calculateTotalFee() {
     const startDate = new Date(this.bookingDate);
     const endDate = new Date(this.endingDate);
     const days = Math.ceil((endDate.getTime() - startDate.getTime()) / (1000 * 60 * 60 * 24));
-    this.totalFee = days * this.perDayValue;
+    const feePerDay = 10000;
+    this.totalFee = days * feePerDay;
   }
+
+<<<<<<< HEAD
+=======
+  isSubmitDisabled(): boolean {
+    return (
+      !this.origin ||
+      !this.destination ||
+      !this.bookingDate ||
+      !this.endingDate
+      ||
+      !this.totalFee
+    );
+  }
+>>>>>>> 7a0c55292614fff8a9ac867bd41f95988f2783ce
 }

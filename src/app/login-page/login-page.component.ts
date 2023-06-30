@@ -36,17 +36,20 @@ export class LoginPageComponent implements OnInit {
 
   }
   formSubmit(){
-
+    if (this.loginForm.valid) {
     const formData = this.loginForm.value;
-    this.http.post('http://localhost:3000/login-page', formData).subscribe(
+    this.http.post<any>('http://localhost:3000/login-page', formData).subscribe(
       (response) => {
         console.log('Login successfull');
-        if(this.loginForm.value.Email == "admin@gmail.com" && this.loginForm.value.Password == "admin@123"){
-          this.router.navigate(['./admin-dashboard']);
-        }else{
-          this.router.navigate(['./main-page']);
-        }
-        
+         // Redirect the user based on the response or token received
+         if (response.token) {
+          localStorage.setItem('token', response.token);
+          if (formData.Email === 'admin@gmail.com') {
+            this.router.navigate(['./admin-dashboard']);
+          } else {
+            this.router.navigate(['./main-page']);
+          }
+        } 
       },
       (error: HttpErrorResponse) => {
         console.error('Error loggingin:', error);
@@ -54,9 +57,10 @@ export class LoginPageComponent implements OnInit {
       }
     );
   }
+}
   forgetPasswordModal(){}
 
-
+  
 
 }
  

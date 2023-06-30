@@ -13,7 +13,7 @@
             <img src="../assets/img/user/user-13.jpg" alt="" />
           </div>
           <div class="profile-header-info">
-            <h4 class="mt-0 mb-1">Menuka Lamsal</h4>
+            <h4 class="mt-0 mb-1">{{registerForm.Name}}</h4>
             <p class="mb-2">UXUI + Frontend Developer</p>
             <a href="#edit-profile" class="btn btn-xs btn-yellow"
               >Edit Profile</a
@@ -140,23 +140,26 @@
                     alt="Profile Image"
                   />
                   <div class="card-body">
-                    <h5 class="card-title">John Doe</h5>
-                    <p class="card-text">
+                    <h5 class="card-title">{{registerForm.Name}}</h5>
+                    <!-- <p class="card-text">
                       Lorem ipsum dolor sit amet, consectetur adipiscing elit.
                       Donec tincidunt urna sed eros tristique, id cursus elit
                       efficitur.
-                    </p>
+                      
+                    </p> -->
                   </div>
                   <ul class="list-group list-group-flush">
                     <li class="list-group-item">
-                      <strong>Email:</strong> john.doe@example.com
+                      <strong>Email:</strong> {{registerForm.Email}}
                     </li>
                     <li class="list-group-item">
-                      <strong>Location:</strong> New York City, USA
+                      <strong>Address:</strong> {{registerForm.Address}}
                     </li>
                     <li class="list-group-item">
-                      <strong>Interests:</strong> Reading, Traveling,
-                      Photography
+                      <strong>Phone:</strong> {{registerForm.Phone}}
+                    </li>
+                    <li class="list-group-item">
+                      <strong>Gender:</strong> {{registerForm.Gender}}
                     </li>
                   </ul>
                 </div>
