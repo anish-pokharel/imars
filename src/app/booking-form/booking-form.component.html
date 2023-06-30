@@ -14,80 +14,126 @@
             </p>
           </div>
         </div>
-      
-          <div class="col-md-5 col-sm-5 pull-md-7">
-            <div class="booking-form">
-              <form>
-                <div class="form-group">
-                  <span class="form-label">Your Origin</span>
-                  <input
-                    class="form-control"
-                    type="text"
-                    placeholder="Enter a Origin Placce"
-                  />
-                </div>
-                <div class="form-group">
-                  <span class="form-label">Your Destination</span>
-                  <input
-                    class="form-control"
-                    type="text"
-                    placeholder="Enter a destination "
-                  />
-                </div>
-                <div class="form-group">
-                  <span class="form-label">Email</span>
-                  <input
-                    class="form-control"
-                    type="email"
-                    placeholder="Enter Your Email "
-                  />
-                </div>
-  
-                <div class="row">
-                  <div class="col-sm-6">
-                    <div class="form-group">
-                      <span class="form-label">Booking Date</span>
-                      <input class="form-control" type="date" required />
-                    </div>
+
+        <div class="col-md-5 col-sm-5 pull-md-7">
+          <div class="booking-form">
+            <form>
+              <div class="form-group">
+                <span class="form-label">Your Origin</span>
+                <select class="form-control" [(ngModel)]="origin" name="origin">
+                  <option value="">Select an Origin Place</option>
+                  <option value="Place 1">Place 1</option>
+                  <option value="Place 2">Place 2</option>
+                  <option value="Place 3">Place 3</option>
+                  <!-- Add more options as needed -->
+                </select>
+              </div>
+              <div class="form-group">
+                <span class="form-label">Your Destination</span>
+                <select
+                  class="form-control"
+                  type="text"
+                  placeholder="Enter a Destination"
+                  [(ngModel)]="destination"
+                  name="destination"
+                >
+                  <option value="">Select an Origin Place</option>
+                  <option value="Place 1">Place 1</option>
+                  <option value="Place 2">Place 2</option>
+                  <option value="Place 3">Place 3</option>
+                  <!-- Add more options as needed -->
+                </select>
+              </div>
+              <div class="form-group">
+                <span class="form-label">Email</span>
+                <input
+                  class="form-control"
+                  type="email"
+                  placeholder="Enter Your Email"
+                  [(ngModel)]="email"
+                  name="email"
+                />
+              </div>
+
+              <div class="row">
+                <div class="col-sm-6">
+                  <div class="form-group">
+                    <span class="form-label">Booking Date</span>
+                    <input
+                      class="form-control"
+                      type="date"
+                      [min]="minBookingDate"
+                      [(ngModel)]="bookingDate"
+                      name="bookingDate"
+                      required
+                    />
                   </div>
-                 
-                  <div class="col-sm-6">
-                    <div class="form-group">
-                      <span class="form-label">Booking Ending Date</span>
-                      <input class="form-control" type="date" required />
-                    </div>
+                </div>
+
+                <div class="col-sm-6">
+                  <div class="form-group">
+                    <span class="form-label">Ending Date</span>
+                    <input
+                      class="form-control"
+                      type="date"
+                      [min]="minEndingDate"
+                      [(ngModel)]="endingDate"
+                      name="endingDate"
+                      required
+                    />
                   </div>
                 </div>
-                <div class="form-group">
-                  
-                  <div class="dropdown">
-                    <button class="btn btn-primary dropdown-toggle bg-gray" type="button" id="foodNamingDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                      Select type
-                    </button>
-                    <span class="form-label">Food</span>
-                   
-                    
-                    <div class="dropdown-menu" aria-labelledby="foodNamingDropdown">
-                      <label class="dropdown-item">
-                        <input type="checkbox" name="food" value="veg"> Veg
-                      </label>
-                      <label class="dropdown-item">
-                        <input type="checkbox" name="food" value="non-veg"> Non-Veg
-                      </label>
-                    </div>
+              </div>
+              <div class="form-group">
+                <div class="dropdown">
+                  <button
+                    class="btn btn-primary dropdown-toggle bg-gray"
+                    type="button"
+                    id="foodNamingDropdown"
+                    data-toggle="dropdown"
+                    aria-haspopup="true"
+                    aria-expanded="false"
+                  >
+                    Select type
+                  </button>
+                  <span class="form-label">Food</span>
+
+                  <div
+                    class="dropdown-menu"
+                    aria-labelledby="foodNamingDropdown"
+                  >
+                    <label class="dropdown-item">
+                      <input type="checkbox" name="food" value="veg" /> Veg
+                    </label>
+                    <label class="dropdown-item">
+                      <input type="checkbox" name="food" value="non-veg" />
+                      Non-Veg
+                    </label>
                   </div>
-                  <button class="btn bg-gray mt-3 btn-primary" (click)="submitFood()">Total price</button>
-    
                 </div>
-                
-                <div class="form-btn text-center">
-                  <button class="submit-btn" (click)="showModal()">Book</button>
-                </div>
-              </form>
-            </div>
+                <button
+                  class="btn bg-gray mt-3 btn-primary"
+                  (click)="calculateTotalPrice()"
+                >
+                  Total price
+                </button>
+                <input
+                  class="form-control"
+                  type="text"
+                  [(ngModel)]="totalPrice"
+                  [readonly]="true"
+                  name="totalPrice"
+                  placeholder="Total Charges"
+                />
+              </div>
+
+              <div class="form-btn text-center">
+                <button class="submit-btn" (click)="showModal()">Book</button>
+              </div>
+            </form>
           </div>
         </div>
-       
+      </div>
     </div>
   </div>
 </div>

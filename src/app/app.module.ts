@@ -32,7 +32,6 @@ import { ContactUsComponent } from './shared/contact-us/contact-us.component';
 import { HttpClientModule } from '@angular/common/http';
 
 
-
 @NgModule({
   declarations: [
     AppComponent,
