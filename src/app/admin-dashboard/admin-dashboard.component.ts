@@ -25,7 +25,7 @@ export class AdminDashboardComponent {
 
 
   constructor() {
-    this.currentSection = 'pending';
+    this.currentSection = 'basic';
     this.acceptedRequests = [];
     this.rejectedRequests = [];
   }

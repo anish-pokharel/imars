@@ -41,7 +41,11 @@
         data-animation-type="fadeInRight"
       >
       <div class="">
-        <form class="form-horizontal ">
+        <form class="form-horizontal"
+        method="post"
+        [formGroup]="contactForm"
+        (ngSubmit)="onSubmit()"
+        >
           <div class="form-group row m-b-15 ">
             <label class="col-form-label col-md-3 text-md-right"
               ><strong>Name</strong><span class="text-primary"></span></label>
@@ -49,7 +53,8 @@
               <input type="text" class="form-control" placeholder="" 
               (mouseover)="showMessagen()" 
               (mouseleave)="hideMessagen()"
-              (input)="onInputChange($event)"/>
+              
+              formControlName="Name"/>
               <p class="text-blue"*ngIf="isHovering">enter your name</p>
             </div>
           </div>
@@ -58,8 +63,8 @@
               ><strong>Email</strong><span class="text-primary"></span></label
             >
             <div class="col-md-9">
-              <input type="text" class="form-control" (mouseover)="showMessagee()" (mouseout)="hideMessagee() "/>
-              <p class="text-blue"*ngIf="isSliding">enter your email</p>
+              <input type="text" class="form-control" formControlName="Email" (mouseover)="showMessagee()" (mouseout)="hideMessagee() "/>
+              <p class="text-blue" *ngIf="isSliding">enter your email</p>
 
             </div>
           </div>
@@ -68,9 +73,8 @@
               ><strong>Message </strong><span class="text-primary"></span></label
             >
             <div class="col-md-9">
-              <textarea class="form-control" rows="10" placeholder="" ></textarea>
+              <textarea class="form-control" rows="10" placeholder="" formControlName="Message" ></textarea>
               
-
             </div>
           </div>
           <div class="form-group row m-b-15">
