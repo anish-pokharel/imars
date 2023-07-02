@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
 
 @Component({
@@ -8,8 +8,15 @@ import { Router } from '@angular/router';
 })
 export class BookingFormComponent implements OnInit {
   showModalFlag: boolean = false;
-  origin!: string;
-  destination: string | undefined;
+  // origin: { value: string, latitude: number, longitude: number } | undefined;
+  // destination: { value: string, latitude: number, longitude: number } | undefined;
+  origin?: string;
+  destination?: string;
+  originLatitude: number | undefined;
+  originLongitude: number | undefined;
+  destinationLatitude: number | undefined;
+  destinationLongitude: number | undefined;
+  distance: number = 0;
   email: string | undefined;
   bookingDate: string | undefined;
   endingDate: string | undefined;
@@ -21,7 +28,10 @@ export class BookingFormComponent implements OnInit {
   vegQuantity: number | undefined; // New property for veg quantity
   nonVegQuantity: number | undefined;
 
-
+  @ViewChild('originSelect')
+  originSelectRef!: ElementRef;
+  @ViewChild('destinationSelect')
+  destinationSelectRef!: ElementRef;
   constructor(private router: Router) { }
 
   ngOnInit(): void {
@@ -34,6 +44,7 @@ export class BookingFormComponent implements OnInit {
     defaultEndingDate.setDate(defaultEndingDate.getDate() + 1); // Default duration of 1 day
     this.endingDate = this.formatDate(defaultEndingDate);
     this.minEndingDate = this.formatDate(defaultEndingDate);
+    this.calculateDistance()
   }
 
   updateMinEndingDate() {
@@ -84,6 +95,8 @@ export class BookingFormComponent implements OnInit {
       alert('Invalid OTP');
     }
   }
+
+
 
   hideModal() {
     this.showModalFlag = false;
@@ -170,5 +183,73 @@ export class BookingFormComponent implements OnInit {
     const month = ('0' + (date.getMonth() + 1)).slice(-2);
     const day = ('0' + date.getDate()).slice(-2);
     return `${year}-${month}-${day}`;
+  }
+  // Assuming origin and destination have the following structure:
+  // origin: { value: string, latitude: number, longitude: number };
+  // destination: { value: string, latitude: number, longitude: number };
+
+  toRadians(degrees: number): number {
+    return degrees * (Math.PI / 180);
+  }
+  calculateDistance() {
+    const originSelect = this.originSelectRef.nativeElement as HTMLSelectElement;
+    const destinationSelect = this.destinationSelectRef.nativeElement as HTMLSelectElement;
+
+    const originOption = originSelect.options[originSelect.selectedIndex];
+    const destinationOption = destinationSelect.options[destinationSelect.selectedIndex];
+
+    const originLatitude = originOption.getAttribute('latitude');
+    const originLongitude = originOption.getAttribute('longitude');
+    const destinationLatitude = destinationOption.getAttribute('latitude');
+    const destinationLongitude = destinationOption.getAttribute('longitude');
+
+
+    console.log('Origin:');
+    console.log('Latitude:', originLatitude);
+    console.log('Longitude:', originLongitude);
+
+    console.log('Destination:');
+    console.log('Latitude:', destinationLatitude);
+    console.log('Longitude:', destinationLongitude);
+
+    if (originLatitude && originLongitude && destinationLatitude && destinationLongitude) {
+      const originLatitudeNum = parseFloat(originLatitude);
+      const originLongitudeNum = parseFloat(originLongitude);
+      const destinationLatitudeNum = parseFloat(destinationLatitude);
+      const destinationLongitudeNum = parseFloat(destinationLongitude);
+
+      const earthRadiusKm = 6371;
+      const originLatitudeRadians = this.toRadians(originLatitudeNum);
+      const originLongitudeRadians = this.toRadians(originLongitudeNum);
+      const destinationLatitudeRadians = this.toRadians(destinationLatitudeNum);
+      const destinationLongitudeRadians = this.toRadians(destinationLongitudeNum);
+
+      const dlat = destinationLatitudeRadians - originLatitudeRadians;
+      const dlon = destinationLongitudeRadians - originLongitudeRadians;
+      const a = Math.sin(dlat / 2) * Math.sin(dlat / 2)
+        + Math.cos(originLatitudeRadians) * Math.cos(destinationLatitudeRadians)
+        * Math.sin(dlon / 2) * Math.sin(dlon / 2);
+      const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
+      const distance = earthRadiusKm * c;
+
+
+      console.log('Distance (in kilometers):', distance);
+    } else {
+      console.log('Latitude or longitude values are missing.');
+    }
+
+    //   console.log('Origin (in radians):');
+    //   console.log('Latitude:', this.toRadians(originLatitudeNum));
+    //   console.log('Longitude:', this.toRadians(originLongitudeNum));
+
+    //   console.log('Destination (in radians):');
+    //   console.log('Latitude:', this.toRadians(destinationLatitudeNum));
+    //   console.log('Longitude:', this.toRadians(destinationLongitudeNum));
+    // } else {
+    //   console.log('Latitude or longitude values are missing.');
+
+
+    // }
+
   }
 }
