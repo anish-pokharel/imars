@@ -1,14 +1,18 @@
 <app-main-nav></app-main-nav>
 <div class="row row-cols-1 row-cols-md-3 g-4 mx-3">
   <div class="col-lg-3 my-2" *ngFor="let bus of data.buses">
-    <div class="card h-100">
+    <div class="card h-100 d-flex flex-column justify-content-between">
       <img [src]="bus.img" class="card-img-top" [alt]="bus.number" />
-      <div class="card-body">
-        <h5 class="card-title">Bus Number: {{ bus.number }}</h5>
-        <p class="card-text">Seat No: {{ bus.seatNo }}</p>
+      <div class="card-body d-flex flex-column justify-content-center">
+        <h5 class="card-title text-center mb-0">
+          Bus Number: {{ bus.number }}
+        </h5>
+        <p class="card-text text-center mb-0">Seat No: {{ bus.seatNo }}</p>
+        <!-- Add category -->
       </div>
+      <h4 class="card-text text-center mb-0">Category: {{ bus.category }}</h4>
       <div class="m-4">
-        <div class="d-flex">
+        <div class="d-flex justify-content-center">
           <button
             class="btn btn-primary"
             *ngIf="bus.available"
@@ -25,7 +29,7 @@
         </div>
       </div>
       <div
-        class="card-footer"
+        class="card-footer d-flex justify-content-center"
         [ngClass]="{ 'bg-success': bus.available, 'bg-danger': !bus.available }"
       >
         <small class="text-light" *ngIf="bus.available">Bus Available</small>
@@ -49,7 +53,6 @@
     ></button>
   </div>
   <div class="modal-body">
-    <!-- <p>Hello, World!</p> -->
     <img
       *ngIf="selectedBusImage"
       [src]="selectedBusImage"
@@ -67,3 +70,56 @@
     </button>
   </div>
 </ng-template>
+<!-- <ng-template #contentModal let-c="close" let-d="dismiss">
+  <div class="modal-header">
+    <h4 class="modal-title" id="modal-basic-title">Hi there!</h4>
+    <button
+      type="button"
+      class="btn-close"
+      aria-label="Close"
+      (click)="d('Cross click'); closeModal()"
+    ></button>
+  </div>
+  <div class="modal-body">
+    <div id="carouselExample" class="carousel slide" data-bs-ride="carousel">
+      <div class="carousel-inner">
+        <div class="carousel-item" *ngFor="let bus of data.buses">
+          <img
+            [src]="bus.img"
+            alt="Bus Image"
+            [class.d-block]="bus === selectedBusImage"
+            [class.d-none]="bus !== selectedBusImage"
+            class="modal-image"
+          />
+        </div>
+      </div>
+      <button
+        class="carousel-control-prev"
+        type="button"
+        data-bs-target="#carouselExample"
+        data-bs-slide="prev"
+      >
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+      </button>
+      <button
+        class="carousel-control-next"
+        type="button"
+        data-bs-target="#carouselExample"
+        data-bs-slide="next"
+      >
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+      </button>
+    </div>
+  </div>
+  <div class="modal-footer">
+    <button
+      type="button"
+      class="btn btn-outline-dark"
+      (click)="c('Save click'); closeModal()"
+    >
+      Okay
+    </button>
+  </div>
+</ng-template> -->

@@ -17,6 +17,10 @@ export class BookingFormComponent implements OnInit {
   minEndingDate: string | undefined;
   totalPrice: number | undefined;
   otpValue: string = '';
+  selectedFood: { type: string, price: number } | null = null;
+  vegQuantity: number | undefined; // New property for veg quantity
+  nonVegQuantity: number | undefined;
+
 
   constructor(private router: Router) { }
 
@@ -93,7 +97,37 @@ export class BookingFormComponent implements OnInit {
     console.log('Selected:', selectedOptions);
   }
 
-  calculateTotalPrice() {
+  // calculateTotalPrice() {
+  //   if (this.origin === this.destination) {
+  //     alert('Origin and Destination cannot be the same.');
+  //     return;
+  //   }
+
+  //   const bookingDate = new Date(this.bookingDate!);
+  //   const endingDate = new Date(this.endingDate!);
+
+  //   if (bookingDate.getTime() === endingDate.getTime()) {
+  //     alert('Booking and Ending dates cannot be the same.');
+  //     return;
+  //   }
+
+  //   const today = new Date();
+  //   today.setDate(today.getDate() + 2); // Booking date should start from 2 days after the current date
+
+  //   if (bookingDate <= today) {
+  //     alert('Booking date should start from 2 days after the current date.');
+  //     return;
+  //   }
+
+  //   if (endingDate <= bookingDate) {
+  //     alert('Ending date should be greater than the booking date.');
+  //     return;
+  //   }
+
+  //   const durationInDays = (endingDate.getTime() - bookingDate.getTime()) / (1000 * 3600 * 24);
+  //   this.totalPrice = durationInDays * 10000;
+  // }
+  calculateTotalPrice(): void {
     if (this.origin === this.destination) {
       alert('Origin and Destination cannot be the same.');
       return;
@@ -121,8 +155,15 @@ export class BookingFormComponent implements OnInit {
     }
 
     const durationInDays = (endingDate.getTime() - bookingDate.getTime()) / (1000 * 3600 * 24);
-    this.totalPrice = durationInDays * 10000;
+    const vegPrice = 150;
+    const nonVegPrice = 200;
+    const foodCost = (this.vegQuantity || 0) * vegPrice + (this.nonVegQuantity || 0) * nonVegPrice;
+
+    this.totalPrice = (durationInDays * 10000) + foodCost;
   }
+
+
+
 
   private formatDate(date: Date): string {
     const year = date.getFullYear();

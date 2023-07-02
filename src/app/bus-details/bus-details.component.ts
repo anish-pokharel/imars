@@ -10,6 +10,7 @@ interface Bus {
   img: string;
   seatNo: string;
   available: boolean;
+  category: string;
   [key: string]: string | boolean;
 }
 
@@ -34,36 +35,47 @@ export class BusDetailsComponent implements OnInit {
         img3: '../../assets/img/about/about-me.jpg',
         img4: '../../assets/img/about/about-me.jpg',
         seatNo: '40',
+        category: 'Delux',
         available: true
       },
       {
         number: 'Bus-2',
         img: '../../assets/img/Bus/Bus2_auto_x2.jpg',
         seatNo: '40',
+        category: 'Super Delux',
+
         available: false
       },
       {
         number: 'Bus-3',
         img: '../../assets/img/Bus/Bus3_auto_x2.jpg',
         seatNo: '20',
+        category: 'Delux',
+
         available: true
       },
       {
         number: 'Bus-4',
         img: '../../assets/img/about/about-me.jpg',
         seatNo: '20',
+        category: 'Super Delux',
+
         available: false
       },
       {
         number: '1020',
         img: '../../assets/img/about/about-me.jpg',
         seatNo: '42',
+        category: 'Delux',
+
         available: true
       },
       {
         number: '1030',
         img: '../../assets/img/about/about-me.jpg',
         seatNo: '24',
+        category: 'Super Delux',
+
         available: false
       }
     ]
