@@ -1,10 +1,87 @@
 <app-main-nav></app-main-nav>
+<!-- <div id="booking" class="section">
+    <div class="section-center">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-7 col-sm-7 push-md-5">
+                    <div class="booking-cta">
+                        <h1>Make your reservation</h1>
+                        <p>
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Animi facere, soluta magnam consectetur molestias itaque ad sint fugit architecto incidunt iste culpa perspiciatis possimus voluptates aliquid consequuntur cumque quasi. Perspiciatis.
+                        </p>
+                    </div>
+                </div>
 
+                <div class="col-md-5 col-sm-5 pull-md-7">
+                    <div class="booking-form">
+                        <form>
+                            <div class="form-group">
+                                <span class="form-label">Your Origin</span>
+                                <select class="form-control" [(ngModel)]="origin" name="origin">
+                  <option value="">Select an Origin Place</option>
+                  <option value="Place 1">Place 1</option>
+                  <option value="Place 2">Place 2</option>
+                  <option value="Place 3">Place 3</option>
+                </select>
+                            </div>
+                            <div class="form-group">
+                                <span class="form-label">Your Destination</span>
+                                <select class="form-control" [(ngModel)]="destination" name="destination">
+                  <option value="">Select a Destination Place</option>
+                  <option value="Place 1">Place 1</option>
+                  <option value="Place 2">Place 2</option>
+                  <option value="Place 3">Place 3</option>
+                </select>
+                            </div>
+                            <div class="form-group">
+                                <span class="form-label">Email</span>
+                                <input class="form-control" type="email" placeholder="Enter Your Email" [(ngModel)]="email" name="email" />
+                            </div>
+
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <div class="form-group">
+                                        <span class="form-label">Booking Date</span>
+                                        <input class="form-control" type="date" [min]="minBookingDate" [(ngModel)]="bookingDate" (ngModelChange)="updateMinEndingDate()" name="bookingDate" required />
+                                    </div>
+                                </div>
+
+                                <div class="col-sm-6">
+                                    <div class="form-group">
+                                        <span class="form-label">Ending Date</span>
+                                        <input class="form-control" type="date" [min]="minEndingDate" [(ngModel)]="endingDate" name="endingDate" required />
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <span class="form-label">Food (Veg)</span>
+                                <input class="form-control" type="number" [(ngModel)]="vegQuantity" name="vegQuantity" placeholder="Enter quantity for Veg" />
+
+                                <span class="form-label">Food (Non-Veg)</span>
+                                <input class="form-control" type="number" [(ngModel)]="nonVegQuantity" name="nonVegQuantity" placeholder="Enter quantity for Non-Veg" />
+
+                                <button class="btn bg-gray mt-3 btn-primary" (click)="calculateTotalPrice()">
+                  Total price
+                </button>
+                                <input class="form-control" type="text" [(ngModel)]="totalPrice" [readonly]="true" name="totalPrice" placeholder="Total Charges" />
+                            </div>
+
+                            <div class="form-btn text-center">
+                                <button class="submit-btn" (click)="showModal()">Book</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div> -->
 <div id="booking" class="section">
   <div class="section-center">
     <div class="container">
       <div class="row">
-        <div class="col-md-7 col-sm-7 push-md-5">
+        <div class="col-md-7 col-sm-7">
           <div class="booking-cta">
             <h1>Make your reservation</h1>
             <p>
@@ -16,35 +93,128 @@
           </div>
         </div>
 
-        <div class="col-md-5 col-sm-5 pull-md-7">
+        <div class="col-md-5 col-sm-5">
           <div class="booking-form">
             <form>
-              <div class="form-group">
-                <span class="form-label">Your Origin</span>
-                <select class="form-control" [(ngModel)]="origin" name="origin">
-                  <option value="">Select an Origin Place</option>
-                  <option value="Place 1">Place 1</option>
-                  <option value="Place 2">Place 2</option>
-                  <option value="Place 3">Place 3</option>
-                  <!-- Add more options as needed -->
-                </select>
+              <div class="row">
+                <div class="col-sm-6">
+                  <div class="form-group">
+                    <label class="form-label">Your Origin</label>
+                    <select
+                      #originSelect
+                      class="form-control"
+                      (change)="calculateDistance()"
+                      [(ngModel)]="origin"
+                      name="origin"
+                    >
+                      <option value="">Select an Origin Place</option>
+                      <option
+                        value="Kathmandu"
+                        [attr.latitude]="27.7172"
+                        [attr.longitude]="85.324"
+                      >
+                        Kathmandu
+                      </option>
+                      <option
+                        value="Pokhara"
+                        [attr.latitude]="28.2096"
+                        [attr.longitude]="83.9856"
+                      >
+                        Pokhara
+                      </option>
+                      <option
+                        value="Bhairahawa"
+                        [attr.latitude]="27.5045"
+                        [attr.longitude]="83.4366"
+                      >
+                        Bhairahawa
+                      </option>
+                      <option
+                        value="Lamjung"
+                        [attr.latitude]="28.2741"
+                        [attr.longitude]="84.4726"
+                      >
+                        Lamjung
+                      </option>
+                      <option
+                        value="Jhapa"
+                        [attr.latitude]="26.6444"
+                        [attr.longitude]="88.5955"
+                      >
+                        Jhapa
+                      </option>
+                      <option
+                        value="Ilam"
+                        [attr.latitude]="26.908"
+                        [attr.longitude]="87.9223"
+                      >
+                        Ilam
+                      </option>
+                    </select>
+                  </div>
+                </div>
+
+                <div class="col-sm-6">
+                  <div class="form-group">
+                    <label class="form-label">Your Destination</label>
+                    <select
+                      #destinationSelect
+                      class="form-control"
+                      [(ngModel)]="destination"
+                      name="destination"
+                      (change)="calculateDistance()"
+                    >
+                      <option value="">Select an Origin Place</option>
+                      <option
+                        value="Kathmandu"
+                        [attr.latitude]="27.7172"
+                        [attr.longitude]="85.324"
+                      >
+                        Kathmandu
+                      </option>
+                      <option
+                        value="Pokhara"
+                        [attr.latitude]="28.2096"
+                        [attr.longitude]="83.9856"
+                      >
+                        Pokhara
+                      </option>
+                      <option
+                        value="Bhairahawa"
+                        [attr.latitude]="27.5045"
+                        [attr.longitude]="83.4366"
+                      >
+                        Bhairahawa
+                      </option>
+                      <option
+                        value="Lamjung"
+                        [attr.latitude]="28.2741"
+                        [attr.longitude]="84.4726"
+                      >
+                        Lamjung
+                      </option>
+                      <option
+                        value="Jhapa"
+                        [attr.latitude]="26.6444"
+                        [attr.longitude]="88.5955"
+                      >
+                        Jhapa
+                      </option>
+                      <option
+                        value="Ilam"
+                        [attr.latitude]="26.908"
+                        [attr.longitude]="87.9223"
+                      >
+                        Ilam
+                      </option>
+                    </select>
+                  </div>
+                </div>
+                <!-- <button (click)="calculateDistance()">hello</button> -->
               </div>
+
               <div class="form-group">
-                <span class="form-label">Your Destination</span>
-                <select
-                  class="form-control"
-                  [(ngModel)]="destination"
-                  name="destination"
-                >
-                  <option value="">Select a Destination Place</option>
-                  <option value="Place 1">Place 1</option>
-                  <option value="Place 2">Place 2</option>
-                  <option value="Place 3">Place 3</option>
-                  <!-- Add more options as needed -->
-                </select>
-              </div>
-              <div class="form-group">
-                <span class="form-label">Email</span>
+                <label class="form-label">Email</label>
                 <input
                   class="form-control"
                   type="email"
@@ -57,7 +227,7 @@
               <div class="row">
                 <div class="col-sm-6">
                   <div class="form-group">
-                    <span class="form-label">Booking Date</span>
+                    <label class="form-label">Booking Date</label>
                     <input
                       class="form-control"
                       type="date"
@@ -72,7 +242,7 @@
 
                 <div class="col-sm-6">
                   <div class="form-group">
-                    <span class="form-label">Ending Date</span>
+                    <label class="form-label">Ending Date</label>
                     <input
                       class="form-control"
                       type="date"
@@ -84,35 +254,38 @@
                   </div>
                 </div>
               </div>
-              <div class="form-group">
-                <div class="dropdown">
-                  <button
-                    class="btn btn-primary dropdown-toggle bg-gray"
-                    type="button"
-                    id="foodNamingDropdown"
-                    data-toggle="dropdown"
-                    aria-haspopup="true"
-                    aria-expanded="false"
-                  >
-                    Select type
-                  </button>
-                  <span class="form-label">Food</span>
 
-                  <div
-                    class="dropdown-menu"
-                    aria-labelledby="foodNamingDropdown"
-                  >
-                    <label class="dropdown-item">
-                      <input type="checkbox" name="food" value="veg" /> Veg
-                    </label>
-                    <label class="dropdown-item">
-                      <input type="checkbox" name="food" value="non-veg" />
-                      Non-Veg
-                    </label>
+              <div class="row">
+                <div class="col-sm-6">
+                  <div class="form-group">
+                    <label class="form-label">Food (Veg)</label>
+                    <input
+                      class="form-control"
+                      type="number"
+                      [(ngModel)]="vegQuantity"
+                      name="vegQuantity"
+                      placeholder="Enter quantity for Veg"
+                    />
                   </div>
                 </div>
+
+                <div class="col-sm-6">
+                  <div class="form-group">
+                    <label class="form-label">Food (Non-Veg)</label>
+                    <input
+                      class="form-control"
+                      type="number"
+                      [(ngModel)]="nonVegQuantity"
+                      name="nonVegQuantity"
+                      placeholder="Enter quantity for Non-Veg"
+                    />
+                  </div>
+                </div>
+              </div>
+
+              <div class="form-group">
                 <button
-                  class="btn bg-gray mt-3 btn-primary"
+                  class="btn bg-gray mb-3 btn-primary"
                   (click)="calculateTotalPrice()"
                 >
                   Total price

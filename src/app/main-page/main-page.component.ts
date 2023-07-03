@@ -39,7 +39,7 @@ export class MainPageComponent implements OnInit {
         "title": "Seat Booking",
         "paragraph": "This is the third entry.",
         "button": {
-          "text": "Book",
+          "text": "Book Seat",
         }
       }
     ]
@@ -53,7 +53,7 @@ export class MainPageComponent implements OnInit {
   navigateToPage(buttonText: string) {
     if (buttonText === 'Book Bus') {
       this.router.navigate(['/bus-details']);
-    } else if (buttonText === 'Read More' || buttonText === 'Read More2') {
+    } else if (buttonText === 'vechicle' || buttonText === 'Book Seat') {
       this.router.navigate(['/comming-soon']);
     }
   }
