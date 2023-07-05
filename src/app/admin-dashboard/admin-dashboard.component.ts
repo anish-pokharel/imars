@@ -1,14 +1,16 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { DataService } from '../api/service/data.service';
 
 @Component({
   selector: 'app-admin-dashboard',
   templateUrl: './admin-dashboard.component.html',
   styleUrls: ['./admin-dashboard.component.scss']
 })
-export class AdminDashboardComponent {
+export class AdminDashboardComponent implements OnInit {
   currentSection: string = 'basic';
   acceptedRequests: any[];
   rejectedRequests: any[];
+  formData: any = {}
   contacts: any[] = [
     {
       "name": "John Smith",
@@ -24,11 +26,29 @@ export class AdminDashboardComponent {
 
 
 
-  constructor() {
+  constructor(private dataservice: DataService) {
     this.currentSection = 'pending';
     this.acceptedRequests = [];
     this.rejectedRequests = [];
   }
+
+
+  ngOnInit(): void {
+
+  }
+  onSubmit() {
+    this.dataservice.registerAdmin(this.formData).subscribe(
+      (response) => {
+        console.log('Registration successful');
+        this.formData = {};
+      },
+      (error) => {
+        console.error('Error registering admin:', error);
+      }
+    );
+  }
+
+
   showSection(section: string) {
     this.currentSection = section;
   }

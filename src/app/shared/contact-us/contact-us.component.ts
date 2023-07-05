@@ -1,20 +1,26 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { DataService } from 'src/app/api/service/data.service';
 
 @Component({
   selector: 'app-contact-us',
   templateUrl: './contact-us.component.html',
   styleUrls: ['./contact-us.component.scss']
 })
-export class ContactUsComponent {
-  constructor(private router: Router) {
+export class ContactUsComponent implements OnInit {
+  formData: any = {}
+  constructor(private router: Router,
+    private dataService: DataService
+  ) {
 
   }
   isHovering: boolean = false;
   isSliding: boolean = false;
   showMessage = false;
 
+  ngOnInit(): void {
 
+  }
 
   showMessagen() {
     this.isHovering = true;
@@ -41,6 +47,18 @@ export class ContactUsComponent {
   }
 
 
+  onSubmit() {
+    this.dataService.sendMesage(this.formData).subscribe(
+      (response) => {
+        console.log('Message sent successfully');
+        // Reset the form after successful submission
+        this.formData = {};
+      },
+      (error) => {
+        console.error('Error sending message:', error);
+      }
+    );
+  }
 }
 
 

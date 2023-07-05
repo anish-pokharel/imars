@@ -33,15 +33,18 @@
           <a href="imars@gmail.com" class="text-primary">imars.com.np</a>
         </p>
       </div>
-      <!-- end col-6 -->
-      <!-- begin col-6 -->
+
       <div
         class="col-lg-6 form-col"
         data-animation="true"
         data-animation-type="fadeInRight"
       >
-        <div class="">
-          <form class="form-horizontal">
+        <div>
+          <form
+            class="form-horizontal"
+            (ngSubmit)="onSubmit()"
+            #contactForm="ngForm"
+          >
             <div class="form-group row m-b-15">
               <label class="col-form-label col-md-3 text-md-right"
                 ><strong>Name</strong><span class="text-primary"></span
@@ -51,11 +54,19 @@
                   type="text"
                   class="form-control"
                   placeholder=""
-                  (mouseover)="showMessagen()"
-                  (mouseleave)="hideMessagen()"
-                  (input)="onInputChange($event)"
+                  name="name"
+                  required
+                  [(ngModel)]="formData['name']"
                 />
-                <p class="text-blue" *ngIf="isHovering">enter your name</p>
+                <p
+                  class="text-blue"
+                  *ngIf="
+                    contactForm.controls['name'].touched &&
+                    contactForm.controls['name'].invalid
+                  "
+                >
+                  Please enter your name
+                </p>
               </div>
             </div>
             <div class="form-group row m-b-15">
@@ -64,24 +75,44 @@
               ></label>
               <div class="col-md-9">
                 <input
-                  type="text"
+                  type="email"
                   class="form-control"
-                  (mouseover)="showMessagee()"
-                  (mouseout)="hideMessagee()"
+                  name="email"
+                  required
+                  [(ngModel)]="formData['email']"
                 />
-                <p class="text-blue" *ngIf="isSliding">enter your email</p>
+                <p
+                  class="text-blue"
+                  *ngIf="
+                    contactForm.controls['email'].touched &&
+                    contactForm.controls['email'].invalid
+                  "
+                >
+                  Please enter a valid email
+                </p>
               </div>
             </div>
             <div class="form-group row m-b-15">
               <label class="col-form-label col-md-3 text-md-right"
-                ><strong>Message </strong><span class="text-primary"></span
+                ><strong>Message</strong><span class="text-primary"></span
               ></label>
               <div class="col-md-9">
                 <textarea
                   class="form-control"
                   rows="10"
-                  placeholder=""
+                  name="message"
+                  required
+                  [(ngModel)]="formData['message']"
                 ></textarea>
+                <p
+                  class="text-blue"
+                  *ngIf="
+                    contactForm.controls['message'].touched &&
+                    contactForm.controls['message'].invalid
+                  "
+                >
+                  Please enter a message
+                </p>
               </div>
             </div>
             <div class="form-group row m-b-15">
@@ -91,12 +122,14 @@
                   <button
                     type="submit"
                     class="btn col-md-4 col-md-pull-8 btn-primary text-center"
+                    [disabled]="contactForm.invalid"
                   >
                     Send Message
                   </button>
                 </div>
                 <div class="col-md-12 col-md-pull-4">
-                  If you aren't register??<a
+                  If you aren't registered?
+                  <a
                     class="text-blue"
                     href="registration-page"
                     router-link="/registration-page"
