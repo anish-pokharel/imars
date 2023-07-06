@@ -45,7 +45,9 @@ export class ContactUsComponent implements OnInit {
       }
     }
   }
-
+  onReresh() {
+    console.log('Hello')
+  }
 
   onSubmit() {
     this.dataService.sendMesage(this.formData).subscribe(
