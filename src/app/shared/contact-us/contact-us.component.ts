@@ -1,28 +1,31 @@
-import { Component } from '@angular/core';
- import { Router } from '@angular/router';
-import { HttpClient, HttpErrorResponse } from '@angular/common/http';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { DataService } from 'src/app/api/service/data.service';
 
 @Component({
   selector: 'app-contact-us',
   templateUrl: './contact-us.component.html',
   styleUrls: ['./contact-us.component.scss']
 })
+export class ContactUsComponent implements OnInit {
+  formData: any = {
+    Name: '',
+    Email: '',
+    Message: ''
+  };
+  constructor(private router: Router,
+    private dataService: DataService
+  ) {
 
-export class ContactUsComponent {
-  contactForm: FormGroup;
-isHovering: boolean = false;
+  }
+  isHovering: boolean = false;
   isSliding: boolean = false;
   showMessage = false;
 
+  ngOnInit(): void {
 
-  constructor(private router: Router , private formBuilder: FormBuilder, private http: HttpClient) {
-    this.contactForm = this.formBuilder.group({
-      Name: ['', Validators.required],
-      Email: ['', [Validators.required, Validators.email]],
-      Message: ['', Validators.required],
-    });
   }
+
   showMessagen() {
     this.isHovering = true;
   }
@@ -35,7 +38,6 @@ isHovering: boolean = false;
   hideMessagee() {
     this.isSliding = false;
   }
-  
   onInputChange(event: Event) {
     const target = event.target as HTMLInputElement;
     if (target && target.value) {
@@ -47,22 +49,33 @@ isHovering: boolean = false;
       }
     }
   }
-  onSubmit() {
-
-    const formData =this.contactForm.value;
-    
-    this.http.post('http://localhost:3000/home', formData)
-      .subscribe(
-        () => {
-          console.log('Message sent successfully');
-          this.router.navigate(['./contact-us']);
-        },
-        (error: HttpErrorResponse) => {
-          alert('Error sending message');
-          console.error('Error sending message:', error);
-        }
-      );
+  onReresh() {
+    console.log('Hello')
   }
-  
 
+  onSubmit() {
+    this.dataService.sendMesage(this.formData).subscribe(
+      (response) => {
+        console.log('Message sent successfully');
+        // Reset the form after successful submission
+        this.formData = {};
+        debugger
+      },
+      (error) => {
+        console.error('Error sending message:', error);
+      }
+    );
+  }
 }
+// onSubmit() {
+//   this.dataService.sendMesage(this.formData).subscribe(
+//     (response) => {
+//       console.log('Message sent successfully');
+//       // Reset the form after successful submission
+//       this.formData = {};
+//     },
+//     (error) => {
+//       console.error('Error sending message:', error);
+//     }
+//   );
+// }
