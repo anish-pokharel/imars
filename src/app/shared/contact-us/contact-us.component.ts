@@ -55,6 +55,7 @@ export class ContactUsComponent implements OnInit {
         console.log('Message sent successfully');
         // Reset the form after successful submission
         this.formData = {};
+        debugger
       },
       (error) => {
         console.error('Error sending message:', error);
