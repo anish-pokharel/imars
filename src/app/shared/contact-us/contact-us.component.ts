@@ -8,7 +8,11 @@ import { DataService } from 'src/app/api/service/data.service';
   styleUrls: ['./contact-us.component.scss']
 })
 export class ContactUsComponent implements OnInit {
-  formData: any = {}
+  formData: any = {
+    Name: '',
+    Email: '',
+    Message: ''
+  };
   constructor(private router: Router,
     private dataService: DataService
   ) {
@@ -63,6 +67,15 @@ export class ContactUsComponent implements OnInit {
     );
   }
 }
-
-
-
+// onSubmit() {
+//   this.dataService.sendMesage(this.formData).subscribe(
+//     (response) => {
+//       console.log('Message sent successfully');
+//       // Reset the form after successful submission
+//       this.formData = {};
+//     },
+//     (error) => {
+//       console.error('Error sending message:', error);
+//     }
+//   );
+// }
