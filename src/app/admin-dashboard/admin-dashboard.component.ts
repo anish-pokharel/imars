@@ -12,7 +12,7 @@ export class AdminDashboardComponent implements OnInit {
   acceptedRequests: any[];
   rejectedRequests: any[];
   formData: any = {};
-  token:string='';
+  token: string = '';
   contacts: any[] = [
     {
       "name": "John Smith",
@@ -28,7 +28,7 @@ export class AdminDashboardComponent implements OnInit {
 
 
 
-  constructor(private dataservice: DataService,private http: HttpClient) {
+  constructor(private dataservice: DataService, private http: HttpClient) {
     this.currentSection = 'pending';
     this.acceptedRequests = [];
     this.rejectedRequests = [];
@@ -39,8 +39,9 @@ export class AdminDashboardComponent implements OnInit {
     this.getTokenFromDatabase(); // Call the method to get the token from the database
   }
   getTokenFromDatabase(): void {
+    const headers = new HttpHeaders().set('Authorization', `Bearer ${localStorage.getItem('token')}`);
     // Make an HTTP request to your backend API to retrieve the token from the database
-    this.http.get<any>('your-backend-url/get-token').subscribe(
+    this.http.get<any>('http://localhost:3000/login-page', { headers }).subscribe(
       (response) => {
         this.token = response.token;
       },
@@ -63,10 +64,10 @@ export class AdminDashboardComponent implements OnInit {
   onSubmit(data: any): void {
     // Set the Authorization header with the retrieved token
     const headers = new HttpHeaders().set('Authorization', `Bearer ${this.token}`);
-    
-  
+
+
     // Make an HTTP request to save the data to the backend API
-    this.http.post('your-backend-url/save-data', data, { headers }).subscribe(
+    this.http.post('http:localhost:3000/', data, { headers }).subscribe(
       (response) => {
         console.log('Data saved successfully');
       },
@@ -75,8 +76,8 @@ export class AdminDashboardComponent implements OnInit {
       }
     );
   }
-  
-  
+
+
 
   showSection(section: string): void {
     this.currentSection = section;
