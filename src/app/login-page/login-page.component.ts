@@ -44,6 +44,8 @@ export class LoginPageComponent implements OnInit {
          // Redirect the user based on the response or token received
          if (response.token) {
           localStorage.setItem('token', response.token);
+          console.log('Token stored:', localStorage.getItem('token'));
+
           if (formData.Email === 'admin@gmail.com') {
             this.router.navigate(['./admin-dashboard']);
           } else {
@@ -59,9 +61,6 @@ export class LoginPageComponent implements OnInit {
   }
 }
   forgetPasswordModal(){}
-
-  
-
 }
  
   

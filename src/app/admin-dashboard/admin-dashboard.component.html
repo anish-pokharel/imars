@@ -165,11 +165,11 @@
     </div>
   </div>
   <div *ngIf="currentSection === 'contactUs'">
-    <h2>Accepted</h2>
+    <h2>Contacts</h2>
     <div class="col-xl-12">
       <div class="panel panel-inverse" data-sortable-id="table-basic-7">
         <div class="panel-heading">
-          <h4 class="panel-title text-center">Pending Bus</h4>
+          <h4 class="panel-title text-center">Contact Details</h4>
         </div>
 
         <div class="panel-body">
@@ -205,7 +205,7 @@
       <div class="card">
         <h5 class="card-header">Registration</h5>
         <div class="card-body">
-          <form (ngSubmit)="onSubmit($event)">
+          <form (ngSubmit)="onSubmit()">
             <div class="form-group">
               <label for="image">Image:</label>
               <input
