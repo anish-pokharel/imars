@@ -51,7 +51,9 @@ export class BookingConfirmComponent implements OnInit {
       "productUrl": "http://gameofthrones.com/buy/Dragons",
       "eventHandler": {
         onSuccess(payload: any) {
+          debugger
           console.log(payload);
+          debugger
         },
         onError(error: any) {
           console.log(error);
