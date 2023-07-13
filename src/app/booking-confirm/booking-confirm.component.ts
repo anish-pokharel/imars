@@ -1,7 +1,7 @@
 import { DatePipe } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import KhaltiCheckout from "khalti-checkout-web";
-
+import { HttpHeaders, HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-booking-confirm',
@@ -12,18 +12,55 @@ export class BookingConfirmComponent implements OnInit {
 
   currentDate: string | undefined;
   bookingSlipNumber: number = 1;
+  token: string = '';
+  bookingForm: any = {} ;
 
-  constructor(private datePipe: DatePipe) { }
+  constructor(private datePipe: DatePipe,private http: HttpClient) { }
 
   ngOnInit(): void {
     const currentDate = new Date();
     const formattedDate = this.datePipe.transform(currentDate, 'longDate');
     this.currentDate = formattedDate || '';
+    this.getTokenFromDatabase();
+    this.getContacts();
   }
   incrementBookingSlipNumber(): void {
     this.bookingSlipNumber++;
   }
-
+  getTokenFromDatabase(): void {
+    const token = localStorage.getItem('token');
+    console.log('Token stored:', token);
+    if (!token) {
+      console.error('Token not found');
+      return;
+    }
+  }
+  getContacts(): void {
+    const token = localStorage.getItem('token');
+    console.log('Token stored:', token);
+    debugger
+    let headers = new HttpHeaders();
+if (token) {
+  headers = headers.set("Authorization", token);
+}
+   debugger
+    console.log(headers);
+    debugger
+    this.http.get<any>('http://localhost:3000/booking-confirm', { headers : headers}).subscribe(
+      (response) => {
+        debugger
+        this.bookingForm = response.bookingForm;
+        debugger
+        console.log("slip retrieved!!",this.bookingForm);
+        debugger
+        // Perform any necessary operations with the fetched contacts
+      },
+      (error) => {
+        console.error('Error fetching slip:', error);
+      }
+    );
+    debugger
+  }
   exportAsPDF() {
     const pdfData = '<your PDF data>';
 
