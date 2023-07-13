@@ -9,7 +9,8 @@ import { HttpHeaders, HttpClient } from '@angular/common/http';
 })
 export class AdminDashboardComponent implements OnInit {
   currentSection: string = 'basic';
-  acceptedRequests: any[];
+  bookingForm: any[]=[];
+  acceptedRequests:any[];
   rejectedRequests: any[];
   formData: any = {};
   token: string = '';
@@ -19,6 +20,7 @@ export class AdminDashboardComponent implements OnInit {
 
   constructor(private dataservice: DataService, private http: HttpClient) {
     this.currentSection = 'pending';
+    //this.bookingForm = [];
     this.acceptedRequests = [];
     this.rejectedRequests = [];
   }
@@ -62,8 +64,10 @@ if (token) {
       (response) => {
         debugger
         this.contacts = response.contacts;
+        this.bookingForm=response.bookingForm;
         debugger
-        console.log("contact retrieved!!",response.contacts);
+        console.log("contact retrieved!!",this.contacts);
+        console.log("accepted buses retrieved!!",this.bookingForm);
         debugger
         // Perform any necessary operations with the fetched contacts
       },
