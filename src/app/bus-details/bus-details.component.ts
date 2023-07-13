@@ -1,18 +1,18 @@
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
 import { CarouselComponent } from 'ngx-bootstrap/carousel';
-
+import { HttpHeaders, HttpClient } from '@angular/common/http';
 import { NgbModalConfig, NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { ModalService } from '../service/modal/modal.service';
 
-interface Bus {
+/*interface Bus {
   number: string;
   img: string;
   seatNo: string;
   available: boolean;
   category: string;
   [key: string]: string | boolean;
-}
+}*/
 
 @Component({
   selector: 'app-bus-details',
@@ -23,9 +23,10 @@ export class BusDetailsComponent implements OnInit {
   isModalOpen: boolean = false;
   param: any;
   selectedBusImage!: string;
+  buses : any[] = [];
+  
 
-
-  data: { buses: Bus[] } = {
+ /* data: { buses: {} } = {
     buses: [
       {
         number: 'Bus-1',
@@ -79,7 +80,7 @@ export class BusDetailsComponent implements OnInit {
         available: false
       }
     ]
-  };
+  };*/
   // data = {
 
   //   "buses": [
@@ -128,7 +129,7 @@ export class BusDetailsComponent implements OnInit {
   // }
   constructor(
     private modalService: NgbModal,
-
+    private http: HttpClient,
     private router: Router
   ) { }
   actionBook() {
@@ -145,7 +146,22 @@ export class BusDetailsComponent implements OnInit {
 
 
   ngOnInit(): void {
-
+    this.getBusDetails();
   }
-
+getBusDetails():void{
+  debugger
+  this.http.get<any>('http://localhost:3000/bus-details').subscribe(
+      (response) => {
+        debugger
+        this.buses = response.bus;
+        debugger
+        console.log("bus retrieved!!", this.buses)
+        debugger
+        // Perform any necessary operations with the fetched contacts
+      },
+      (error) => {
+        console.error('Error fetching contacts:', error);
+      }
+    );
+}
 }

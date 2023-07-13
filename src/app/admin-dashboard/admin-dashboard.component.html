@@ -141,21 +141,21 @@
                   <th>#</th>
 
                   <th>Bus Number</th>
-                  <th>Username</th>
+                  <th>Users Name</th>
                   <th>Email Address</th>
                 </tr>
               </thead>
               <tbody>
-                <tr>
+                <tr *ngFor="let accepted of acceptedRequests">
                   <td class="with-img">
                     <img
                       src="../assets/img/user/user-1.jpg"
                       class="img-rounded height-30"
                     />
                   </td>
-                  <td>Nicky Almera</td>
-                  <td>nicky@hotmail.com</td>
-                  <td>nicky@hotmail.com</td>
+                  <td>{{ accepted.BusNumber}}</td>
+                  <td>{{ accepted.Username}}</td>
+                  <td>{{ accepted.Email}}</td>
                 </tr>
               </tbody>
             </table>
@@ -187,9 +187,9 @@
               <tbody>
                 <tr *ngFor="let contact of contacts">
                   <td></td>
-                  <td>{{ contact.name }}</td>
-                  <td>{{ contact.email }}</td>
-                  <td>{{ contact.message }}</td>
+                  <td>{{ contact.Name }}</td>
+                  <td>{{ contact.Email }}</td>
+                  <td>{{ contact.Message }}</td>
                 </tr>
               </tbody>
             </table>

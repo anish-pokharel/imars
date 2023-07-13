@@ -26,6 +26,7 @@ export class AdminDashboardComponent implements OnInit {
 
   ngOnInit(): void {
     this.getTokenFromDatabase(); // Call the method to get the token from the database
+    this.getContacts();
   }
   getTokenFromDatabase(): void {
     const token = localStorage.getItem('token');
@@ -50,11 +51,20 @@ export class AdminDashboardComponent implements OnInit {
     const token = localStorage.getItem('token');
     console.log('Token stored:', token);
     debugger
-    const headers = new HttpHeaders().set('Authorization', `Bearer ${token}`);
+    let headers = new HttpHeaders();
+if (token) {
+  headers = headers.set("Authorization", token);
+}
+   debugger
+    console.log(headers);
     debugger
-    this.http.get<any>('http://localhost:3000/admin-dashboard', { headers }).subscribe(
+    this.http.get<any>('http://localhost:3000/admin-dashboard', { headers : headers}).subscribe(
       (response) => {
+        debugger
         this.contacts = response.contacts;
+        debugger
+        console.log("contact retrieved!!",response.contacts);
+        debugger
         // Perform any necessary operations with the fetched contacts
       },
       (error) => {
@@ -111,7 +121,7 @@ if (token) {
     this.http.post('http://localhost:3000/admin-dashboard', this.formData, {headers : headers}).subscribe(
       (response) => {
         console.log('Data saved successfully');
-        console.log("'menuka don'")
+        
       },
       (error) => {
         console.error('Error registering admin:', error);
