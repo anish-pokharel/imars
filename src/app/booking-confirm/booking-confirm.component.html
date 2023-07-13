@@ -31,17 +31,22 @@
       <div class="invoice-from">
         <h4>FROM</h4>
         <address class="m-t-5 m-b-5">
-          <strong class="text-inverse">kATHMANDU</strong><br />
+          <strong class="text-inverse">{{bookingForm.Origin}}</strong><br />
+          <strong class="text-inverse">{{bookingForm.BookingDate}}</strong>
+
         </address>
       </div>
       <div class="invoice-to">
         <h4>TO</h4>
         <address class="m-t-5 m-b-5">
-          <strong class="text-inverse">Pokhara</strong><br />
+
+          <strong class="text-inverse">{{bookingForm.Destination}}</strong><br />
+          <strong class="text-inverse">{{bookingForm.BookingEndingDate}}</strong>
+
         </address>
       </div>
       <div class="invoice-date">
-        <small>Invoice / July period</small>
+        <small>Invoice </small>
         <div class="date text-inverse m-t-5">{{ currentDate }}</div>
 
         <div class="invoice-detail">
@@ -60,9 +65,9 @@
           <thead>
             <tr>
               <th>TASK DESCRIPTION</th>
-              <th class="text-center" width="10%">RATE</th>
-              <th class="text-center" width="10%">HOURS</th>
-              <th class="text-right" width="20%">LINE TOTAL</th>
+              <th class="text-center" width="10%">Veg Food</th>
+              <th class="text-center" width="10%">Non Veg Food</th>
+              <th class="text-right" width="20%">TOTAL</th>
             </tr>
           </thead>
           <tbody>
@@ -74,11 +79,11 @@
                   id sagittis arcu.
                 </small>
               </td>
-              <td class="text-center">.00</td>
-              <td class="text-center">50</td>
-              <td class="text-right">2,500.00</td>
+              <td class="text-center">{{bookingForm.Veg}}</td>
+              <td class="text-center">{{bookingForm.NonVeg}}</td>
+              <td class="text-right">{{bookingForm.Price}}</td>
             </tr>
-            <tr>
+            <!-- <tr>
               <td>
                 <span class="text-inverse">food</span><br />
                 <small>
@@ -89,7 +94,7 @@
               <td class="text-center">50.00</td>
               <td class="text-center">40</td>
               <td class="text-right">2,000.00</td>
-            </tr>
+            </tr> -->
           </tbody>
         </table>
       </div>
@@ -99,7 +104,7 @@
           <div class="invoice-price-row">
             <div class="sub-price">
               <small>Bus Book</small>
-              <span class="text-inverse">4,500.00</span>
+              <span class="text-inverse">{{bookingForm.Price}}</span>
             </div>
             <div class="sub-price">
               <i class="fa fa-plus text-muted"></i>
@@ -111,7 +116,7 @@
           </div>
         </div>
         <div class="invoice-price-right">
-          <small>TOTAL</small> <span class="f-w-600">4508.00</span>
+          <small>TOTAL</small> <span class="f-w-600">{{bookingForm.Price}}</span>
         </div>
         <button class="btn btn-primary" (click)="makePayment()">Payment</button>
       </div>

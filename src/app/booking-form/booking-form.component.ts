@@ -10,16 +10,16 @@ export class BookingFormComponent implements OnInit {
   showModalFlag: boolean = false;
   // origin: { value: string, latitude: number, longitude: number } | undefined;
   // destination: { value: string, latitude: number, longitude: number } | undefined;
-  origin?: string;
-  destination?: string;
+  Origin?: string;
+  Destination?: string;
   originLatitude: number | undefined;
   originLongitude: number | undefined;
   destinationLatitude: number | undefined;
   destinationLongitude: number | undefined;
   distance: number = 0;
-  email: string | undefined;
-  bookingDate: string | undefined;
-  endingDate: string | undefined;
+  Email: string | undefined;
+  BookingDate: string | undefined;
+  BookingEndingDate: string | undefined;
   minBookingDate: string | undefined;
   minEndingDate: string | undefined;
   totalPrice: number | undefined;
@@ -38,29 +38,29 @@ export class BookingFormComponent implements OnInit {
     const today = new Date();
     today.setDate(today.getDate() + 2); // Booking date should start from 2 days after the current date
     this.minBookingDate = this.formatDate(today);
-    this.bookingDate = this.formatDate(today);
+    this.BookingDate = this.formatDate(today);
 
     const defaultEndingDate = new Date(today);
     defaultEndingDate.setDate(defaultEndingDate.getDate() + 1); // Default duration of 1 day
-    this.endingDate = this.formatDate(defaultEndingDate);
+    this.BookingEndingDate = this.formatDate(defaultEndingDate);
     this.minEndingDate = this.formatDate(defaultEndingDate);
     this.calculateDistance()
   }
 
   updateMinEndingDate() {
-    if (this.bookingDate) {
-      const bookingDate = new Date(this.bookingDate);
+    if (this.BookingDate) {
+      const bookingDate = new Date(this.BookingDate);
       bookingDate.setDate(bookingDate.getDate() + 1); // Ending date should start from 1 day after the booking date
       this.minEndingDate = this.formatDate(bookingDate);
     }
   }
 
   isBookingDateValid(): boolean {
-    if (!this.bookingDate) {
+    if (!this.BookingDate) {
       return false;
     }
 
-    const bookingDate = new Date(this.bookingDate);
+    const bookingDate = new Date(this.BookingDate);
     const today = new Date();
     today.setDate(today.getDate() + 2); // Booking date should start from 2 days after the current date
 
@@ -68,19 +68,19 @@ export class BookingFormComponent implements OnInit {
   }
 
   isEndingDateValid(): boolean {
-    if (!this.endingDate || !this.bookingDate) {
+    if (!this.BookingEndingDate || !this.BookingDate) {
       return false;
     }
 
-    const endingDate = new Date(this.endingDate);
-    const bookingDate = new Date(this.bookingDate);
+    const endingDate = new Date(this.BookingEndingDate);
+    const bookingDate = new Date(this.BookingDate);
 
     return endingDate > bookingDate;
   }
 
   showModal() {
     // Check if any required field is empty
-    if (!this.origin || !this.destination || !this.email || !this.bookingDate || !this.endingDate) {
+    if (!this.Origin || !this.Destination || !this.Email || !this.BookingDate || !this.BookingEndingDate) {
       return;
     }
 
@@ -141,13 +141,13 @@ export class BookingFormComponent implements OnInit {
   //   this.totalPrice = durationInDays * 10000;
   // }
   calculateTotalPrice(): void {
-    if (this.origin === this.destination) {
+    if (this.Origin === this.Destination) {
       alert('Origin and Destination cannot be the same.');
       return;
     }
 
-    const bookingDate = new Date(this.bookingDate!);
-    const endingDate = new Date(this.endingDate!);
+    const bookingDate = new Date(this.BookingDate!);
+    const endingDate = new Date(this.BookingEndingDate!);
 
     if (bookingDate.getTime() === endingDate.getTime()) {
       alert('Booking and Ending dates cannot be the same.');

@@ -65,7 +65,7 @@ if (token) {
         this.bookingForm = response.bookingForm;
         this.registerForm = response.registeredUser;
         debugger
-        console.log("regsiterform retrieved!", response.bookingForm);
+        console.log("bookingForm retrieved!", this.bookingForm);
         console.log("regsiterform retrieved!", this.registerForm);
         debugger
       },

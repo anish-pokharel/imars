@@ -104,7 +104,7 @@
                       #originSelect
                       class="form-control"
                       (change)="calculateDistance()"
-                      [(ngModel)]="origin"
+                      [(ngModel)]="Origin"
                       name="origin"
                     >
                       <option value="">Select an Origin Place</option>
@@ -160,7 +160,7 @@
                     <select
                       #destinationSelect
                       class="form-control"
-                      [(ngModel)]="destination"
+                      [(ngModel)]="Destination"
                       name="destination"
                       (change)="calculateDistance()"
                     >
@@ -219,7 +219,7 @@
                   class="form-control"
                   type="email"
                   placeholder="Enter Your Email"
-                  [(ngModel)]="email"
+                  [(ngModel)]="Email"
                   name="email"
                 />
               </div>
@@ -232,7 +232,7 @@
                       class="form-control"
                       type="date"
                       [min]="minBookingDate"
-                      [(ngModel)]="bookingDate"
+                      [(ngModel)]="BookingDate"
                       (ngModelChange)="updateMinEndingDate()"
                       name="bookingDate"
                       required
@@ -247,7 +247,7 @@
                       class="form-control"
                       type="date"
                       [min]="minEndingDate"
-                      [(ngModel)]="endingDate"
+                      [(ngModel)]="BookingEndingDate"
                       name="endingDate"
                       required
                     />
