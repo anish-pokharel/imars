@@ -22,7 +22,7 @@ export class BookingFormComponent implements OnInit {
   BookingEndingDate: string | undefined;
   minBookingDate: string | undefined;
   minEndingDate: string | undefined;
-  totalPrice: number | undefined;
+  Price: number | undefined;
   otpValue: string = '';
   selectedFood: { type: string, price: number } | null = null;
   vegQuantity: number | undefined; // New property for veg quantity
@@ -172,7 +172,7 @@ export class BookingFormComponent implements OnInit {
     const nonVegPrice = 200;
     const foodCost = (this.vegQuantity || 0) * vegPrice + (this.nonVegQuantity || 0) * nonVegPrice;
 
-    this.totalPrice = (durationInDays * 10000) + foodCost;
+    this.Price = (durationInDays * 10000) + foodCost;
   }
 
 

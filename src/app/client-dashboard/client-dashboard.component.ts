@@ -88,7 +88,11 @@ if (token) {
     debugger
     if (this.newPassword === this.confirmPassword) {
       debugger
-      this.http.post('http://localhost:3000/client-dashboard', this.newPassword, {headers : headers}).subscribe(
+      this.http.post('http://localhost:3000/client-dashboard', {
+        CurrentPasswored: this.currentPassword,
+        NewPassword: this.newPassword,
+        ConfirmPassword: this.confirmPassword
+      }, {headers : headers}).subscribe(
       (response) => {
         debugger
       console.log('Password change successful!');
