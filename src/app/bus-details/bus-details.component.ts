@@ -23,117 +23,16 @@ export class BusDetailsComponent implements OnInit {
   isModalOpen: boolean = false;
   param: any;
   selectedBusImage!: string;
-  buses : any[] = [];
-  
+  buses: any[] = [];
 
- /* data: { buses: {} } = {
-    buses: [
-      {
-        number: 'Bus-1',
-        img: '../../assets/img/Bus/Bus1_auto_x2.jpg',
-        img1: '../../assets/img/Bus/Bus1_auto_x2.jpg',
-        img2: '../../assets/img/Bus/Bus3_auto_x2.jpg',
-        img3: '../../assets/img/about/about-me.jpg',
-        img4: '../../assets/img/about/about-me.jpg',
-        seatNo: '40',
-        category: 'Delux',
-        available: true
-      },
-      {
-        number: 'Bus-2',
-        img: '../../assets/img/Bus/Bus2_auto_x2.jpg',
-        seatNo: '40',
-        category: 'Super Delux',
 
-        available: false
-      },
-      {
-        number: 'Bus-3',
-        img: '../../assets/img/Bus/Bus3_auto_x2.jpg',
-        seatNo: '20',
-        category: 'Delux',
-
-        available: true
-      },
-      {
-        number: 'Bus-4',
-        img: '../../assets/img/about/about-me.jpg',
-        seatNo: '20',
-        category: 'Super Delux',
-
-        available: false
-      },
-      {
-        number: '1020',
-        img: '../../assets/img/about/about-me.jpg',
-        seatNo: '42',
-        category: 'Delux',
-
-        available: true
-      },
-      {
-        number: '1030',
-        img: '../../assets/img/about/about-me.jpg',
-        seatNo: '24',
-        category: 'Super Delux',
-
-        available: false
-      }
-    ]
-  };*/
-  // data = {
-
-  //   "buses": [
-  //     {
-  //       "number": "Bus-1",
-  //       "img": "../../assets/img/Bus/Bus1_auto_x2.jpg",
-  //       "img1": "../../assets/img/Bus/Bus2_auto_x2.jpg",
-  //       "img2": "../../assets/img/Bus/Bus3_auto_x2.jpg",
-  //       "img3": "../../assets/img/about/about-me.jpg",
-  //       "img4": "../../assets/img/about/about-me.jpg",
-  //       "seatNo": "40",
-  //       "available": true
-  //     },
-  //     {
-  //       "number": "Bus-2",
-  //       "img": "../../assets/img/Bus/Bus2_auto_x2.jpg",
-  //       "seatNo": "40",
-  //       "available": false
-  //     },
-  //     {
-  //       "number": "Bus-3",
-  //       "img": "../../assets/img/Bus/Bus3_auto_x2.jpg",
-  //       "seatNo": "20",
-  //       "available": true
-  //     },
-  //     {
-  //       "number": "Bus-4",
-  //       "img": "../../assets/img/about/about-me.jpg",
-  //       "seatNo": "20",
-  //       "available": false
-  //     },
-  //     {
-  //       "number": "1020",
-  //       "img": "../../assets/img/about/about-me.jpg",
-  //       "seatNo": "42",
-  //       "available": true
-  //     },
-  //     {
-  //       "number": "1030",
-  //       "img": "../../assets/img/about/about-me.jpg",
-  //       "seatNo": "24",
-  //       "available": false
-  //     }
-  //   ]
-
-  // }
   constructor(
     private modalService: NgbModal,
     private http: HttpClient,
     private router: Router
   ) { }
-  actionBook() {
-    this.router.navigate(['/booking-form']);
+  actionBook(busNumber: string) {
+    this.router.navigate(['/booking-form', busNumber]);
   }
   actionImage(content: any, busImage: string) {
     this.selectedBusImage = busImage;
@@ -148,9 +47,9 @@ export class BusDetailsComponent implements OnInit {
   ngOnInit(): void {
     this.getBusDetails();
   }
-getBusDetails():void{
-  debugger
-  this.http.get<any>('http://localhost:3000/bus-details').subscribe(
+  getBusDetails(): void {
+    debugger
+    this.http.get<any>('http://localhost:3000/bus-details').subscribe(
       (response) => {
         debugger
         this.buses = response.bus;
@@ -163,5 +62,5 @@ getBusDetails():void{
         console.error('Error fetching contacts:', error);
       }
     );
-}
+  }
 }

@@ -1,10 +1,7 @@
 <app-main-nav></app-main-nav>
 <div id="content" class="content">
   <h1 class="page-header hidden-print">Invoice <small>...</small></h1>
-  <!-- end page-header -->
-  <!-- begin invoice -->
   <div class="invoice">
-    <!-- begin invoice-company -->
     <div class="invoice-company">
       <span class="pull-right hidden-print">
         <a
@@ -31,18 +28,19 @@
       <div class="invoice-from">
         <h4>FROM</h4>
         <address class="m-t-5 m-b-5">
-          <strong class="text-inverse">{{bookingForm.Origin}}</strong><br />
-          <strong class="text-inverse">{{bookingForm.BookingDate}}</strong>
-
+          <strong class="text-inverse">{{ bookingForm.Origin }}</strong
+          ><br />
+          <strong class="text-inverse">{{ bookingForm.BookingDate }}</strong>
         </address>
       </div>
       <div class="invoice-to">
         <h4>TO</h4>
         <address class="m-t-5 m-b-5">
-
-          <strong class="text-inverse">{{bookingForm.Destination}}</strong><br />
-          <strong class="text-inverse">{{bookingForm.BookingEndingDate}}</strong>
-
+          <strong class="text-inverse">{{ bookingForm.Destination }}</strong
+          ><br />
+          <strong class="text-inverse">{{
+            bookingForm.BookingEndingDate
+          }}</strong>
         </address>
       </div>
       <div class="invoice-date">
@@ -50,16 +48,14 @@
         <div class="date text-inverse m-t-5">{{ currentDate }}</div>
 
         <div class="invoice-detail">
-          #{{ bookingSlipNumber }}<br />
+          <!-- #{{ bookingSlipNumber }}<br /> -->
+          #{{ busNumber }}<br />
           Bus Booking slip
         </div>
-        <!-- Bus Booking slip -->
       </div>
     </div>
-    <!-- end invoice-header -->
-    <!-- begin invoice-content -->
+
     <div class="invoice-content">
-      <!-- begin table-responsive -->
       <div class="table-responsive">
         <table class="table table-invoice">
           <thead>
@@ -79,22 +75,10 @@
                   id sagittis arcu.
                 </small>
               </td>
-              <td class="text-center">{{bookingForm.Veg}}</td>
-              <td class="text-center">{{bookingForm.NonVeg}}</td>
-              <td class="text-right">{{bookingForm.Price}}</td>
+              <td class="text-center">{{ bookingForm.Veg }}</td>
+              <td class="text-center">{{ bookingForm.NonVeg }}</td>
+              <td class="text-right">{{ bookingForm.Price }}</td>
             </tr>
-            <!-- <tr>
-              <td>
-                <span class="text-inverse">food</span><br />
-                <small>
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed
-                  id sagittis arcu.
-                </small>
-              </td>
-              <td class="text-center">50.00</td>
-              <td class="text-center">40</td>
-              <td class="text-right">2,000.00</td>
-            </tr> -->
           </tbody>
         </table>
       </div>
@@ -104,7 +88,7 @@
           <div class="invoice-price-row">
             <div class="sub-price">
               <small>Bus Book</small>
-              <span class="text-inverse">{{bookingForm.Price}}</span>
+              <span class="text-inverse">{{ bookingForm.Price }}</span>
             </div>
             <div class="sub-price">
               <i class="fa fa-plus text-muted"></i>
@@ -116,21 +100,18 @@
           </div>
         </div>
         <div class="invoice-price-right">
-          <small>TOTAL</small> <span class="f-w-600">{{bookingForm.Price}}</span>
+          <small>TOTAL</small>
+          <span class="f-w-600">{{ bookingForm.Price }}</span>
         </div>
         <button class="btn btn-primary" (click)="makePayment()">Payment</button>
       </div>
-      <!-- end invoice-price -->
     </div>
-    <!-- end invoice-content -->
-    <!-- begin invoice-note -->
     <div class="invoice-note">
       * Make all cheques payable tr /> * Payment is due within 30 days<br />
       * If you have any questions concerning this invoice, contact [Name, Phone
       Number, Email]
     </div>
-    <!-- end invoice-note -->
-    <!-- begin invoice-footer -->
+
     <div class="invoice-footer">
       <p class="text-center m-b-5 f-w-600">THANK YOU FOR YOUR BUSINESS</p>
       <p class="text-center">
