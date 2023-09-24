@@ -2,6 +2,7 @@ import { DatePipe } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import KhaltiCheckout from "khalti-checkout-web";
 import { HttpHeaders, HttpClient } from '@angular/common/http';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-booking-confirm',
@@ -13,9 +14,13 @@ export class BookingConfirmComponent implements OnInit {
   currentDate: string | undefined;
   bookingSlipNumber: number = 1;
   token: string = '';
-  bookingForm: any = {} ;
+  bookingForm: any = {};
+  busNumber: string | null = null;
 
-  constructor(private datePipe: DatePipe,private http: HttpClient) { }
+
+  constructor(private datePipe: DatePipe, private http: HttpClient,
+    private route: ActivatedRoute
+  ) { }
 
   ngOnInit(): void {
     const currentDate = new Date();
@@ -23,6 +28,9 @@ export class BookingConfirmComponent implements OnInit {
     this.currentDate = formattedDate || '';
     this.getTokenFromDatabase();
     this.getContacts();
+    this.route.paramMap.subscribe(params => {
+      this.busNumber = params.get('busNumber');
+    });
   }
   incrementBookingSlipNumber(): void {
     this.bookingSlipNumber++;
@@ -40,18 +48,18 @@ export class BookingConfirmComponent implements OnInit {
     console.log('Token stored:', token);
     debugger
     let headers = new HttpHeaders();
-if (token) {
-  headers = headers.set("Authorization", token);
-}
-   debugger
+    if (token) {
+      headers = headers.set("Authorization", token);
+    }
+    debugger
     console.log(headers);
     debugger
-    this.http.get<any>('http://localhost:3000/booking-confirm', { headers : headers}).subscribe(
+    this.http.get<any>('http://localhost:3000/booking-confirm', { headers: headers }).subscribe(
       (response) => {
         debugger
         this.bookingForm = response.bookingForm;
         debugger
-        console.log("slip retrieved!!",this.bookingForm);
+        console.log("slip retrieved!!", this.bookingForm);
         debugger
         // Perform any necessary operations with the fetched contacts
       },

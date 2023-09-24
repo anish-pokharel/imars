@@ -21,7 +21,7 @@ const routes: Routes = [
   { path: 'login-page', component: LoginPageComponent },
   { path: 'main-page', component: MainPageComponent },
   { path: 'registration-page', component: RegistrationPageComponent },
-  { path: 'booking-form', component: BookingFormComponent },
+  { path: 'booking-form/:busNumber', component: BookingFormComponent },
   { path: 'booking-confirm', component: BookingConfirmComponent },
   { path: 'bus-details', component: BusDetailsComponent },
   { path: 'search', component: SearchComponent },

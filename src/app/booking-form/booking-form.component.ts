@@ -1,5 +1,5 @@
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-booking-form',
@@ -27,14 +27,16 @@ export class BookingFormComponent implements OnInit {
   selectedFood: { type: string, price: number } | null = null;
   vegQuantity: number | undefined; // New property for veg quantity
   nonVegQuantity: number | undefined;
-  BusNmber:string='';
-  Decision:string='';
+  // busNumber: string | null = null;
+
 
   @ViewChild('originSelect')
   originSelectRef!: ElementRef;
   @ViewChild('destinationSelect')
   destinationSelectRef!: ElementRef;
-  constructor(private router: Router) { }
+  constructor(private router: Router,
+    // private route: ActivatedRoute
+  ) { }
 
   ngOnInit(): void {
     const today = new Date();
@@ -47,6 +49,10 @@ export class BookingFormComponent implements OnInit {
     this.BookingEndingDate = this.formatDate(defaultEndingDate);
     this.minEndingDate = this.formatDate(defaultEndingDate);
     this.calculateDistance()
+
+    // this.route.paramMap.subscribe(params => {
+    //   this.busNumber = params.get('busNumber');
+    // });
   }
 
   updateMinEndingDate() {
@@ -82,8 +88,7 @@ export class BookingFormComponent implements OnInit {
 
   showModal() {
     // Check if any required field is empty
-    //if (!this.Origin || !this.Destination || !this.Email || !this.BookingDate || !this.BookingEndingDate) {
-      if (!this.Origin || !this.Destination ||  !this.BookingDate || !this.BookingEndingDate) {
+    if (!this.Origin || !this.Destination || !this.Email || !this.BookingDate || !this.BookingEndingDate) {
       return;
     }
 
