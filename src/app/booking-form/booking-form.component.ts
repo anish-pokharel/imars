@@ -27,6 +27,8 @@ export class BookingFormComponent implements OnInit {
   selectedFood: { type: string, price: number } | null = null;
   vegQuantity: number | undefined; // New property for veg quantity
   nonVegQuantity: number | undefined;
+  BusNmber:string='';
+  Decision:string='';
 
   @ViewChild('originSelect')
   originSelectRef!: ElementRef;
@@ -80,7 +82,8 @@ export class BookingFormComponent implements OnInit {
 
   showModal() {
     // Check if any required field is empty
-    if (!this.Origin || !this.Destination || !this.Email || !this.BookingDate || !this.BookingEndingDate) {
+    //if (!this.Origin || !this.Destination || !this.Email || !this.BookingDate || !this.BookingEndingDate) {
+      if (!this.Origin || !this.Destination ||  !this.BookingDate || !this.BookingEndingDate) {
       return;
     }
 

@@ -11,7 +11,7 @@ export class AboutPageComponent {
       name: 'Anish Pokharel',
       title: 'FOUNDER',
       quote: 'Stay Hungry Stay foolish',
-      image: '../assets/img/user/user-1.jpg',
+      image: '../assets/img/user/anishimars 1.jpg',
       social: [
         { icon: 'fab fa-facebook-f fa-lg fa-fw', link: '#' },
         { icon: 'fab fa-twitter fa-lg fa-fw', link: '#' },
@@ -22,7 +22,7 @@ export class AboutPageComponent {
       name: 'Rudra Nahawang Pandey,',
       title: 'Co-FOUNDER',
       quote: '191720',
-      image: '../assets/img/user/user-1.jpg',
+      image: '../assets/img/user/rudiimars 1.jpg',
       social: [
         { icon: 'fab fa-facebook-f fa-lg fa-fw', link: '#' },
         { icon: 'fab fa-twitter fa-lg fa-fw', link: '#' },
@@ -33,7 +33,7 @@ export class AboutPageComponent {
       name: 'Ishan Subedi,',
       title: 'Co-FOUNDER',
       quote: '191710',
-      image: '../assets/img/user/user-1.jpg',
+      image: '../assets/img/user/ishanimars 1.jpg',
       social: [
         { icon: 'fab fa-facebook-f fa-lg fa-fw', link: '#' },
         { icon: 'fab fa-twitter fa-lg fa-fw', link: '#' },
@@ -44,7 +44,7 @@ export class AboutPageComponent {
       name: 'Menuka Lamsal,',
       title: 'Co-FOUNDER',
       quote: '191712',
-      image: '../assets/img/user/user-1.jpg',
+      image: '../assets/img/user/meukaimars 1.jpg',
       social: [
         { icon: 'fab fa-facebook-f fa-lg fa-fw', link: '#' },
         { icon: 'fab fa-twitter fa-lg fa-fw', link: '#' },
