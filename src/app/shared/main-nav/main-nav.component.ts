@@ -11,7 +11,10 @@ export class MainNavComponent {
   setActivePage(page: string) {
     this.activePage = page;
   }
-  
+
+  logOut() {
+    console.log('menuka put some logic here ')
+  }
 
 }
 
