@@ -115,19 +115,15 @@
       </div>
 
       <div class="header-nav">
-        <!-- <div class="collapse navbar-collapse text-dark" id="navbar-collapsee"> -->
         <div>
           <nav class="navbar-nav">
-            <!-- <li class="active"> -->
             <li
               class="active nav-item"
               [ngClass]="{ active: activePage === 'home' }"
             >
               <a routerLink="/main-page" class="navlink">Home </a>
             </li>
-            <!-- <li class="active">
-              <a routerLink="/registration-page">New Member</a>
-            </li> -->
+
             <li
               class="active text-dark nav-item navlink"
               [ngClass]="{ active: activePage === 'bus-details' }"
@@ -177,12 +173,23 @@
                 >
               </div>
             </li>
-            <!-- <li
-              class="active nav-item"
-              [ngClass]="{ active: activePage === 'dashboard' }"
-            >
-              <a routerLink="/admin-dashboard" class="navlink">DASHBOARD</a>
-            </li> -->
+
+            <ul class="navbar-nav navbar-right">
+              <li class="dropdown navbar-user">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                  <img src="../assets/img/user/user-13.jpg" alt="" />
+                  <span class="d-none d-md-inline">ADMIN</span>
+                </a>
+                <div class="dropdown-menu dropdown-menu-right">
+                  <a
+                    href="javascript:;"
+                    style="color: black"
+                    class="dropdown-item"
+                    >Log Out</a
+                  >
+                </div>
+              </li>
+            </ul>
           </nav>
         </div>
       </div>
