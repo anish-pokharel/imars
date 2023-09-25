@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+
 
 @Component({
   selector: 'app-main-nav',
@@ -11,9 +13,18 @@ export class MainNavComponent {
   setActivePage(page: string) {
     this.activePage = page;
   }
+  constructor(private http: HttpClient) { }
 
   logOut() {
-    console.log('menuka put some logic here ')
+    this.http.get('/logout').subscribe(
+      (response) => {
+        console.log('Logout successful', response);
+        },
+      (error) => {
+        console.error('Error logging out', error);
+      }
+    );
+
   }
 
 }
