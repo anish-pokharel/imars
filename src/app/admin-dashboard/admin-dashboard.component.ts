@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { DataService } from '../api/service/data.service';
-import { HttpHeaders, HttpClient } from '@angular/common/http';
+import {HttpClient, HttpHeaders } from '@angular/common/http';
+import { CookieService } from 'ngx-cookie-service';
 
 @Component({
   selector: 'app-admin-dashboard',
@@ -18,7 +19,7 @@ export class AdminDashboardComponent implements OnInit {
 
 
 
-  constructor(private dataservice: DataService, private http: HttpClient) {
+  constructor(private dataservice: DataService, private http: HttpClient, private cookieService: CookieService) {
     this.currentSection = 'pending';
     //this.bookingForm = [];
     this.acceptedRequests = [];
@@ -31,13 +32,14 @@ export class AdminDashboardComponent implements OnInit {
     this.getContacts();
   }
   getTokenFromDatabase(): void {
-    const token = localStorage.getItem('token');
+    const token = this.cookieService.get('jwt');
     console.log('Token stored:', token);
     if (!token) {
       console.error('Token not found');
       return;
     }
-    
+   // document.cookie = `jwt=${token}`; // Set the token as a cookie
+
    /* const headers = new HttpHeaders().set('Authorization', `Bearer ${token}`);
     this.http.get<any>('http://localhost:3000/authenticateUser', { headers }).subscribe(
       (response) => {
@@ -50,17 +52,19 @@ export class AdminDashboardComponent implements OnInit {
     );*/
   }
   getContacts(): void {
-    const token = localStorage.getItem('token');
-    console.log('Token stored:', token);
-    debugger
-    let headers = new HttpHeaders();
-if (token) {
-  headers = headers.set("Authorization", token);
-}
-   debugger
-    console.log(headers);
-    debugger
-    this.http.get<any>('http://localhost:3000/admin-dashboard', { headers : headers}).subscribe(
+
+    const token = this.cookieService.get('jwt');
+
+  if (!token) {
+    console.error('Token not found');
+    return;
+  }
+  const headers = new HttpHeaders({
+    'Authorization': `Bearer ${token}`
+  });
+
+    console.log("header",headers);
+    this.http.get<any>('http://localhost:3000/admin-dashboard',{ headers:headers }).subscribe(
       (response) => {
         debugger
         this.contacts = response.contacts;
@@ -111,18 +115,8 @@ if (token) {
   //   );
   // }
   onSubmit(): void {
-    const token = localStorage.getItem('token');
-    console.log('Token stored:', token);
-    debugger
-    let headers = new HttpHeaders();
-if (token) {
-  headers = headers.set("Authorization", token);
-}
-   debugger
-    console.log(headers);
-    debugger
     // Make an HTTP request to save the data to the backend API
-    this.http.post('http://localhost:3000/admin-dashboard', this.formData, {headers : headers}).subscribe(
+    this.http.post('http://localhost:3000/admin-dashboard', this.formData, ).subscribe(
       (response) => {
         console.log('Data saved successfully');
         
