@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { DataService } from '../api/service/data.service';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import {HttpClient, HttpHeaders } from '@angular/common/http';
 import { CookieService } from 'ngx-cookie-service';
 
 @Component({
@@ -10,8 +10,8 @@ import { CookieService } from 'ngx-cookie-service';
 })
 export class AdminDashboardComponent implements OnInit {
   currentSection: string = 'basic';
-  bookingForm: any[] = [];
-  acceptedRequests: any[];
+  bookingForm: any[]=[];
+  acceptedRequests:any[];
   rejectedRequests: any[];
   formData: any = {};
   token: string = '';
@@ -27,6 +27,7 @@ export class AdminDashboardComponent implements OnInit {
   }
 
 
+
   ngOnInit(): void {
     this.getTokenFromDatabase(); // Call the method to get the token from the database
     this.getContacts();
@@ -36,31 +37,26 @@ export class AdminDashboardComponent implements OnInit {
     console.log('Token stored:', token);
     if (!token) {
       console.error('Token not found');
-      return;
     }
-
+   
   }
   getContacts(): void {
 
     const token = this.cookieService.get('jwt');
 
-    if (!token) {
-      console.error('Token not found');
-      return;
-    }
-    const headers = new HttpHeaders({
-      'Authorization': `Bearer ${token}`
-    });
-
-    console.log("header", headers);
-    this.http.get<any>('http://localhost:3000/admin-dashboard', { headers: headers }).subscribe(
+  if (!token) {
+    console.error('Token not found');
+    return;
+  }
+ 
+    this.http.get<any>('http://localhost:3000/admin-dashboard',{withCredentials:true}).subscribe(
       (response) => {
         debugger
         this.contacts = response.contacts;
-        this.bookingForm = response.bookingForm;
+        this.bookingForm=response.bookingForm;
         debugger
-        console.log("contact retrieved!!", this.contacts);
-        console.log("accepted buses retrieved!!", this.bookingForm);
+        console.log("contact retrieved!!",this.contacts);
+        console.log("accepted buses retrieved!!",this.bookingForm);
         debugger
         // Perform any necessary operations with the fetched contacts
       },
@@ -70,15 +66,21 @@ export class AdminDashboardComponent implements OnInit {
     );
     debugger
   }
-
+  
   onSubmit(): void {
+    const token = this.cookieService.get('jwt');
+
+  if (!token) {
+    console.error('Token not found');
+    return;
+  }
     // Make an HTTP request to save the data to the backend API
-    this.http.post('http://localhost:3000/admin-dashboard', this.formData,).subscribe(
+    this.http.post('http://localhost:3000/admin-dashboard', this.formData,{withCredentials:true}).subscribe(
       (response) => {
         console.log('Data saved successfully');
 
       },
-      (error) => {
+      (error) => { 
         console.error('Error registering admin:', error);
       }
     );
@@ -89,12 +91,12 @@ export class AdminDashboardComponent implements OnInit {
     this.currentSection = section;
   }
 
-  acceptRequests(request: any): void {
+  acceptRequests(request: any) :void{
     this.acceptedRequests.push(request);
     this.rejectedRequests = this.rejectedRequests.filter(r => r !== request);
 
   }
-  rejectRequests(request: any): void {
+  rejectRequests(request: any):void {
     this.rejectedRequests.push(request);
     this.acceptedRequests = this.acceptedRequests.filter(r => r !== request);
 

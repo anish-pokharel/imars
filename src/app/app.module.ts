@@ -34,6 +34,7 @@ import { DatePipe } from '@angular/common';
 import { CookieService } from 'ngx-cookie-service';
 
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -72,7 +73,7 @@ import { CookieService } from 'ngx-cookie-service';
     HttpClientModule
 
   ],
-  providers: [DatePipe, CookieService],
+  providers: [DatePipe,CookieService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
