@@ -31,6 +31,8 @@ import { PeekDestinationComponent } from './shared/peek-destination/peek-destina
 import { ContactUsComponent } from './shared/contact-us/contact-us.component';
 import { HttpClientModule } from '@angular/common/http';
 import { DatePipe } from '@angular/common';
+import { CookieService } from 'ngx-cookie-service';
+
 
 
 @NgModule({
@@ -71,7 +73,7 @@ import { DatePipe } from '@angular/common';
     HttpClientModule
 
   ],
-  providers: [DatePipe],
+  providers: [DatePipe,CookieService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

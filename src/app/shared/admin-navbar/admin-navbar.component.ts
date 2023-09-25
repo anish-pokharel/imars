@@ -1,6 +1,7 @@
 import { Component , OnInit} from '@angular/core';
 import {HttpHeaders, HttpClient } from '@angular/common/http';
 import { CookieService } from 'ngx-cookie-service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-admin-navbar',
@@ -9,7 +10,7 @@ import { CookieService } from 'ngx-cookie-service';
 })
 export class AdminNavbarComponent implements OnInit{
   token: string = '';
-  constructor(private http: HttpClient, private cookieService: CookieService) { }
+  constructor(private http: HttpClient, private cookieService: CookieService,private router: Router) { }
 
   ngOnInit(): void {
     this.getTokenFromDatabase(); // Call the method to get the token from the database
@@ -25,16 +26,15 @@ export class AdminNavbarComponent implements OnInit{
   }
 
   logOut() {
-    const token = localStorage.getItem('token');
-    console.log('Token:', token);
+    const token = this.cookieService.get('jwt');
 
-    let headers = new HttpHeaders();
-    if (token) {
-      headers = headers.set("Authorization", token);
+    if (!token) {
+      console.error('Token not found');
+      return;
     }
-    console.log(headers);
-    this.http.get<any>('http://localhost:3000/logout', { headers : headers}).subscribe(
+    this.http.get<any>('http://localhost:3000/logout',{withCredentials:true}).subscribe(
       (response) => {
+        this.router.navigate(['./home-page']);
         console.log('Logout successful', response);
         },
       (error) => {

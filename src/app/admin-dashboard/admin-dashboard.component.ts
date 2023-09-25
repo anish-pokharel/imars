@@ -27,6 +27,7 @@ export class AdminDashboardComponent implements OnInit {
   }
 
 
+
   ngOnInit(): void {
     this.getTokenFromDatabase(); // Call the method to get the token from the database
     this.getContacts();
@@ -36,20 +37,8 @@ export class AdminDashboardComponent implements OnInit {
     console.log('Token stored:', token);
     if (!token) {
       console.error('Token not found');
-      return;
     }
-   // document.cookie = `jwt=${token}`; // Set the token as a cookie
-
-   /* const headers = new HttpHeaders().set('Authorization', `Bearer ${token}`);
-    this.http.get<any>('http://localhost:3000/authenticateUser', { headers }).subscribe(
-      (response) => {
-        this.token = response.token;
-        this.getContacts(); // Call the method to fetch contacts after successful token verification
-      },
-      (error) => {
-        console.error('Error retrieving token:', error);
-      }
-    );*/
+   
   }
   getContacts(): void {
 
@@ -59,12 +48,8 @@ export class AdminDashboardComponent implements OnInit {
     console.error('Token not found');
     return;
   }
-  const headers = new HttpHeaders({
-    'Authorization': `Bearer ${token}`
-  });
-
-    console.log("header",headers);
-    this.http.get<any>('http://localhost:3000/admin-dashboard',{ headers:headers }).subscribe(
+ 
+    this.http.get<any>('http://localhost:3000/admin-dashboard',{withCredentials:true}).subscribe(
       (response) => {
         debugger
         this.contacts = response.contacts;
@@ -82,46 +67,20 @@ export class AdminDashboardComponent implements OnInit {
     debugger
   }
   
-  // onSubmit() {
-  //   this.dataservice.registerAdmin(this.formData).subscribe(
-  //     (response) => {
-  //       console.log('Registration successful');
-  //       this.formData = {};
-  //     },
-  //     (error) => {
-  //       console.error('Error registering admin:', error);
-  //     }
-  //   );
-  // }
-  // onSubmit(data: any): void {
-  //   const token = localStorage.getItem('token');
-  //   console.log('Token stored:', token);
-  //   debugger
-  //   // Set the Authorization header with the retrieved token
-  //   // const headers = new HttpHeaders().set('Authorization', `Bearer ${token}`);
-  //   // const headers: HttpHeaders = new HttpHeaders().set('Authorization', `Bearer ${token}`);
-  //   const headers: HttpHeaders = new HttpHeaders().set('Authorization', `Bearer ${token}`);
-
-  //   console.log(headers)
-  //   debugger
-  //   // Make an HTTP request to save the data to the backend API
-  //   this.http.post('http://localhost:3000/admin-dashboard', data, { headers }).subscribe(
-  //     (response) => {
-  //       console.log('Data saved successfully');
-  //     },
-  //     (error) => {
-  //       console.error('Error registering admin:', error);
-  //     }
-  //   );
-  // }
   onSubmit(): void {
+    const token = this.cookieService.get('jwt');
+
+  if (!token) {
+    console.error('Token not found');
+    return;
+  }
     // Make an HTTP request to save the data to the backend API
-    this.http.post('http://localhost:3000/admin-dashboard', this.formData, ).subscribe(
+    this.http.post('http://localhost:3000/admin-dashboard', this.formData,{withCredentials:true}).subscribe(
       (response) => {
         console.log('Data saved successfully');
-        
+
       },
-      (error) => {
+      (error) => { 
         console.error('Error registering admin:', error);
       }
     );

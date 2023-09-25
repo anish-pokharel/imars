@@ -2,6 +2,7 @@ import { Component,OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { HttpClient,HttpErrorResponse } from '@angular/common/http';
+import { CookieService } from 'ngx-cookie-service';
 import { RouterLink } from '@angular/router';
 import { NgForm } from '@angular/forms';
 
@@ -20,7 +21,7 @@ export class LoginPageComponent implements OnInit {
   showOptField=false;
   submitted=false;
 
-  constructor(private router: Router,private fb:FormBuilder,private http: HttpClient){
+  constructor(private router: Router,private fb:FormBuilder,private http: HttpClient,private cookieService: CookieService){
     this.loginForm = this.fb.group({
       Email: ['', Validators.required],
       Password: ['', Validators.required],
@@ -43,8 +44,11 @@ export class LoginPageComponent implements OnInit {
         console.log('Login successfull');
          // Redirect the user based on the response or token received
          if (response.token) {
-          localStorage.setItem('token', response.token);
-          console.log('Token stored:', localStorage.getItem('token'));
+          // localStorage.setItem('token', response.token);
+          // console.log('Token stored:', localStorage.getItem('token'));
+
+          this.cookieService.set('jwt',response.token);
+          console.log('Token stored:', this.cookieService.get('jwt'));
 
           if (formData.Email === 'admin@gmail.com') {
             this.router.navigate(['./admin-dashboard']);
