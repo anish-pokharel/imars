@@ -97,6 +97,7 @@ export class BookingFormComponent implements OnInit {
 
   submitOTP() {
     if (this.otpValue === '4646') {
+      this.Decision = 'Pending';
       this.router.navigate(['/booking-confirm']);
       console.log('Submit clicked');
     } else {
