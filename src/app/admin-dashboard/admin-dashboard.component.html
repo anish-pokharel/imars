@@ -207,18 +207,28 @@
       <div class="card">
         <h5 class="card-header">Registration</h5>
         <div class="card-body">
-          <form (ngSubmit)="onSubmit()" >
+          <form (ngSubmit)="onSubmit()" enctype="multipart/form-data">
             <div class="form-group">
-              <label for="images">Images:</label>
-              <input
-                type="file"
-                id="images"
-                name="images"
-                accept="image/*"
-                class="form-control-file"
-                
-                [(ngModel)]="formData.Images"
-              />
+              <label for="image">Images:</label>
+              <!-- <input
+  type="file"
+  id="image"
+  name="image"
+  accept="image/*"
+  class="form-control-file"
+  [(ngModel)]="formData.image"
+/> -->
+
+<input
+  type="file"
+  id="image"
+  name="image"
+  accept="image/*"
+  class="form-control-file"
+  (change)="onFileSelected($event)"
+/>
+
+
             </div>
             <!-- <div class="form-group">
               <label for="image1">Image 2:</label>

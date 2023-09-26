@@ -14,7 +14,11 @@ export class AdminDashboardComponent implements OnInit {
   acceptedRequests: any[];
   rejectedRequests: any[];
   // formData: any = {};
-  formData: any = {};
+  formData: any = {
+    image: null, // Initialize image as null or with a default File object if needed
+    // Add other properties if necessary
+  };
+  
   
   token: string = '';
   contacts: any = {};
@@ -69,26 +73,80 @@ export class AdminDashboardComponent implements OnInit {
     debugger
   }
 
-  onSubmit(): void {
-    const token = this.cookieService.get('jwt');
+  onFileSelected(event: Event): void {
+    const input = event.target as HTMLInputElement;
+    if (input?.files && input?.files[0]) {
+      this.formData.image = input.files[0];
+    }
+  }
+  
+//   onSubmit(): void {
+//     const token = this.cookieService.get('jwt');
+
+//     if (!token) {
+//       console.error('Token not found');
+//       return;
+//     }
+//     debugger
+//     const formData = new FormData();
+//     debugger
+//     console.log('formData:', formData);
+// debugger
+//     console.log(this.formData.image);
+//     debugger
+//     formData.append('BusNumber', this.formData.BusNumber);
+//     formData.append('BusType', this.formData.BusType);
+//     debugger
+//     formData.append('image', this.formData.image, this.formData.image.name);
+//     debugger
+//     formData.append('SeatNumber', this.formData.SeatNumber);
+  
+//     // Make an HTTP request to save the data to the backend API
+//     this.http.post('http://localhost:3000/admin-dashboard', formData, { withCredentials: true }).subscribe(
+//       (response) => {
+//         debugger
+//         console.log(formData);
+//         debugger
+//         console.log('Data saved successfully');
+
+//       },
+//       (error) => {
+//         console.error('Error registering admin:', error);
+//       }
+//     );
+//   }
+
+onSubmit(): void {
+      const token = this.cookieService.get('jwt');
 
     if (!token) {
       console.error('Token not found');
       return;
     }
+    debugger
+  const formData = new FormData();
+  formData.append('BusNumber', this.formData.BusNumber);
+  debugger
+  formData.append('BusType', this.formData.BusType);
+  debugger
+  formData.append('image', this.formData.image, this.formData.image.name);
+  debugger
+  formData.append('SeatNumber', this.formData.SeatNumber);
 
-   
-    // Make an HTTP request to save the data to the backend API
-    this.http.post('http://localhost:3000/admin-dashboard', this.formData, { withCredentials: true }).subscribe(
-      (response) => {
-        console.log('Data saved successfully');
+  // Make an HTTP request to save the data to the backend API
+  this.http.post('http://localhost:3000/admin-dashboard', formData, { withCredentials: true }).subscribe(
+    (response) => {
+      debugger
+      console.log(formData);
+      debugger
+      console.log('Data saved successfully');
+    },
+    (error) => {
+      console.error('Error registering admin:', error);
+    }
+  );
+}
 
-      },
-      (error) => {
-        console.error('Error registering admin:', error);
-      }
-    );
-  }
 
 
   showSection(section: string): void {
