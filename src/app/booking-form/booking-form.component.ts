@@ -1,5 +1,8 @@
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { CookieService } from 'ngx-cookie-service';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
+
 
 @Component({
   selector: 'app-booking-form',
@@ -29,16 +32,19 @@ export class BookingFormComponent implements OnInit {
   nonVegQuantity: number | undefined;
   BusNumber: string | null = null;
   Decision: string = '';
+  formData: any = {};
+  token: string = '';
 
   @ViewChild('originSelect')
   originSelectRef!: ElementRef;
   @ViewChild('destinationSelect')
   destinationSelectRef!: ElementRef;
-  constructor(private router: Router,
+  constructor(private router: Router,private http: HttpClient, private cookieService: CookieService
     // private route: ActivatedRoute
   ) { }
 
   ngOnInit(): void {
+    this.getTokenFromDatabase();
     const today = new Date();
     today.setDate(today.getDate() + 2); // Booking date should start from 2 days after the current date
     this.minBookingDate = this.formatDate(today);
@@ -53,6 +59,15 @@ export class BookingFormComponent implements OnInit {
     // this.route.paramMap.subscribe(params => {
     //   this.busNumber = params.get('busNumber');
     // });
+  }
+
+  getTokenFromDatabase(): void {
+    const token = this.cookieService.get('jwt');
+    console.log('Token stored:', token);
+    if (!token) {
+      console.error('Token not found');
+    }
+
   }
 
   updateMinEndingDate() {
@@ -96,8 +111,28 @@ export class BookingFormComponent implements OnInit {
   }
 
   submitOTP() {
+
+    const token = this.cookieService.get('jwt');
+
+    if (!token) {
+      console.error('Token not found');
+      return;
+    }
+
     if (this.otpValue === '4646') {
-      this.Decision = 'Pending';
+      debugger
+
+      this.http.post('http://localhost:3000/booking-form', {Decision : 'Pending', Origin:this.Origin,Destination:this.Destination,BookingDate:this.BookingDate, BookingEndingDate:this.BookingEndingDate, Price:this.Price, vegQuantity:this.vegQuantity,nonVegQuantity:this.nonVegQuantity, }, { withCredentials: true }).subscribe(
+      (response) => {
+        debugger
+        console.log('Data saved successfully');
+debugger
+      },
+      (error) => {
+        console.error('Error registering admin:', error);
+      }
+    );
+
       this.router.navigate(['/booking-confirm']);
       console.log('Submit clicked');
     } else {

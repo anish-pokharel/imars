@@ -207,31 +207,21 @@
       <div class="card">
         <h5 class="card-header">Registration</h5>
         <div class="card-body">
-          <form (ngSubmit)="onSubmit()">
+          <form (ngSubmit)="onSubmit()" >
             <div class="form-group">
-              <label for="image">Image:</label>
+              <label for="images">Images:</label>
               <input
                 type="file"
-                id="image"
-                name="image"
+                id="images"
+                name="images"
                 accept="image/*"
                 class="form-control-file"
-                [(ngModel)]="formData.Image"
+                
+                [(ngModel)]="formData.Images"
               />
             </div>
-            <div class="form-group">
+            <!-- <div class="form-group">
               <label for="image1">Image 2:</label>
-              <input
-                type="file"
-                id="image1"
-                name="image1"
-                accept="image/*"
-                class="form-control-file"
-                [(ngModel)]="formData.Image1"
-              />
-            </div>
-            <div class="form-group">
-              <label for="image2">Image 3:</label>
               <input
                 type="file"
                 id="image2"
@@ -242,7 +232,7 @@
               />
             </div>
             <div class="form-group">
-              <label for="image3">Image 4:</label>
+              <label for="image2">Image 3:</label>
               <input
                 type="file"
                 id="image3"
@@ -252,6 +242,17 @@
                 [(ngModel)]="formData.Image3"
               />
             </div>
+            <div class="form-group">
+              <label for="image3">Image 4:</label>
+              <input
+                type="file"
+                id="image4"
+                name="image4"
+                accept="image/*"
+                class="form-control-file"
+                [(ngModel)]="formData.Image4"
+              />
+            </div> -->
 
             <div class="form-group">
               <label for="busNumber">Bus Number:</label>
