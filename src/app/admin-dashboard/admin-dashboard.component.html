@@ -154,10 +154,10 @@
                       class="img-rounded height-30"
                     />
                   </td>
-                  <td>{{ accepted.BusNumber}}</td>
-                  <td>{{ accepted.Email}}</td>
-                  <td>{{ accepted.Origin}}</td>
-                  <td>{{ accepted.Destination}}</td>
+                  <td>{{ accepted.BusNumber }}</td>
+                  <td>{{ accepted.Email }}</td>
+                  <td>{{ accepted.Origin }}</td>
+                  <td>{{ accepted.Destination }}</td>
                 </tr>
               </tbody>
             </table>
@@ -327,10 +327,16 @@
                   <td>{{ request.Origin }}</td>
                   <td>{{ request.Destination }}</td>
                   <td class="with-btn" nowrap>
-                    <a href="#" class="btn btn-sm btn-primary width-60 m-r-2"
+                    <a
+                      class="btn btn-sm btn-primary width-60 m-r-2"
+                      (click)="acceptRequest(request)"
                       >Accept</a
                     >
-                    <a href="#" class="btn btn-sm btn-white width-60">Reject</a>
+                    <a
+                      class="btn btn-sm btn-white width-60"
+                      (click)="rejectRequest(request)"
+                      >Reject</a
+                    >
                   </td>
                 </tr>
               </tbody>
