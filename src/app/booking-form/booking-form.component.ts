@@ -17,7 +17,7 @@ export class BookingFormComponent implements OnInit {
   destinationLatitude: number | undefined;
   destinationLongitude: number | undefined;
   distance: number = 0;
-  Email: string | undefined;
+  // Email: string | undefined;
   BookingDate: string | undefined;
   BookingEndingDate: string | undefined;
   minBookingDate: string | undefined;
@@ -28,7 +28,7 @@ export class BookingFormComponent implements OnInit {
   vegQuantity: number | undefined; // New property for veg quantity
   nonVegQuantity: number | undefined;
   BusNumber: string | null = null;
-  Decision: string = 'Pending';
+  Decision: string = '';
 
   @ViewChild('originSelect')
   originSelectRef!: ElementRef;
