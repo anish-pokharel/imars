@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import KhaltiCheckout from "khalti-checkout-web";
 import { HttpHeaders, HttpClient } from '@angular/common/http';
 import { ActivatedRoute } from '@angular/router';
+import { CookieService } from 'ngx-cookie-service';
 
 @Component({
   selector: 'app-booking-confirm',
@@ -19,7 +20,7 @@ export class BookingConfirmComponent implements OnInit {
 
 
   constructor(private datePipe: DatePipe, private http: HttpClient,
-    private route: ActivatedRoute
+    private route: ActivatedRoute, private cookieService: CookieService
   ) { }
 
   ngOnInit(): void {
@@ -36,25 +37,21 @@ export class BookingConfirmComponent implements OnInit {
     this.bookingSlipNumber++;
   }
   getTokenFromDatabase(): void {
-    const token = localStorage.getItem('token');
+    const token = this.cookieService.get('jwt');
     console.log('Token stored:', token);
+    if (!token) {
+      console.error('Token not found');
+    }
+  }
+  getContacts(): void {
+    const token = this.cookieService.get('jwt');
+
     if (!token) {
       console.error('Token not found');
       return;
     }
-  }
-  getContacts(): void {
-    const token = localStorage.getItem('token');
-    console.log('Token stored:', token);
-    debugger
-    let headers = new HttpHeaders();
-    if (token) {
-      headers = headers.set("Authorization", token);
-    }
-    debugger
-    console.log(headers);
-    debugger
-    this.http.get<any>('http://localhost:3000/booking-confirm', { headers: headers }).subscribe(
+
+    this.http.get<any>('http://localhost:3000/booking-confirm', { withCredentials: true }).subscribe(
       (response) => {
         debugger
         this.bookingForm = response.bookingForm;

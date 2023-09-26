@@ -13,7 +13,9 @@ export class AdminDashboardComponent implements OnInit {
   bookingForm: any[] = [];
   acceptedRequests: any[];
   rejectedRequests: any[];
+  // formData: any = {};
   formData: any = {};
+  
   token: string = '';
   contacts: any = {};
 
@@ -74,6 +76,8 @@ export class AdminDashboardComponent implements OnInit {
       console.error('Token not found');
       return;
     }
+
+   
     // Make an HTTP request to save the data to the backend API
     this.http.post('http://localhost:3000/admin-dashboard', this.formData, { withCredentials: true }).subscribe(
       (response) => {
