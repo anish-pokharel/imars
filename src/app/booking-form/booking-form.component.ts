@@ -27,18 +27,35 @@ export class BookingFormComponent implements OnInit {
   selectedFood: { type: string, price: number } | null = null;
   vegQuantity: number | undefined; // New property for veg quantity
   nonVegQuantity: number | undefined;
-  BusNumber: string | null = null;
   Decision: string = '';
+  busNumber: string | null = null;
+  // BusNumber: string = "";
+  // busNumber: string = "";
 
   @ViewChild('originSelect')
   originSelectRef!: ElementRef;
   @ViewChild('destinationSelect')
   destinationSelectRef!: ElementRef;
   constructor(private router: Router,
+    private route: ActivatedRoute
     // private route: ActivatedRoute
-  ) { }
+  ) {
+
+    // this.route.paramMap.subscribe(params => {
+    //   const busNumber = params.get('BusNumber');
+    //   console.log('Bus Number:', busNumber);
+
+    // });
+
+  }
 
   ngOnInit(): void {
+
+    this.route.paramMap.subscribe(params => {
+      this.busNumber = params.get('BusNumber'); // Use 'BusNumber' with the same case as in your route configuration.
+      console.log('Bus Number:', this.busNumber);
+    });
+
     const today = new Date();
     today.setDate(today.getDate() + 2); // Booking date should start from 2 days after the current date
     this.minBookingDate = this.formatDate(today);
@@ -50,9 +67,7 @@ export class BookingFormComponent implements OnInit {
     this.minEndingDate = this.formatDate(defaultEndingDate);
     this.calculateDistance()
 
-    // this.route.paramMap.subscribe(params => {
-    //   this.busNumber = params.get('busNumber');
-    // });
+
   }
 
   updateMinEndingDate() {

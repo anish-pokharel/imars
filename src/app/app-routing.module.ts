@@ -15,18 +15,21 @@ import { PaymentComponent } from './payment/payment.component';
 import { AdminRejectedComponent } from './admin-rejected/admin-rejected.component';
 import { AdminPendingComponent } from './admin-pending/admin-pending.component';
 import { AdminRegistrationComponent } from './admin-registration/admin-registration.component';
-
+import { authGuard } from './auth.guard';
 const routes: Routes = [
   { path: 'home', component: HomeComponent },
   { path: 'login-page', component: LoginPageComponent },
   { path: 'main-page', component: MainPageComponent },
   { path: 'registration-page', component: RegistrationPageComponent },
-  { path: 'booking-form/:busNumber', component: BookingFormComponent },
+  // { path: 'booking-form/:busNumber', component: BookingFormComponent },
+  { path: 'booking-form/:BusNumber', component: BookingFormComponent },
+
   { path: 'booking-confirm', component: BookingConfirmComponent },
   { path: 'bus-details', component: BusDetailsComponent },
   { path: 'search', component: SearchComponent },
   { path: 'client-dashboard', component: ClientDashboardComponent },
   { path: 'admin-dashboard', component: AdminDashboardComponent },
+
   { path: 'comming-soon', component: CommingSoonComponent },
   { path: 'payment', component: PaymentComponent },
   { path: 'admin-accepted', component: AdminDashboardComponent },

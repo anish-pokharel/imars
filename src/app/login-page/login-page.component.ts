@@ -1,7 +1,7 @@
-import { Component,OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { HttpClient,HttpErrorResponse } from '@angular/common/http';
+import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { CookieService } from 'ngx-cookie-service';
 import { RouterLink } from '@angular/router';
 import { NgForm } from '@angular/forms';
@@ -15,60 +15,60 @@ import { NgForm } from '@angular/forms';
 })
 
 export class LoginPageComponent implements OnInit {
-  controls:any
+  controls: any
   loginForm!: FormGroup
-  title ='formvalidation';
-  showOptField=false;
-  submitted=false;
+  title = 'formvalidation';
+  showOptField = false;
+  submitted = false;
 
-  constructor(private router: Router,private fb:FormBuilder,private http: HttpClient,private cookieService: CookieService){
+  constructor(private router: Router, private fb: FormBuilder, private http: HttpClient, private cookieService: CookieService) {
     this.loginForm = this.fb.group({
       Email: ['', Validators.required],
       Password: ['', Validators.required],
       // password: new FormControl('', [Validators.required, Validators.minLength(8)])
     });
   }
-  
+
 
   ngOnInit() {
-   
-  }
-  ngDestory(){
 
   }
-  formSubmit(){
+  ngDestory() {
+
+  }
+  formSubmit() {
     if (this.loginForm.valid) {
-    const formData = this.loginForm.value;
-    this.http.post<any>('http://localhost:3000/login-page', formData).subscribe(
-      (response) => {
-        console.log('Login successfull');
-         // Redirect the user based on the response or token received
-         if (response.token) {
-          // localStorage.setItem('token', response.token);
-          // console.log('Token stored:', localStorage.getItem('token'));
+      const formData = this.loginForm.value;
+      this.http.post<any>('http://localhost:3000/login-page', formData).subscribe(
+        (response) => {
+          console.log('Login successfull');
+          // Redirect the user based on the response or token received
+          if (response.token) {
+            // localStorage.setItem('token', response.token);
+            // console.log('Token stored:', localStorage.getItem('token'));
 
-          this.cookieService.set('jwt',response.token);
-          console.log('Token stored:', this.cookieService.get('jwt'));
+            this.cookieService.set('jwt', response.token);
+            console.log('Token stored:', this.cookieService.get('jwt'));
 
-          if (formData.Email === 'admin@gmail.com') {
-            this.router.navigate(['./admin-dashboard']);
-          } else {
-            this.router.navigate(['./main-page']);
+            if (formData.Email === 'admin@gmail.com') {
+              this.router.navigate(['./admin-dashboard']);
+            } else {
+              this.router.navigate(['./main-page']);
+            }
           }
-        } 
-      },
-      (error: HttpErrorResponse) => {
-        console.error('Error loggingin:', error);
-        alert('Error Loggingin. Please try again later.');
-      }
-    );
+        },
+        (error: HttpErrorResponse) => {
+          console.error('Error loggingin:', error);
+          alert('Error Login. Please check Username and Passoword');
+        }
+      );
+    }
   }
+  forgetPasswordModal() { }
 }
-  forgetPasswordModal(){}
-}
- 
-  
- 
- 
- 
+
+
+
+
+
 

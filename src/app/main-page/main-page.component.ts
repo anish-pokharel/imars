@@ -21,23 +21,23 @@ export class MainPageComponent implements OnInit {
       {
         "image": "https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=869&q=80",
         "title": "Bus Reaservation",
-        "paragraph": "This is the Bud reservation.",
+        "paragraph": "Here you can reerve the Bus.",
         "button": {
           "text": "Book Bus",
         }
       },
       {
         "image": "https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=869&q=80",
-        "title": "vechicle option",
-        "paragraph": "This is the second entry.",
+        "title": "Vechicle Option",
+        "paragraph": "You can get the Vechicle Option here.",
         "button": {
-          "text": "vechicle ",
+          "text": "See Option",
         }
       },
       {
         "image": "https://images.unsplash.com/photo-1494515843206-f3117d3f51b7?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=872&q=80",
         "title": "Seat Booking",
-        "paragraph": "This is the third entry.",
+        "paragraph": "This is the Seat Booking Option ",
         "button": {
           "text": "Book Seat",
         }
@@ -53,7 +53,7 @@ export class MainPageComponent implements OnInit {
   navigateToPage(buttonText: string) {
     if (buttonText === 'Book Bus') {
       this.router.navigate(['/bus-details']);
-    } else if (buttonText === 'vechicle' || buttonText === 'Book Seat') {
+    } else if (buttonText === 'See Option' || buttonText === 'Book Seat') {
       this.router.navigate(['/comming-soon']);
     }
   }
