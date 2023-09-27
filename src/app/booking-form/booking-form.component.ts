@@ -313,6 +313,8 @@ import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { CookieService } from 'ngx-cookie-service';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
+import * as alertify from 'alertifyjs';
+
 
 
 @Component({
@@ -322,8 +324,6 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 })
 export class BookingFormComponent implements OnInit {
   showModalFlag: boolean = false;
-  // origin: { value: string, latitude: number, longitude: number } | undefined;
-  // destination: { value: string, latitude: number, longitude: number } | undefined;
   Origin?: string;
   Destination?: string;
   originLatitude: number | undefined;
@@ -331,7 +331,6 @@ export class BookingFormComponent implements OnInit {
   destinationLatitude: number | undefined;
   destinationLongitude: number | undefined;
   distance: number = 0;
-  // Email: string | undefined;
   BookingDate: string | undefined;
   BookingEndingDate: string | undefined;
   minBookingDate: string | undefined;
@@ -439,7 +438,7 @@ export class BookingFormComponent implements OnInit {
     if (this.otpValue === '4646') {
       debugger
 
-      this.http.post('http://localhost:3000/booking-form', { Decision: 'Pending', Origin: this.Origin, Destination: this.Destination, BookingDate: this.BookingDate, BookingEndingDate: this.BookingEndingDate, Price: this.Price, vegQuantity: this.vegQuantity, nonVegQuantity: this.nonVegQuantity,BusNumber:this.busNumber }, { withCredentials: true }).subscribe(
+      this.http.post('http://localhost:3000/booking-form', { Decision: 'Pending', Origin: this.Origin, Destination: this.Destination, BookingDate: this.BookingDate, BookingEndingDate: this.BookingEndingDate, Price: this.Price, vegQuantity: this.vegQuantity, nonVegQuantity: this.nonVegQuantity, BusNumber: this.busNumber }, { withCredentials: true }).subscribe(
         (response) => {
           debugger
           console.log('Data saved successfully');
@@ -452,8 +451,11 @@ export class BookingFormComponent implements OnInit {
 
       this.router.navigate(['/booking-confirm']);
       console.log('Submit clicked');
+      alertify.success('Bus Booked');
     } else {
-      alert('Invalid OTP');
+      // alert('Invalid OTP');
+      alertify.error('Invalid OTP');
+
     }
   }
 
@@ -503,7 +505,12 @@ export class BookingFormComponent implements OnInit {
   // }
   calculateTotalPrice(): void {
     if (this.Origin === this.Destination) {
-      alert('Origin and Destination cannot be the same.');
+      alertify.error('Origin and Destination cannot be the same.');
+      alertify.warning('Origin and Destination cannot be the same.');
+      alertify.message('Origin and Destination cannot be the same.');
+
+
+      // alert('Origin and Destination cannot be the same.');
       return;
     }
 
@@ -511,7 +518,10 @@ export class BookingFormComponent implements OnInit {
     const endingDate = new Date(this.BookingEndingDate!);
 
     if (bookingDate.getTime() === endingDate.getTime()) {
-      alert('Booking and Ending dates cannot be the same.');
+      alertify.error('Booking and Ending dates cannot be the same.');
+      alertify.warning('Booking and Ending dates cannot be the same.');
+      alertify.message('Booking and Ending dates cannot be the same.');
+      // alert('Booking and Ending dates cannot be the same.');
       return;
     }
 
@@ -519,12 +529,18 @@ export class BookingFormComponent implements OnInit {
     today.setDate(today.getDate() + 2); // Booking date should start from 2 days after the current date
 
     if (bookingDate <= today) {
-      alert('Booking date should start from 2 days after the current date.');
+      alertify.error('Booking date should start from 2 days after the current date.');
+      alertify.warning('Booking date should start from 2 days after the current date.');
+      alertify.message('Booking date should start from 2 days after the current date.');
+      // alert('Booking date should start from 2 days after the current date.');
       return;
     }
 
     if (endingDate <= bookingDate) {
-      alert('Ending date should be greater than the booking date.');
+      alertify.error('Ending date should be greater than the booking date.');
+      alertify.warning('Ending date should be greater than the booking date.');
+      alertify.message('Ending date should be greater than the booking date.');
+      // alert('Ending date should be greater than the booking date.');
       return;
     }
 

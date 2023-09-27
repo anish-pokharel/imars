@@ -36,6 +36,7 @@ import { NepaldstinationsComponent } from './nepaldstinations/nepaldstinations.c
 
 
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -75,7 +76,7 @@ import { NepaldstinationsComponent } from './nepaldstinations/nepaldstinations.c
     HttpClientModule
 
   ],
-  providers: [DatePipe,CookieService],
+  providers: [DatePipe, CookieService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

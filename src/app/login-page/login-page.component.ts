@@ -5,6 +5,8 @@ import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { CookieService } from 'ngx-cookie-service';
 import { RouterLink } from '@angular/router';
 import { NgForm } from '@angular/forms';
+import * as alertify from 'alertifyjs';
+
 
 
 
@@ -42,6 +44,7 @@ export class LoginPageComponent implements OnInit {
       this.http.post<any>('http://localhost:3000/login-page', formData).subscribe(
         (response) => {
           console.log('Login successfull');
+          alertify.success('Login successfull');
           // Redirect the user based on the response or token received
           if (response.token) {
             // localStorage.setItem('token', response.token);
@@ -59,7 +62,11 @@ export class LoginPageComponent implements OnInit {
         },
         (error: HttpErrorResponse) => {
           console.error('Error loggingin:', error);
-          alert('Error Login. Please check Username and Passoword');
+          // alert('Error Login. Please check Username and Passoword');
+          alertify
+            .alert("Error Login. Please check Username and Passoword.", function () {
+              alertify.message('Recheck Username and Password');
+            });
         }
       );
     }
