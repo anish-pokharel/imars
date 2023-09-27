@@ -24,41 +24,11 @@
             <li>
               <a href="#" class="dropdown-item"
                 ><img
-                  src="../../assets/img/flag/flag-english.png"
+                  src="../../assets/img/flag/nepalflag.jpg"
                   class="flag-img"
                   alt=""
                 />
-                German
-              </a>
-            </li>
-            <li>
-              <a href="#" class="dropdown-item"
-                ><img
-                  src="../../assets/img/flag/flag-english.png"
-                  class="flag-img"
-                  alt=""
-                />
-                Spanish
-              </a>
-            </li>
-            <li>
-              <a href="#" class="dropdown-item"
-                ><img
-                  src="../../assets/img/flag/flag-english.png"
-                  class="flag-img"
-                  alt=""
-                />
-                French
-              </a>
-            </li>
-            <li>
-              <a href="#" class="dropdown-item"
-                ><img
-                  src="../../assets/img/flag/flag-english.png"
-                  class="flag-img"
-                  alt=""
-                />
-                Chinese
+                Nepali
               </a>
             </li>
           </ul>
@@ -66,25 +36,33 @@
       </ul>
 
       <ul class="nav navbar-nav navbar-right">
-        <li><a href="#">Career</a></li>
-        <li><a href="#">Our Forum</a></li>
-        <li><a href="#">Newsletter</a></li>
+        <li><a href="#">Connect with Us</a></li>
+        <!-- <li><a href="#">Our Forum</a></li>
+        <li><a href="#">Newsletter</a></li> -->
         <li>
-          <a routerLink="facebook.com"
+          <a href="https://www.facebook.com/" target="_blank"
             ><i class="fab fa-facebook-f f-s-14"></i
           ></a>
         </li>
         <li>
-          <a href="#"><i class="fab fa-twitter f-s-14"></i></a>
+          <a href="https://www.twitter.com/" target="_blank"
+            ><i class="fab fa-twitter f-s-14"></i
+          ></a>
         </li>
         <li>
-          <a href="#"><i class="fab fa-instagram f-s-14"></i></a>
+          <a href="https://www.instagram.com/" target="_blank"
+            ><i class="fab fa-instagram f-s-14"></i
+          ></a>
         </li>
         <li>
-          <a href="#"><i class="fab fa-dribbble f-s-14"></i></a>
+          <a href="https://www.dribbble.com/" target="_blank"
+            ><i class="fab fa-dribbble f-s-14"></i
+          ></a>
         </li>
         <li>
-          <a href="#"><i class="fab fa-google f-s-14"></i></a>
+          <a href="https://www.google.com/" target="_blank"
+            ><i class="fab fa-google f-s-14"></i
+          ></a>
         </li>
       </ul>
     </div>
@@ -109,7 +87,7 @@
           <span class="brand-logo"></span>
           <span class="brand-text">
             <span class="text-primary">IM</span>ARS
-            <small>bus booking</small>
+            <small>Bus Booking</small>
           </span>
         </a>
       </div>
@@ -118,41 +96,53 @@
         <div>
           <nav class="navbar-nav">
             <li
-              class="active nav-item"
+              class="active nav-item custom-nav-link"
               [ngClass]="{ active: activePage === 'home' }"
             >
-              <a routerLink="/main-page" class="navlink">Home </a>
+              <a routerLink="/main-page" class="navlink" id="navdesign"
+                >Home
+              </a>
             </li>
 
             <li
               class="active text-dark nav-item navlink"
               [ngClass]="{ active: activePage === 'bus-details' }"
             >
-              <a routerLink="/bus-details" class="">Bus-Details</a>
+              <a routerLink="/bus-details" class="" id="navdesign"
+                >Bus-Details</a
+              >
             </li>
             <li
               class="active nav-item"
               [ngClass]="{ active: activePage === 'booking-form' }"
             >
-              <a routerLink="/booking-form" class="navlink">Booking Form</a>
+              <a routerLink="/booking-form" id="navdesign" class="navlink"
+                >Booking Form</a
+              >
             </li>
             <li
               class="active nav-item"
               [ngClass]="{ active: activePage === 'booking-slip' }"
             >
-              <a routerLink="/booking-confirm" class="navlink">Booking slip</a>
+              <a routerLink="/booking-confirm" id="navdesign" class="navlink"
+                >Booking slip</a
+              >
             </li>
             <li
               class="active nav-item"
               [ngClass]="{ active: activePage === 'payment' }"
             >
-              <a routerLink="/payment" class="navlink">Payment</a>
+              <a routerLink="/payment" id="navdesign" class="navlink"
+                >Payment</a
+              >
             </li>
             <li
               class="active nav-item"
               [ngClass]="{ active: activePage === 'user' }"
             >
-              <a routerLink="/client-dashboard" class="navlink">User</a>
+              <a routerLink="/client-dashboard" id="navdesign" class="navlink"
+                >User</a
+              >
             </li>
 
             <li
@@ -164,6 +154,7 @@
                 class="dropdown-togglec navlink"
                 data-toggle="dropdown"
                 class="navlink"
+                id="navdesign"
                 >Bus-category
               </a>
               <div class="dropdown-menu dropdown-menu-right" claass="navlink">
@@ -180,10 +171,13 @@
                   <img src="../assets/img/user/user-13.jpg" alt="" />
                   <span class="d-none d-md-inline">User</span>
                 </a>
-                <div class="dropdown-menu dropdown-menu-right">
+                <div
+                  class="dropdown-menu dropdown-menu-right"
+                  style="background-color: black"
+                >
                   <a
                     href="javascript:;"
-                    style="color: black"
+                    style="color: rgb(253, 253, 253); background-color: black"
                     class="dropdown-item"
                     (click)="logOut()"
                     >Log Out</a
