@@ -1,13 +1,25 @@
-.header .navbar-nav>li.active>a{
+.header .navbar-nav>li.active>a {
     background: white !important;
 }
 
-  .navbar:hover {
+.navbar:hover {
     font-size: 10x;
-  }
-  .navbar {
+}
+
+.navbar {
     font-size: 16px;
     transition: font-size 0.3s ease;
-  }
- 
-  
+}
+
+#navdesign {
+    color: black;
+}
+
+#navdesign:hover {
+    color: rgb(232, 111, 111);
+    background-color: black;
+}
+
+#navdesign:active {
+    color: blue;
+}
