@@ -13,9 +13,9 @@ export class AboutPageComponent {
       quote: 'Stay Hungry Stay foolish',
       image: '../assets/img/user/anishimars 1.jpg',
       social: [
-        { icon: 'fab fa-facebook-f fa-lg fa-fw', link: '#' },
-        { icon: 'fab fa-twitter fa-lg fa-fw', link: '#' },
-        { icon: 'fab fa-google-plus-g fa-lg fa-fw', link: '#' }
+        { icon: 'fab fa-facebook-f fa-lg fa-fw', link: "https://www.facebook.com/" },
+        { icon: 'fab fa-twitter fa-lg fa-fw', link: "https://www.twitter.com/" },
+        { icon: 'fab fa-google-plus-g fa-lg fa-fw', link: "https://www.google.com/" }
       ]
     },
     {
@@ -24,9 +24,9 @@ export class AboutPageComponent {
       quote: '191720',
       image: '../assets/img/user/rudiimars 1.jpg',
       social: [
-        { icon: 'fab fa-facebook-f fa-lg fa-fw', link: '#' },
-        { icon: 'fab fa-twitter fa-lg fa-fw', link: '#' },
-        { icon: 'fab fa-google-plus-g fa-lg fa-fw', link: '#' }
+        { icon: 'fab fa-facebook-f fa-lg fa-fw', link: "https://www.facebook.com/" },
+        { icon: 'fab fa-twitter fa-lg fa-fw', link: "https://www.twitter.com/" },
+        { icon: 'fab fa-google-plus-g fa-lg fa-fw', link: "https://www.google.com/" }
       ]
     },
     {
@@ -35,9 +35,9 @@ export class AboutPageComponent {
       quote: '191710',
       image: '../assets/img/user/ishanimars 1.jpg',
       social: [
-        { icon: 'fab fa-facebook-f fa-lg fa-fw', link: '#' },
-        { icon: 'fab fa-twitter fa-lg fa-fw', link: '#' },
-        { icon: 'fab fa-google-plus-g fa-lg fa-fw', link: '#' }
+        { icon: 'fab fa-facebook-f fa-lg fa-fw', link: "https://www.facebook.com/" },
+        { icon: 'fab fa-twitter fa-lg fa-fw', link: "https://www.twitter.com/" },
+        { icon: 'fab fa-google-plus-g fa-lg fa-fw', link: "https://www.google.com/" }
       ]
     },
     {
@@ -46,9 +46,9 @@ export class AboutPageComponent {
       quote: '191712',
       image: '../assets/img/user/meukaimars 1.jpg',
       social: [
-        { icon: 'fab fa-facebook-f fa-lg fa-fw', link: '#' },
-        { icon: 'fab fa-twitter fa-lg fa-fw', link: '#' },
-        { icon: 'fab fa-google-plus-g fa-lg fa-fw', link: '#' }
+        { icon: 'fab fa-facebook-f fa-lg fa-fw', link: "https://www.facebook.com/" },
+        { icon: 'fab fa-twitter fa-lg fa-fw', link: "https://www.twitter.com/" },
+        { icon: 'fab fa-google-plus-g fa-lg fa-fw', link: "https://www.google.com/" }
       ]
     },
   ];

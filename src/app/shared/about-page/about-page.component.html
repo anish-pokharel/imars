@@ -7,7 +7,8 @@
     </p>
 
     <div class="row mx-3 my-3">
-      <div class="col-lg-3 " *ngFor="let member of team"><!--card my-3 is removed-->
+      <div class="col-lg-3" *ngFor="let member of team">
+        <!--card my-3 is removed-->
         <div class="team">
           <div
             class="image"
@@ -21,7 +22,11 @@
             <div class="title text-primary">{{ member.title }}</div>
             <p>{{ member.quote }}</p>
             <div class="social mx-3 my-3">
-              <a *ngFor="let social of member.social" [href]="social.link">
+              <a
+                *ngFor="let social of member.social"
+                [href]="social.link"
+                target="_blank"
+              >
                 <i [class]="social.icon"></i>
               </a>
             </div>
