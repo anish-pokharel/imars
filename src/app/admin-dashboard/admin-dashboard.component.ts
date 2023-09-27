@@ -165,9 +165,33 @@ onSubmit(): void {
   }
 
   acceptRequest(request: any) {
+    const token = this.cookieService.get('jwt');
+
+    if (!token) {
+      console.error('Token not found');
+      return;
+    }
+    debugger
     // Update the request status and move it to the acceptedRequests array
-    request.status = 'accepted';
+    //request.status = 'accepted';
+    request.Decision='accepted';
+    debugger
+    delete request._id;
+    debugger
     this.acceptedRequests.push(request);
+    
+    debugger
+    console.log(request);
+    debugger
+             this.http.post('http://localhost:3000/booking-form', request, { withCredentials: true }).subscribe(
+            (response:any) => {
+      debugger
+      console.log('Accepted Data saved successfully');
+    },
+    (error:any) => {
+      console.error('Error saving data:', error);
+    }
+  );
 
     // Remove the request from the bookingForm array
     const index = this.bookingForm.indexOf(request);
@@ -178,9 +202,32 @@ onSubmit(): void {
 
   // Function to reject a request and move it to the "Rejected" section
   rejectRequest(request: any) {
+    const token = this.cookieService.get('jwt');
+
+    if (!token) {
+      console.error('Token not found');
+      return;
+    }
+    debugger
     // Update the request status and move it to the rejectedRequests array
-    request.status = 'rejected';
+    //request.status = 'rejected';
+    request.Decision='rejected';
+    debugger
+    delete request._id;
+    debugger
     this.rejectedRequests.push(request);
+    debugger
+    console.log(request);
+    debugger
+    this.http.post('http://localhost:3000/booking-form', request, { withCredentials: true }).subscribe(
+            (response:any) => {
+      debugger
+      console.log('Rejected Data saved successfully');
+    },
+    (error:any) => {
+      console.error('Error saving data:', error);
+    }
+  );
 
     // Remove the request from the bookingForm array
     const index = this.bookingForm.indexOf(request);
