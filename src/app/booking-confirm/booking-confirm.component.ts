@@ -92,10 +92,19 @@ export class BookingConfirmComponent implements OnInit {
       "productName": "Drogon",
       "productUrl": "http://gameofthrones.com/buy/Dragons",
       "eventHandler": {
-        onSuccess(payload: any) {
+        onSuccess(payload:any) {
           debugger
           console.log(payload);
           debugger
+  //         this.http.post('http://localhost:3000/admin-dashboard', payload, { withCredentials: true }).subscribe(
+  //           (response:any) => {
+  //     debugger
+  //     console.log('Data saved successfully');
+  //   },
+  //   (error:any) => {
+  //     console.error('Error registering admin:', error);
+  //   }
+  // );
         },
         onError(error: any) {
           console.log(error);
