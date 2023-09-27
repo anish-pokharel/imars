@@ -331,7 +331,7 @@ export class BookingFormComponent implements OnInit {
   destinationLatitude: number | undefined;
   destinationLongitude: number | undefined;
   distance: number = 0;
-  // Email: string | undefined;
+  //Email: string | null = null;
   BookingDate: string | undefined;
   BookingEndingDate: string | undefined;
   minBookingDate: string | undefined;
@@ -359,7 +359,9 @@ export class BookingFormComponent implements OnInit {
   ngOnInit(): void {
     this.route.paramMap.subscribe(params => {
       this.busNumber = params.get('BusNumber'); // Use 'BusNumber' with the same case as in your route configuration.
+      // this.Email = params.get('Email');
       console.log('Bus Number:', this.busNumber);
+      // console.log('Email:', this.Email);
     });
     this.getTokenFromDatabase();
     const today = new Date();

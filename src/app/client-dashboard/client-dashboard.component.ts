@@ -29,8 +29,8 @@ export class ClientDashboardComponent implements OnInit {
   token: string = '';
   bookingForm: any[] = [];
   registerForm: any = {};
-  acceptedrequests: any[] = [];
-  rejectedrequests: any[] = [];
+  acceptedRequests: any[] = [];
+  rejectedRequests: any[] = [];
 
 
 
@@ -62,13 +62,13 @@ export class ClientDashboardComponent implements OnInit {
         debugger
         this.bookingForm = response.bookingForm;
         this.registerForm = response.registeredUser;
-        this.acceptedrequests = response.acceptedrequests;
-        this.rejectedrequests = response.rejectedrequests;
+        this.acceptedRequests = response.acceptedRequests;
+        this.rejectedRequests = response.rejectedRequests;
         debugger
         console.log("bookingForm retrieved!", this.bookingForm);
         console.log("regsiterform retrieved!", this.registerForm);
-        console.log("acceptedrequests retrieved!", this.acceptedrequests);
-        console.log("rejectedrequests retrieved!", this.rejectedrequests);
+        console.log("acceptedrequests retrieved!", this.acceptedRequests);
+        console.log("rejectedrequests retrieved!", this.rejectedRequests);
         debugger
       },
       (error) => {
