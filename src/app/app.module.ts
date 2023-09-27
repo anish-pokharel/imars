@@ -32,6 +32,7 @@ import { ContactUsComponent } from './shared/contact-us/contact-us.component';
 import { HttpClientModule } from '@angular/common/http';
 import { DatePipe } from '@angular/common';
 import { CookieService } from 'ngx-cookie-service';
+import { NepaldstinationsComponent } from './nepaldstinations/nepaldstinations.component';
 
 
 
@@ -63,7 +64,8 @@ import { CookieService } from 'ngx-cookie-service';
     AboutPageComponent,
     ServicesComponent,
     PeekDestinationComponent,
-    ContactUsComponent
+    ContactUsComponent,
+    NepaldstinationsComponent
   ],
   imports: [
     BrowserModule,

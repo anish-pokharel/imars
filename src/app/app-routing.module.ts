@@ -15,27 +15,27 @@ import { PaymentComponent } from './payment/payment.component';
 import { AdminRejectedComponent } from './admin-rejected/admin-rejected.component';
 import { AdminPendingComponent } from './admin-pending/admin-pending.component';
 import { AdminRegistrationComponent } from './admin-registration/admin-registration.component';
-import { authGuard } from './auth.guard';
+import { AuthGuard } from './auth.guard';
 const routes: Routes = [
   { path: 'home', component: HomeComponent },
   { path: 'login-page', component: LoginPageComponent },
-  { path: 'main-page', component: MainPageComponent },
   { path: 'registration-page', component: RegistrationPageComponent },
+  { path: 'main-page', component: MainPageComponent, canActivate: [AuthGuard] },
   // { path: 'booking-form/:busNumber', component: BookingFormComponent },
-  { path: 'booking-form/:BusNumber', component: BookingFormComponent },
+  { path: 'booking-form/:BusNumber', component: BookingFormComponent, canActivate: [AuthGuard] },
 
-  { path: 'booking-confirm', component: BookingConfirmComponent },
-  { path: 'bus-details', component: BusDetailsComponent },
-  { path: 'search', component: SearchComponent },
-  { path: 'client-dashboard', component: ClientDashboardComponent },
-  { path: 'admin-dashboard', component: AdminDashboardComponent },
+  { path: 'booking-confirm', component: BookingConfirmComponent, canActivate: [AuthGuard] },
+  { path: 'bus-details', component: BusDetailsComponent, canActivate: [AuthGuard] },
+  { path: 'search', component: SearchComponent, canActivate: [AuthGuard] },
+  { path: 'client-dashboard', component: ClientDashboardComponent, canActivate: [AuthGuard] },
+  { path: 'admin-dashboard', component: AdminDashboardComponent, canActivate: [AuthGuard] },
 
-  { path: 'comming-soon', component: CommingSoonComponent },
-  { path: 'payment', component: PaymentComponent },
-  { path: 'admin-accepted', component: AdminDashboardComponent },
-  { path: 'admin-rejected', component: AdminRejectedComponent },
-  { path: 'admin-pending', component: AdminPendingComponent },
-  { path: 'admin-registration', component: AdminRegistrationComponent },
+  { path: 'comming-soon', component: CommingSoonComponent, canActivate: [AuthGuard] },
+  { path: 'payment', component: PaymentComponent, canActivate: [AuthGuard] },
+  { path: 'admin-accepted', component: AdminDashboardComponent, canActivate: [AuthGuard] },
+  { path: 'admin-rejected', component: AdminRejectedComponent, canActivate: [AuthGuard] },
+  { path: 'admin-pending', component: AdminPendingComponent, canActivate: [AuthGuard] },
+  { path: 'admin-registration', component: AdminRegistrationComponent, canActivate: [AuthGuard] },
   // { path: 'payment', component: PaymentComponent },
   { path: '', component: HomeComponent },
   { path: '**', component: HomeComponent }

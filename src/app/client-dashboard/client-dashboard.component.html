@@ -10,14 +10,10 @@
         <div class="profile-header-cover"></div>
         <div class="profile-header-content">
           <div class="profile-header-img">
-            <img src="../assets/img/user/user-13.jpg" alt="" />
+            <img src="../assets/img/user/defaultuser.png" alt="" />
           </div>
           <div class="profile-header-info">
-            <h4 class="mt-0 mb-1">{{registerForm.Name}}</h4>
-            <p class="mb-2">UXUI + Frontend Developer</p>
-            <a href="#edit-profile" class="btn btn-xs btn-yellow"
-              >Edit Profile</a
-            >
+            <h4 class="mt-0 mb-1">{{ registerForm.Name }}</h4>
           </div>
         </div>
 
@@ -25,11 +21,6 @@
           <li class="nav-item">
             <a href="#profile" class="nav-link active" data-toggle="tab"
               >Password</a
-            >
-          </li>
-          <li class="nav-item">
-            <a href="#profile-about" class="nav-link" data-toggle="tab"
-              >About</a
             >
           </li>
           <li class="nav-item">
@@ -50,9 +41,10 @@
             <div class="card-body">
               <h5 class="card-title">Change Password</h5>
               <form
-              method="post"
-              (ngSubmit)="OnSubmit()"
-              action="/client-dashboard">
+                method="post"
+                (ngSubmit)="OnSubmit()"
+                action="/client-dashboard"
+              >
                 <div class="form-group">
                   <label for="currentPassword">Current Password:</label>
                   <input
@@ -89,46 +81,10 @@
                 >
                   Passwords do not match
                 </div>
-                <button type="submit" class="btn btn-primary" >
+                <button type="submit" class="btn btn-primary">
                   Change Password
                 </button>
               </form>
-            </div>
-          </div>
-        </div>
-
-        <div class="tab-pane fade" id="profile-about">
-          <div class="container">
-            <div class="row justify-content-center">
-              <div class="col-lg-6">
-                <div class="card">
-                  <img
-                    src="profile-image.jpg"
-                    class="card-img-top"
-                    alt="Profile Image"
-                  />
-                  <div class="card-body">
-                    <h5 class="card-title">John Doe</h5>
-                    <p class="card-text">
-                      Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                      Donec tincidunt urna sed eros tristique, id cursus elit
-                      efficitur.
-                    </p>
-                  </div>
-                  <ul class="list-group list-group-flush">
-                    <li class="list-group-item">
-                      <strong>Email:</strong> john.doe@example.com
-                    </li>
-                    <li class="list-group-item">
-                      <strong>Location:</strong> New York City, USA
-                    </li>
-                    <li class="list-group-item">
-                      <strong>Interests:</strong> Reading, Traveling,
-                      Photography
-                    </li>
-                  </ul>
-                </div>
-              </div>
             </div>
           </div>
         </div>
@@ -137,32 +93,21 @@
             <div class="row justify-content-center">
               <div class="col-lg-6">
                 <div class="card">
-                  <img
-                    src="profile-image.jpg"
-                    class="card-img-top"
-                    alt="Profile Image"
-                  />
-                  <div class="card-body" >
-                    <h5 class="card-title">{{registerForm.Name}}</h5>
-                    <!-- <p class="card-text">
-                      Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                      Donec tincidunt urna sed eros tristique, id cursus elit
-                      efficitur.
-                      
-                    </p> -->
+                  <div class="card-body">
+                    <h5 class="card-title">{{ registerForm.Name }}</h5>
                   </div>
                   <ul class="list-group list-group-flush">
                     <li class="list-group-item">
-                      <strong>Email:</strong> {{registerForm.Email}}
+                      <strong>Email:</strong> {{ registerForm.Email }}
                     </li>
                     <li class="list-group-item">
-                      <strong>Address:</strong> {{registerForm.Address}}
+                      <strong>Address:</strong> {{ registerForm.Address }}
                     </li>
                     <li class="list-group-item">
-                      <strong>Phone:</strong> {{registerForm.Phone}}
+                      <strong>Phone:</strong> {{ registerForm.Phone }}
                     </li>
                     <li class="list-group-item">
-                      <strong>Gender:</strong> {{registerForm.Gender}}
+                      <strong>Gender:</strong> {{ registerForm.Gender }}
                     </li>
                   </ul>
                 </div>
@@ -173,6 +118,7 @@
 
         <div class="tab-pane fade" id="Request">
           <div class="panel-body">
+            <h3>Pendig</h3>
             <table
               id="data-table-default"
               class="table table-striped table-bordered table-td-valign-middle"
@@ -180,7 +126,7 @@
               <thead>
                 <tr>
                   <th width="1%">SN</th>
-                  <th width="1%" data-orderable="false">IMG</th>
+                  <!-- <th width="1%" data-orderable="false">IMG</th> -->
                   <th class="text-nowrap">Bus Number</th>
                   <th class="text-nowrap">From</th>
                   <th class="text-nowrap">To</th>
@@ -189,19 +135,95 @@
                 </tr>
               </thead>
               <tbody>
-                <tr class="odd gradeX" *ngFor="let bookingForm of bookingForm; let i = index">
-                  <td width="1%" class="f-s-600 text-inverse">{{i+1}}</td>
-                  <td width="1%" class="with-img">
+                <tr
+                  class="odd gradeX"
+                  *ngFor="let bookingForm of bookingForm; let i = index"
+                >
+                  <td width="1%" class="f-s-600 text-inverse">{{ i + 1 }}</td>
+                  <!-- <td width="1%" class="with-img">
                     <img
                       src="../assets/img/user/user-1.jpg"
                       class="img-rounded height-30"
                     />
-                  </td>
-                  <td>{{bookingForm.BusNumber}}</td>
-                  <td>{{bookingForm.Origin}}</td>
-                  <td>{{bookingForm.Destination}}</td>
-                  <td>{{bookingForm.Price}}</td>
-                  <td>{{bookingForm.Decision}}</td>
+                  </td> -->
+                  <td>{{ bookingForm.BusNumber }}</td>
+                  <td>{{ bookingForm.Origin }}</td>
+                  <td>{{ bookingForm.Destination }}</td>
+                  <td>{{ bookingForm.Price }}</td>
+                  <td>{{ bookingForm.Decision }}</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <div class="panel-body">
+            <h3>Accepted Requests</h3>
+
+            <table
+              id="data-table-buttons"
+              class="table table-striped table-bordered table-td-valign-middle"
+            >
+              <thead>
+                <tr>
+                  <th width="1%">SN</th>
+                  <th class="text-nowrap">Bus Number</th>
+                  <th class="text-nowrap">From</th>
+                  <th class="text-nowrap">To</th>
+                  <th class="text-nowrap">Price</th>
+                  <th class="text-nowrap">Decision</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr
+                  class="odd gradeX"
+                  *ngFor="
+                    let acceptedrequest of acceptedrequests;
+                    let i = index
+                  "
+                >
+                  <td width="1%" class="f-s-600 text-inverse">{{ i + 1 }}</td>
+
+                  <td>{{ acceptedrequest.BusNumber }}</td>
+                  <td>{{ acceptedrequest.Origin }}</td>
+                  <td>{{ acceptedrequest.Destination }}</td>
+                  <td>{{ acceptedrequest.Price }}</td>
+                  <td>{{ acceptedrequest.Decision }}</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="panel-body">
+            <h3>Rejected Request</h3>
+
+            <table
+              id="data-table-buttons"
+              class="table table-striped table-bordered table-td-valign-middle"
+            >
+              <thead>
+                <tr>
+                  <th width="1%">SN</th>
+                  <th class="text-nowrap">Bus Number</th>
+                  <th class="text-nowrap">From</th>
+                  <th class="text-nowrap">To</th>
+                  <th class="text-nowrap">Price</th>
+                  <th class="text-nowrap">Decision</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr
+                  class="odd gradeX"
+                  *ngFor="
+                    let rejectedrequest of rejectedrequests;
+                    let i = index
+                  "
+                >
+                  <td width="1%" class="f-s-600 text-inverse">{{ i + 1 }}</td>
+
+                  <td>{{ rejectedrequest.BusNumber }}</td>
+                  <td>{{ rejectedrequest.Origin }}</td>
+                  <td>{{ rejectedrequest.Destination }}</td>
+                  <td>{{ rejectedrequest.Price }}</td>
+                  <td>{{ rejectedrequest.Decision }}</td>
                 </tr>
               </tbody>
             </table>

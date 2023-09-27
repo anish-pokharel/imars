@@ -1,7 +1,7 @@
 import { Component, OnInit, PLATFORM_ID } from '@angular/core';
-import { HttpClient,HttpErrorResponse, HttpHeaders } from '@angular/common/http';
+import { HttpClient, HttpErrorResponse, HttpHeaders } from '@angular/common/http';
 import { LoginPageComponent } from '../login-page/login-page.component';
-import { ActivatedRoute,Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import { CookieService } from 'ngx-cookie-service';
 
@@ -27,15 +27,17 @@ export class ClientDashboardComponent implements OnInit {
   //     "interests": "Technology, software development, programming languages"
   //   },];
   token: string = '';
-    bookingForm: any[] = [];
-    registerForm: any = {} ;
+  bookingForm: any[] = [];
+  registerForm: any = {};
+  acceptedrequests: any[] = [];
+  rejectedrequests: any[] = [];
 
 
 
- 
-  constructor(private http: HttpClient, private route: ActivatedRoute, private router : Router, private cookieService: CookieService) {}
+
+  constructor(private http: HttpClient, private route: ActivatedRoute, private router: Router, private cookieService: CookieService) { }
   ngOnInit(): void {
-    
+
     this.getTokenFromDatabase(); // Call the method to get the token from the database
     this.getData();
 
@@ -48,7 +50,7 @@ export class ClientDashboardComponent implements OnInit {
     }
 
   }
-  
+
   getData(): void {
     const token = this.cookieService.get('jwt');
     console.log('Token stored:', token);
@@ -60,9 +62,13 @@ export class ClientDashboardComponent implements OnInit {
         debugger
         this.bookingForm = response.bookingForm;
         this.registerForm = response.registeredUser;
+        this.acceptedrequests = response.acceptedrequests;
+        this.rejectedrequests = response.rejectedrequests;
         debugger
         console.log("bookingForm retrieved!", this.bookingForm);
         console.log("regsiterform retrieved!", this.registerForm);
+        console.log("acceptedrequests retrieved!", this.acceptedrequests);
+        console.log("rejectedrequests retrieved!", this.rejectedrequests);
         debugger
       },
       (error) => {
@@ -71,7 +77,7 @@ export class ClientDashboardComponent implements OnInit {
       }
     );
   }
-   OnSubmit() {
+  OnSubmit() {
     const token = this.cookieService.get('jwt');
     console.log('Token stored:', token);
     if (!token) {
@@ -84,20 +90,21 @@ export class ClientDashboardComponent implements OnInit {
         NewPassword: this.newPassword,
         ConfirmPassword: this.confirmPassword
       }, { withCredentials: true }).subscribe(
-      (response) => {
-        debugger
-      console.log('Password change successful!');
-      this.router.navigate(['./client-dashboard'])
-    },
-    (error) => {
-      console.error('Error changing password:', error);
-      debugger
-    }
-  );} else {
+        (response) => {
+          debugger
+          console.log('Password change successful!');
+          this.router.navigate(['./client-dashboard'])
+        },
+        (error) => {
+          console.error('Error changing password:', error);
+          debugger
+        }
+      );
+    } else {
       console.log('Passwords do not match');
     }
   }
 
 
-  
+
 }

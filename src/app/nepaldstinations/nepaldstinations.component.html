@@ -1,0 +1,44 @@
+<!-- nepal-destinations.component.html -->
+<div class="container">
+  <div class="row">
+    <!-- Left side with images -->
+    <div class="col-md-4">
+      <!-- <div class="row">
+        <div class="col-md-12">
+          <img
+            src="../../assets/img/bg/nepalimage.jpg"
+            alt="Image 1"
+            class="img-fluid"
+          />
+        </div>
+      </div> -->
+      <img
+        src="../../assets/img/bg/nepalimage.jpg"
+        alt="Image 1"
+        class="img-fluid"
+        style="border-radius: 5%"
+      />
+    </div>
+
+    <div class="col-md-8">
+      <h2>Cities in Nepal</h2>
+      <div class="row">
+        <div
+          class="col-md-2"
+          *ngFor="let destination of destinations; let i = index"
+        >
+          <ul>
+            <li>{{ destination }}</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<img
+  src="../../assets/img/bg/nepalvecotr3.jpg"
+  style="width: 100%; height: 50%"
+  alt=""
+  srcset=""
+/>
+<!-- src="../../assets/img/bg/nepalvectorig.jpg" -->
