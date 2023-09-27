@@ -3,6 +3,7 @@ import { HttpClient,HttpErrorResponse, HttpHeaders } from '@angular/common/http'
 import { LoginPageComponent } from '../login-page/login-page.component';
 import { ActivatedRoute,Router } from '@angular/router';
 import { FormsModule } from '@angular/forms';
+import { CookieService } from 'ngx-cookie-service';
 
 
 
@@ -32,7 +33,7 @@ export class ClientDashboardComponent implements OnInit {
 
 
  
-  constructor(private http: HttpClient, private route: ActivatedRoute, private router : Router) {}
+  constructor(private http: HttpClient, private route: ActivatedRoute, private router : Router, private cookieService: CookieService) {}
   ngOnInit(): void {
     
     this.getTokenFromDatabase(); // Call the method to get the token from the database
@@ -40,26 +41,21 @@ export class ClientDashboardComponent implements OnInit {
 
   }
   getTokenFromDatabase(): void {
-    const token = localStorage.getItem('token');
+    const token = this.cookieService.get('jwt');
     console.log('Token stored:', token);
     if (!token) {
       console.error('Token not found');
-      return;
     }
+
   }
   
   getData(): void {
-    const token = localStorage.getItem('token');
+    const token = this.cookieService.get('jwt');
     console.log('Token stored:', token);
-    debugger
-    let headers = new HttpHeaders();
-if (token) {
-  headers = headers.set("Authorization", token);
-}
-   debugger
-    console.log(headers);
-    debugger
-    this.http.get<any>('http://localhost:3000/client-dashboard', { headers : headers}).subscribe(
+    if (!token) {
+      console.error('Token not found');
+    }
+    this.http.get<any>('http://localhost:3000/client-dashboard', { withCredentials: true }).subscribe(
       (response) => {
         debugger
         this.bookingForm = response.bookingForm;
@@ -76,23 +72,18 @@ if (token) {
     );
   }
    OnSubmit() {
-    const token = localStorage.getItem('token');
+    const token = this.cookieService.get('jwt');
     console.log('Token stored:', token);
-    debugger
-    let headers = new HttpHeaders();
-if (token) {
-  headers = headers.set("Authorization", token);
-}
-   debugger
-    console.log(headers);
-    debugger
+    if (!token) {
+      console.error('Token not found');
+    }
     if (this.newPassword === this.confirmPassword) {
       debugger
       this.http.post('http://localhost:3000/client-dashboard', {
         CurrentPasswored: this.currentPassword,
         NewPassword: this.newPassword,
         ConfirmPassword: this.confirmPassword
-      }, {headers : headers}).subscribe(
+      }, { withCredentials: true }).subscribe(
       (response) => {
         debugger
       console.log('Password change successful!');
