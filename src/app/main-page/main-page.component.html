@@ -1,12 +1,20 @@
 <app-main-nav></app-main-nav>
-<div id="about-us-cover" class="has-bg section-container">
+<div
+  id="about-us-cover"
+  class="has-bg section-container"
+  style="background-color: black"
+>
   <div class="cover-bg">
-    <img src="../assets/img/Bus/Bus2_auto_x2.jpg" alt="" />
+    <!-- <img
+      src="../../assets/img/Bus/imarsbgimage.jpg"
+      class="w-100 h-auto"
+      alt=""
+    /> -->
   </div>
   <div class="container">
     <div class="about-us text-center">
       <h1>IMARS</h1>
-      <p>
+      <p class="text-white">
         This is online Bus Reservation online bus Reservation for the tour and
         some package. <br />
         Feel free to click and book the bus
@@ -35,6 +43,7 @@
                 <h5 class="card-title">{{ entry.title }}</h5>
                 <p class="card-text">{{ entry.paragraph }}</p>
                 <button
+                  id="buttondesign"
                   class="btn btn-primary"
                   (click)="navigateToPage(entry.button.text)"
                 >
