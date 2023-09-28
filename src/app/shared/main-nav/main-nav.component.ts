@@ -48,7 +48,7 @@ export class MainNavComponent implements OnInit {
       (response) => {
         this.router.navigate(['./home-page']);
         console.log('Logout successful', response);
-        alertify.success('Success message');
+        alertify.success('LogOut SucessFull');
 
       },
       (error) => {

@@ -90,24 +90,26 @@ export class BookingConfirmComponent implements OnInit {
       "productName": "Drogon",
       "productUrl": "http://gameofthrones.com/buy/Dragons",
       "eventHandler": {
-        onSuccess(payload:any) {
-          debugger
+        onSuccess: (payload: any) => {
+          debugger;
           console.log(payload);
-          debugger
-  //         this.http.post('http://localhost:3000/admin-dashboard', payload, { withCredentials: true }).subscribe(
-  //           (response:any) => {
-  //     debugger
-  //     console.log('Data saved successfully');
-  //   },
-  //   (error:any) => {
-  //     console.error('Error registering admin:', error);
-  //   }
-  // );
+          debugger;
+
+          // Access the http service within the arrow function
+          this.http.post('http://localhost:3000/khalti-callback', payload, { withCredentials: true }).subscribe(
+            (response: any) => {
+              debugger;
+              console.log('Data saved successfully');
+            },
+            (error: any) => {
+              console.error('Error registering admin:', error);
+            }
+          );
         },
-        onError(error: any) {
+        onError: (error: any) => {
           console.log(error);
         },
-        onClose() {
+        onClose: () => {
           console.log('widget is closing');
         }
       },
@@ -117,5 +119,7 @@ export class BookingConfirmComponent implements OnInit {
     const checkout = new KhaltiCheckout(config);
     checkout.show({ amount: 1000 });
   }
+
+
 
 }

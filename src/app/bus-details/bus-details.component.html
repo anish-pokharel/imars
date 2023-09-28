@@ -50,9 +50,7 @@
 <app-footer></app-footer>
 <ng-template #contentModal let-c="close" let-d="dismiss">
   <div class="modal-header">
-    <h4 class="modal-title" id="modal-basic-title">
-      This is the image of the Bus
-    </h4>
+    <h4 class="modal-title" id="modal-basic-title">Details</h4>
     <button
       type="button"
       class="btn-close"
@@ -78,56 +76,3 @@
     </button>
   </div>
 </ng-template>
-<!-- <ng-template #contentModal let-c="close" let-d="dismiss">
-  <div class="modal-header">
-    <h4 class="modal-title" id="modal-basic-title">Hi there!</h4>
-    <button
-      type="button"
-      class="btn-close"
-      aria-label="Close"
-      (click)="d('Cross click'); closeModal()"
-    ></button>
-  </div>
-  <div class="modal-body">
-    <div id="carouselExample" class="carousel slide" data-bs-ride="carousel">
-      <div class="carousel-inner">
-        <div class="carousel-item" *ngFor="let bus of data.buses">
-          <img
-            [src]="bus.img"
-            alt="Bus Image"
-            [class.d-block]="bus === selectedBusImage"
-            [class.d-none]="bus !== selectedBusImage"
-            class="modal-image"
-          />
-        </div>
-      </div>
-      <button
-        class="carousel-control-prev"
-        type="button"
-        data-bs-target="#carouselExample"
-        data-bs-slide="prev"
-      >
-        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-        <span class="visually-hidden">Previous</span>
-      </button>
-      <button
-        class="carousel-control-next"
-        type="button"
-        data-bs-target="#carouselExample"
-        data-bs-slide="next"
-      >
-        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-        <span class="visually-hidden">Next</span>
-      </button>
-    </div>
-  </div>
-  <div class="modal-footer">
-    <button
-      type="button"
-      class="btn btn-outline-dark"
-      (click)="c('Save click'); closeModal()"
-    >
-      Okay
-    </button>
-  </div>
-</ng-template> -->
