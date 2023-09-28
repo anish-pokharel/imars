@@ -28,18 +28,18 @@
       <div class="invoice-from">
         <h4>FROM</h4>
         <address class="m-t-5 m-b-5">
-          <strong class="text-inverse">{{ bookingForm.Origin }}</strong
+          <strong class="text-inverse">{{ booking.Origin }}</strong
           ><br />
-          <strong class="text-inverse">{{ bookingForm.BookingDate }}</strong>
+          <strong class="text-inverse">{{ booking.BookingDate }}</strong>
         </address>
       </div>
       <div class="invoice-to">
         <h4>TO</h4>
         <address class="m-t-5 m-b-5">
-          <strong class="text-inverse">{{ bookingForm.Destination }}</strong
+          <strong class="text-inverse">{{ booking.Destination }}</strong
           ><br />
           <strong class="text-inverse">{{
-            bookingForm.BookingEndingDate
+            booking.BookingEndingDate
           }}</strong>
         </address>
       </div>
@@ -49,7 +49,7 @@
 
         <div class="invoice-detail">
           <!-- #{{ bookingSlipNumber }}<br /> -->
-          #{{ busNumber }}<br />
+          #{{ booking.busNumber }}<br />
           Bus Booking slip
         </div>
       </div>
@@ -75,9 +75,9 @@
                   id sagittis arcu.
                 </small>
               </td>
-              <td class="text-center">{{ bookingForm.Veg }}</td>
-              <td class="text-center">{{ bookingForm.NonVeg }}</td>
-              <td class="text-right">{{ bookingForm.Price }}</td>
+              <td class="text-center">{{ booking.Veg }}</td>
+              <td class="text-center">{{ booking.NonVeg }}</td>
+              <td class="text-right">{{ booking.Price }}</td>
             </tr>
           </tbody>
         </table>
@@ -88,7 +88,7 @@
           <div class="invoice-price-row">
             <div class="sub-price">
               <small>Bus Book</small>
-              <span class="text-inverse">{{ bookingForm.Price }}</span>
+              <span class="text-inverse">{{ booking.Price }}</span>
             </div>
             <div class="sub-price">
               <i class="fa fa-plus text-muted"></i>
@@ -101,7 +101,7 @@
         </div>
         <div class="invoice-price-right">
           <small>TOTAL</small>
-          <span class="f-w-600">{{ bookingForm.Price }}</span>
+          <span class="f-w-600">{{ booking.Price }}</span>
         </div>
         <button class="btn btn-primary" (click)="makePayment()">Payment</button>
       </div>

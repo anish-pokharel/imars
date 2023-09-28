@@ -152,7 +152,7 @@ onSubmit(): void {
     // debugger
     console.log(request);
     debugger
-             this.http.post('http://localhost:3000/booking-form', request, { withCredentials: true }).subscribe(
+             this.http.post('http://localhost:3000/booking', request, { withCredentials: true }).subscribe(
             (response:any) => {
       debugger
       console.log('Accepted Data saved successfully');
@@ -188,7 +188,7 @@ onSubmit(): void {
     // debugger
     console.log(request);
     debugger
-    this.http.post('http://localhost:3000/booking-form', request, { withCredentials: true }).subscribe(
+    this.http.post('http://localhost:3000/booking', request, { withCredentials: true }).subscribe(
             (response:any) => {
       debugger
       console.log('Rejected Data saved successfully');
