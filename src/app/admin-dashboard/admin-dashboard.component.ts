@@ -5,6 +5,7 @@ import { CookieService } from 'ngx-cookie-service';
 import * as alertify from 'alertifyjs';
 
 
+
 @Component({
   selector: 'app-admin-dashboard',
   templateUrl: './admin-dashboard.component.html',
@@ -107,7 +108,7 @@ export class AdminDashboardComponent implements OnInit {
     // Make an HTTP request to save the data to the backend API
     this.http.post('http://localhost:3000/admin-dashboard', formData, { withCredentials: true }).subscribe(
       (response) => {
-        alertify.success("Bus Registered SucessFully")
+        alertify.success("Bus Registered SucessFully");
         debugger
         console.log(formData);
         debugger
