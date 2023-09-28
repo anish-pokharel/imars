@@ -31,6 +31,7 @@ export class ClientDashboardComponent implements OnInit {
   registerForm: any = {};
   acceptedRequests: any[] = [];
   rejectedRequests: any[] = [];
+  payment: any[] = [];
 
 
 
@@ -64,11 +65,13 @@ export class ClientDashboardComponent implements OnInit {
         this.registerForm = response.registeredUser;
         this.acceptedRequests = response.acceptedRequests;
         this.rejectedRequests = response.rejectedRequests;
+        this.payment = response.payment;
         debugger
         console.log("bookingForm retrieved!", this.bookingForm);
         console.log("regsiterform retrieved!", this.registerForm);
         console.log("acceptedrequests retrieved!", this.acceptedRequests);
         console.log("rejectedrequests retrieved!", this.rejectedRequests);
+        console.log("Payment retrieved!", this.payment);
         debugger
       },
       (error) => {
@@ -76,6 +79,16 @@ export class ClientDashboardComponent implements OnInit {
         debugger
       }
     );
+  }
+  CancelRequest() {
+    const token = this.cookieService.get('jwt');
+
+    if (!token) {
+      console.error('Token not found');
+      return;
+    }
+    debugger
+
   }
   OnSubmit() {
     const token = this.cookieService.get('jwt');

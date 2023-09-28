@@ -34,12 +34,26 @@
           </div>
         </div>
         <label class="control-label"
+        >Address <span class="text-danger">*</span></label
+      >
+      <div class="row m-b-15">
+        <div class="col-md-12">
+          <input
+            type="text"
+            class="form-control"
+            placeholder="Address"
+            formControlName="Address"
+            required
+          />
+        </div>
+      </div>
+        <label class="control-label"
           >Email <span class="text-danger">*</span></label
         >
         <div class="row m-b-15">
           <div class="col-md-12">
             <input
-              type="text"
+              type="email"
               class="form-control"
               placeholder="Email address"
               formControlName="Email"
@@ -47,27 +61,14 @@
             />
           </div>
         </div>
-        <label class="control-label"
-          >Address <span class="text-danger">*</span></label
-        >
-        <div class="row m-b-15">
-          <div class="col-md-12">
-            <input
-              type="text"
-              class="form-control"
-              placeholder="Address"
-              formControlName="Address"
-              required
-            />
-          </div>
-        </div>
+       
         <label class="control-label"
           >Phone Number <span class="text-danger">*</span></label
         >
         <div class="row m-b-15">
           <div class="col-md-12">
             <input
-              type="tel"
+              type="number"
               class="form-control"
               placeholder="Phone-Number"
               formControlName="Phone"
@@ -97,15 +98,6 @@
                 required
               />
               Male
-            </label>
-            <label>
-              <input
-                type="radio"
-                formControlName="Gender"
-                value="Other"
-                required
-              />
-              Other
             </label>
           </div>
         </div>
@@ -138,7 +130,17 @@
             />
           </div>
         </div>
-
+        <!-- <div class="checkbox checkbox-css m-b-30">
+          <div class="checkbox checkbox-css m-b-30">
+            <input type="checkbox" id="agreement_checkbox" value="" />
+            <label for="agreement_checkbox">
+              By clicking Sign Up, you agree to our
+              <a href="">Terms</a> and that you have read our
+              <a href="">Data Policy</a>, including our
+              <a href="">Cookie Use</a>.
+            </label>
+</div>
+</div> -->
         <div class="register-buttons">
           <button type="submit" class="btn btn-primary btn-block btn-lg">
             <!-- [disabled]="registerForm.invalid" -->

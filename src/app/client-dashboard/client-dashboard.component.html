@@ -135,6 +135,8 @@
                   <th class="text-nowrap">To</th>
                   <th class="text-nowrap">Price</th>
                   <th class="text-nowrap">Decision</th>
+                  <th class="text-nowrap">Cancel Booking</th>
+                  <!-- (click)="CancelRequest(request)" -->
                 </tr>
               </thead>
               <tbody>
@@ -154,6 +156,13 @@
                   <td>{{ bookingForm.Destination }}</td>
                   <td>{{ bookingForm.Price }}</td>
                   <td>{{ bookingForm.Decision }}</td>
+                  <td>
+                    <a
+                      class="btn btn-sm btn-white width-60"
+                      (click)="CancelRequest()"
+                      >Cancel Request</a
+                    >
+                  </td>
                 </tr>
               </tbody>
             </table>
