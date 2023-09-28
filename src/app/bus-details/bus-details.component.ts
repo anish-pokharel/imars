@@ -23,8 +23,8 @@ export class BusDetailsComponent implements OnInit {
   isModalOpen: boolean = false;
   param: any;
   selectedBusImage!: string;
-  buses: any[] = [];
-
+  availableBuses: any[] = [];
+  notAvailableBuses: any[]=[];
 
   constructor(
     private modalService: NgbModal,
@@ -52,9 +52,13 @@ export class BusDetailsComponent implements OnInit {
     this.http.get<any>('http://localhost:3000/bus-details').subscribe(
       (response) => {
         debugger
-        this.buses = response.bus;
+
+        this.availableBuses = response.availableBuses;
+        this.notAvailableBuses = response.notAvailableBuses;
+      
         debugger
-        console.log("bus retrieved!!", this.buses)
+        console.log("Available Buses!!", this.availableBuses);
+        console.log("Not Available Buses!!", this.notAvailableBuses);
         debugger
         // Perform any necessary operations with the fetched contacts
       },

@@ -1,6 +1,6 @@
 <app-main-nav></app-main-nav>
 <div class="row row-cols-1 row-cols-md-3 g-4 mx-3 my-3">
-  <div class="col-lg-3 my-2" *ngFor="let bus of buses; let i = index">
+  <div class="col-lg-3 my-2" *ngFor="let bus of availableBuses; let i = index">
     <div class="card h-100 d-flex flex-column justify-content-between">
       <img [src]="bus.image" class="card-img-top" [alt]="'Bus-' + (i + 1)" />
       <div class="card-body d-flex flex-column justify-content-center">
@@ -41,7 +41,7 @@
         >
       </div> -->
       <div class="card-footer d-flex justify-content-center">
-        <small class="text-light">Bus Not Available</small>
+        <small class="text-light">{{bus.status}}</small>
       </div>
     </div>
   </div>
