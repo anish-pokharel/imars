@@ -15,8 +15,9 @@ export class BookingConfirmComponent implements OnInit {
   currentDate: string | undefined;
   bookingSlipNumber: number = 1;
   token: string = '';
-  bookingForm: any = {};
-  busNumber: string | null = null;
+  booking:any= {};
+  // bookingForm: any = {};
+  // busNumber: string | null = null;
 
 
   constructor(private datePipe: DatePipe, private http: HttpClient,
@@ -29,9 +30,6 @@ export class BookingConfirmComponent implements OnInit {
     this.currentDate = formattedDate || '';
     this.getTokenFromDatabase();
     this.getContacts();
-    this.route.paramMap.subscribe(params => {
-      this.busNumber = params.get('busNumber');
-    });
   }
   incrementBookingSlipNumber(): void {
     this.bookingSlipNumber++;
@@ -54,9 +52,9 @@ export class BookingConfirmComponent implements OnInit {
     this.http.get<any>('http://localhost:3000/booking-confirm', { withCredentials: true }).subscribe(
       (response) => {
         debugger
-        this.bookingForm = response.bookingForm;
+        this.booking = response.booking;
         debugger
-        console.log("slip retrieved!!", this.bookingForm);
+        console.log("slip retrieved!!", this.booking);
         debugger
         // Perform any necessary operations with the fetched contacts
       },
