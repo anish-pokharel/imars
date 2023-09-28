@@ -162,10 +162,14 @@ export class AdminDashboardComponent implements OnInit {
       (response: any) => {
         debugger
         console.log('Accepted Data saved successfully');
+        window.location.reload();
       },
       (error: any) => {
         console.error('Error saving data:', error);
+        window.location.reload();
+
       }
+
     );
 
     // // Remove the request from the bookingForm array
@@ -198,9 +202,13 @@ export class AdminDashboardComponent implements OnInit {
       (response: any) => {
         debugger
         console.log('Rejected Data saved successfully');
+        window.location.reload();
+
       },
       (error: any) => {
         console.error('Error saving data:', error);
+        window.location.reload();
+
       }
     );
 

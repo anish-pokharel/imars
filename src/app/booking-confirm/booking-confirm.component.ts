@@ -2,8 +2,11 @@ import { DatePipe } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import KhaltiCheckout from "khalti-checkout-web";
 import { HttpHeaders, HttpClient } from '@angular/common/http';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { CookieService } from 'ngx-cookie-service';
+import * as alertify from 'alertifyjs';
+
+
 
 @Component({
   selector: 'app-booking-confirm',
@@ -15,12 +18,14 @@ export class BookingConfirmComponent implements OnInit {
   currentDate: string | undefined;
   bookingSlipNumber: number = 1;
   token: string = '';
-  booking:any= {};
+  booking: any = {};
   // bookingForm: any = {};
   // busNumber: string | null = null;
 
 
   constructor(private datePipe: DatePipe, private http: HttpClient,
+    private router: Router,
+
     private route: ActivatedRoute, private cookieService: CookieService
   ) { }
 
@@ -93,6 +98,12 @@ export class BookingConfirmComponent implements OnInit {
         onSuccess: (payload: any) => {
           debugger;
           console.log(payload);
+          alertify.success("payment sucess")
+          alertify
+            .alert("payment sucess.", function () {
+              alertify.message('OK');
+            });
+          this.router.navigate(['/client-dashboard']);
           debugger;
 
           // Access the http service within the arrow function
@@ -108,6 +119,11 @@ export class BookingConfirmComponent implements OnInit {
         },
         onError: (error: any) => {
           console.log(error);
+          alertify
+            .alert("payment Failed.", function () {
+              alertify.message('OK');
+            });
+          alertify.error("Payment Failed")
         },
         onClose: () => {
           console.log('widget is closing');
