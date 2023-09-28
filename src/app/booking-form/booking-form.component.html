@@ -6,12 +6,9 @@
         <div class="col-md-7 col-sm-7">
           <div class="booking-cta">
             <h1>Make your reservation</h1>
-            <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Animi
-              facere, soluta magnam consectetur molestias itaque ad sint fugit
-              architecto incidunt iste culpa perspiciatis possimus voluptates
-              aliquid consequuntur cumque quasi. Perspiciatis.
-            </p>
+            <!-- <p>
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Animi facere, soluta magnam consectetur molestias itaque ad sint fugit architecto incidunt iste culpa perspiciatis possimus voluptates aliquid consequuntur cumque quasi. Perspiciatis.
+                        </p> -->
           </div>
         </div>
 
@@ -29,6 +26,7 @@
                       (change)="calculateDistance()"
                       [(ngModel)]="Origin"
                       name="origin"
+                      required
                     >
                       <option value="">Select an Origin Place</option>
                       <option
@@ -359,6 +357,7 @@
                       [(ngModel)]="Destination"
                       name="destination"
                       (change)="calculateDistance()"
+                      required
                     >
                       <option value="">Select an Origin Place</option>
 
@@ -701,6 +700,7 @@
                       class="form-control"
                       type="date"
                       [min]="minBookingDate"
+                      max="{{ maxBookingDate }}"
                       [(ngModel)]="BookingDate"
                       (ngModelChange)="updateMinEndingDate()"
                       name="bookingDate"
@@ -716,6 +716,7 @@
                       class="form-control"
                       type="date"
                       [min]="minEndingDate"
+                      max="{{ maxBookingEDate }}"
                       [(ngModel)]="BookingEndingDate"
                       name="endingDate"
                       required
@@ -734,6 +735,7 @@
                       [(ngModel)]="vegQuantity"
                       name="vegQuantity"
                       placeholder="Enter quantity for Veg"
+                      [min]="0"
                     />
                   </div>
                 </div>
@@ -747,6 +749,7 @@
                       [(ngModel)]="nonVegQuantity"
                       name="nonVegQuantity"
                       placeholder="Enter quantity for Non-Veg"
+                      [min]="0"
                     />
                   </div>
                 </div>

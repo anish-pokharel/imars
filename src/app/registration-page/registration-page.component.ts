@@ -19,9 +19,8 @@ export class RegistrationPageComponent implements OnInit {
       Address: ['', Validators.required],
       Phone: ['', Validators.required],
       Gender: [false, Validators.requiredTrue],
-      Password: ['', Validators.required],
+      Password: ['', [Validators.required, Validators.minLength(6)]],
       ConfirmPassword: ['', Validators.required],
-      //AgreementCheckbox: [false, Validators.requiredTrue]
     });
   }
 
@@ -58,6 +57,7 @@ export class RegistrationPageComponent implements OnInit {
       alert('Passwords do not match');
     }
   }
+
   ngOnInit(): void {
 
   }

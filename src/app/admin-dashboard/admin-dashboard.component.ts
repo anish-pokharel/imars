@@ -212,11 +212,7 @@ export class AdminDashboardComponent implements OnInit {
       }
     );
 
-    // // Remove the request from the bookingForm array
-    // const index = this.bookingForm.indexOf(request);
-    // if (index !== -1) {
-    //   this.bookingForm.splice(index, 1);
-    // }
+
   }
 
 
