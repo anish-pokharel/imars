@@ -4,4 +4,13 @@
     height: 80px;
     font-size: 20px;
     /* Add any additional styles you want for the larger navbar */
-  }
+}
+
+#navdesign {
+    color: black;
+}
+
+#navdesign:hover {
+    color: rgb(232, 111, 111);
+    background-color: black;
+}

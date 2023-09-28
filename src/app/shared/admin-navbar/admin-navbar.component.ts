@@ -1,16 +1,17 @@
-import { Component , OnInit} from '@angular/core';
-import {HttpHeaders, HttpClient } from '@angular/common/http';
+import { Component, OnInit } from '@angular/core';
+import { HttpHeaders, HttpClient } from '@angular/common/http';
 import { CookieService } from 'ngx-cookie-service';
 import { Router } from '@angular/router';
+import * as alertify from 'alertifyjs';
 
 @Component({
   selector: 'app-admin-navbar',
   templateUrl: './admin-navbar.component.html',
   styleUrls: ['./admin-navbar.component.scss']
 })
-export class AdminNavbarComponent implements OnInit{
+export class AdminNavbarComponent implements OnInit {
   token: string = '';
-  constructor(private http: HttpClient, private cookieService: CookieService,private router: Router) { }
+  constructor(private http: HttpClient, private cookieService: CookieService, private router: Router) { }
 
   ngOnInit(): void {
     this.getTokenFromDatabase(); // Call the method to get the token from the database
@@ -32,13 +33,16 @@ export class AdminNavbarComponent implements OnInit{
       console.error('Token not found');
       return;
     }
-    this.http.get<any>('http://localhost:3000/logout',{withCredentials:true}).subscribe(
+    this.http.get<any>('http://localhost:3000/logout', { withCredentials: true }).subscribe(
       (response) => {
         this.router.navigate(['./home-page']);
+        alertify.success("Admin Logout")
         console.log('Logout successful', response);
-        },
+      },
       (error) => {
         console.error('Error logging out', error);
+        alertify.error("Admin Logout Failed")
+
       }
     );
   }
