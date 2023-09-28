@@ -34,12 +34,26 @@
           </div>
         </div>
         <label class="control-label"
+        >Address <span class="text-danger">*</span></label
+      >
+      <div class="row m-b-15">
+        <div class="col-md-12">
+          <input
+            type="text"
+            class="form-control"
+            placeholder="Address"
+            formControlName="Address"
+            required
+          />
+        </div>
+      </div>
+        <label class="control-label"
           >Email <span class="text-danger">*</span></label
         >
         <div class="row m-b-15">
           <div class="col-md-12">
             <input
-              type="text"
+              type="email"
               class="form-control"
               placeholder="Email address"
               formControlName="Email"
@@ -47,27 +61,14 @@
             />
           </div>
         </div>
-        <label class="control-label"
-          >Address <span class="text-danger">*</span></label
-        >
-        <div class="row m-b-15">
-          <div class="col-md-12">
-            <input
-              type="text"
-              class="form-control"
-              placeholder="Address"
-              formControlName="Address"
-              required
-            />
-          </div>
-        </div>
+       
         <label class="control-label"
           >Phone Number <span class="text-danger">*</span></label
         >
         <div class="row m-b-15">
           <div class="col-md-12">
             <input
-              type="text"
+              type="number"
               class="form-control"
               placeholder="Phone-Number"
               formControlName="Phone"
