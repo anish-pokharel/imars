@@ -1,48 +1,9 @@
 <app-admin-navbar></app-admin-navbar>
-<!-- <div id="sidebar" class="sidebar">
-  <div data-scrollbar="true" data-height="100%">
-    <ul class="nav">
-      <li class="nav-profile">
-        <a href="javascript:;" data-toggle="nav-profile">
-          <div class="cover with-shadow"></div>
-          <div class="image">
-            <img src="../assets/img/user/user-13.jpg" alt="" />
-          </div>
-          <div class="info">
-            <b class="caret pull-right"></b>Sean Ngu
-            <small>Front end developer</small>
-          </div>
-        </a>
-      </li>
-      <li>
-        <ul class="nav nav-profile">
-          <li>
-            <a href="javascript:;"><i class="fa fa-cog"></i> Settings</a>
-          </li>
-          <li>
-            <a href="javascript:;"
-              ><i class="fa fa-pencil-alt"></i> Send Feedback</a
-            >
-          </li>
-          <li>
-            <a href="javascript:;"
-              ><i class="fa fa-question-circle"></i> Helps</a
-            >
-          </li>
-        </ul>
-      </li>
-    </ul>
-  </div>
-</div> -->
 
 <div id="sidebar" class="sidebar">
   <div data-scrollbar="true" data-height="100%">
     <li class="nav-header cursordesign text-white">Navigation</li>
     <ul class="nav pointer" cursordesign>
-      <!-- <li class="nav-header cursordesign">Navigation</li> -->
-      <li class="has-sub cursordesign">
-        <a class="pointer" (click)="showSection('basic')">Basic Info</a>
-      </li>
       <li class="has-sub cursordesign">
         <a class="pointer" (click)="showSection('accepted')">Accepted</a>
       </li>
@@ -67,65 +28,6 @@
 <div class="sidebar-bg"></div>
 
 <div class="content">
-  <div *ngIf="currentSection === 'basic'">
-    <h2>Basic Info</h2>
-    <div class="row">
-      <!-- begin col-3 -->
-      <div class="col-xl-6 col-md-6">
-        <div class="widget widget-stats bg-teal">
-          <div class="stats-icon stats-icon-lg">
-            <i class="fa fa-bus fa-fw"></i>
-          </div>
-          <div class="stats-content">
-            <div class="stats-title">Accepted</div>
-            <div class="stats-number">123</div>
-
-            <div class="stats-desc">Better than last week (70.1%)</div>
-          </div>
-        </div>
-      </div>
-
-      <div class="col-xl-6 col-md-6">
-        <div class="widget widget-stats bg-blue">
-          <div class="stats-icon stats-icon-lg">
-            <i class="fa fa-place fa-fw"></i>
-          </div>
-          <div class="stats-content">
-            <div class="stats-title">Rejected</div>
-            <div class="stats-number">180,200</div>
-
-            <div class="stats-desc">Better than last week (40.5%)</div>
-          </div>
-        </div>
-      </div>
-      <div class="col-xl-6 col-md-6">
-        <div class="widget widget-stats bg-indigo">
-          <div class="stats-icon stats-icon-lg">
-            <i class="fa fa-archive fa-fw"></i>
-          </div>
-          <div class="stats-content">
-            <div class="stats-title">Pending</div>
-            <div class="st.+-------ats-number">38,900</div>
-
-            <div class="stats-desc">Better than last week (76.3%)</div>
-          </div>
-        </div>
-      </div>
-      <div class="col-xl-6 col-md-6">
-        <div class="widget widget-stats bg-dark">
-          <div class="stats-icon stats-icon-lg">
-            <i class="fa fa-comment-alt fa-fw"></i>
-          </div>
-          <div class="stats-content">
-            <div class="stats-title">Buses Available</div>
-            <div class="stats-number">3,988</div>
-
-            <div class="stats-desc">Better than last week (54.9%)</div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
   <div *ngIf="currentSection === 'accepted'">
     <h2>Accepted</h2>
     <div class="col-xl-12">
@@ -139,7 +41,7 @@
             <table class="table table-striped m-b-0">
               <thead>
                 <tr>
-                  <th>#</th>
+                  <th>SN</th>
 
                   <th>Bus Number</th>
                   <th>Email Address</th>
@@ -149,13 +51,8 @@
                 </tr>
               </thead>
               <tbody>
-                <tr *ngFor="let accepted of acceptedRequests">
-                  <td class="with-img">
-                    <img
-                      src="../assets/img/user/user-1.jpg"
-                      class="img-rounded height-30"
-                    />
-                  </td>
+                <tr *ngFor="let accepted of acceptedRequests; let i = index">
+                  <td>{{ i + 1 }}</td>
                   <td>{{ accepted.BusNumber }}</td>
                   <td>{{ accepted.Email }}</td>
                   <td>{{ accepted.Origin }}</td>
@@ -182,7 +79,7 @@
             <table class="table table-striped m-b-0">
               <thead>
                 <tr>
-                  <th>#</th>
+                  <th>SN</th>
 
                   <th>Name</th>
                   <th>Email</th>
@@ -190,8 +87,8 @@
                 </tr>
               </thead>
               <tbody>
-                <tr *ngFor="let contact of contacts">
-                  <td></td>
+                <tr *ngFor="let contact of contacts; let i = index">
+                  <td>{{ i + 1 }}</td>
                   <td>{{ contact.Name }}</td>
                   <td>{{ contact.Email }}</td>
                   <td>{{ contact.Message }}</td>
@@ -328,7 +225,7 @@
             <table class="table table-striped m-b-0">
               <thead>
                 <tr>
-                  <th>#</th>
+                  <th>SN</th>
                   <th>BusNumber</th>
                   <th>Email Address</th>
                   <th>From</th>
@@ -338,12 +235,9 @@
                 </tr>
               </thead>
               <tbody>
-                <tr *ngFor="let request of bookingForm">
+                <tr *ngFor="let request of bookingForm; let i = index">
                   <td class="with-img">
-                    <img
-                      src="../assets/img/user/user-1.jpg"
-                      class="img-rounded height-30"
-                    />
+                    {{ i + 1 }}
                   </td>
                   <td>{{ request.BusNumber }}</td>
                   <td>{{ request.Email }}</td>
@@ -383,7 +277,7 @@
             <table class="table table-striped m-b-0">
               <thead>
                 <tr>
-                  <th>#</th>
+                  <th>SN</th>
                   <th>BusNumber</th>
                   <th>Email Address</th>
                   <th>From</th>
@@ -391,13 +285,8 @@
                 </tr>
               </thead>
               <tbody>
-                <tr *ngFor="let request of rejectedRequests">
-                  <td class="with-img">
-                    <img
-                      src="../assets/img/user/user-1.jpg"
-                      class="img-rounded height-30"
-                    />
-                  </td>
+                <tr *ngFor="let request of rejectedRequests; let i = index">
+                  <!-- <td class="with-img">{{ i + 1 }}</td> -->
                   <td>{{ request.BusNumber }}</td>
                   <td>{{ request.Email }}</td>
                   <td>{{ request.Origin }}</td>

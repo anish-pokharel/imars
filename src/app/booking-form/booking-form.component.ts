@@ -334,7 +334,9 @@ export class BookingFormComponent implements OnInit {
   BookingDate: string | undefined;
   BookingEndingDate: string | undefined;
   minBookingDate: string | undefined;
+  maxBookingDate: string | undefined;
   minEndingDate: string | undefined;
+  maxBookingEDate: string | undefined;
   Price: number | undefined;
   otpValue: string = '';
   selectedFood: { type: string, price: number } | null = null;
@@ -376,6 +378,37 @@ export class BookingFormComponent implements OnInit {
     //   this.busNumber = params.get('busNumber');
     // });
   }
+  // ngOnInit(): void {
+  //   this.route.paramMap.subscribe(params => {
+  //     this.busNumber = params.get('BusNumber'); // Use 'BusNumber' with the same case as in your route configuration.
+  //     console.log('Bus Number:', this.busNumber);
+  //   });
+  //   // Call your token retrieval method here
+  //   this.getTokenFromDatabase();
+
+  //   const today = new Date();
+  //   today.setDate(today.getDate() + 2); // Booking date should start from 2 days after the current date
+
+  //   // Set the "Booking Date" to exactly 2 days from the current date
+  //   this.BookingDate = this.formatDate(today);
+
+  //   // Set the "Booking Ending Date" to one day ahead of the "Booking Date" by default
+  //   const defaultEndingDate = new Date(today);
+  //   defaultEndingDate.setDate(defaultEndingDate.getDate() + 1); // Default duration of 1 day
+  //   this.BookingEndingDate = this.formatDate(defaultEndingDate);
+
+  //   const maxBookingDate = new Date();
+  //   const maxBookingEDate = new Date();
+  //   maxBookingDate.setDate(maxBookingDate.getDate() + 15); // Maximum booking date is 15 days in the future
+  //   maxBookingEDate.setDate(maxBookingDate.getDate() + 45); // Maximum booking date is 15 days in the future
+
+  //   this.minBookingDate = this.formatDate(today);
+  //   this.maxBookingDate = this.formatDate(maxBookingDate);
+
+  //   this.minEndingDate = this.formatDate(defaultEndingDate);
+
+  //   this.calculateDistance();
+  // }
 
   getTokenFromDatabase(): void {
     const token = this.cookieService.get('jwt');

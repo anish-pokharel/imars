@@ -1,6 +1,10 @@
 <app-main-nav></app-main-nav>
 <div id="content" class="content">
-  <h1 class="page-header hidden-print">Invoice <small>...</small></h1>
+  <h1 class="page-header text-center hidden-print">
+    IMARS <br />
+    VAT NO:303030303
+  </h1>
+  Invoice <small>...</small> <br />
   <div class="invoice">
     <div class="invoice-company">
       <span class="pull-right hidden-print">
@@ -21,7 +25,7 @@
           <i class="fa fa-print t-plus-1 fa-fw fa-lg"></i> Print
         </a>
       </span>
-      IMARS
+      <!-- <h1>IMARS</h1> -->
     </div>
 
     <div class="invoice-header">
@@ -38,9 +42,7 @@
         <address class="m-t-5 m-b-5">
           <strong class="text-inverse">{{ booking.Destination }}</strong
           ><br />
-          <strong class="text-inverse">{{
-            booking.BookingEndingDate
-          }}</strong>
+          <strong class="text-inverse">{{ booking.BookingEndingDate }}</strong>
         </address>
       </div>
       <div class="invoice-date">
@@ -60,23 +62,22 @@
         <table class="table table-invoice">
           <thead>
             <tr>
-              <th>TASK DESCRIPTION</th>
-              <th class="text-center" width="10%">Veg Food</th>
-              <th class="text-center" width="10%">Non Veg Food</th>
+              <th>Bus Pending</th>
+              <!-- <th class="text-center" width="10%">Veg Food</th>
+              <th class="text-center" width="10%">Non Veg Food</th> -->
+              <th class="text-right" width="20%">Booked Email</th>
               <th class="text-right" width="20%">TOTAL</th>
             </tr>
           </thead>
           <tbody>
             <tr>
               <td>
-                <span class="text-inverse"> Bus Booking </span><br />
-                <small>
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed
-                  id sagittis arcu.
-                </small>
+                <span class="text-inverse"> <strong> Bus Booking</strong> </span
+                ><br />
               </td>
-              <td class="text-center">{{ booking.Veg }}</td>
-              <td class="text-center">{{ booking.NonVeg }}</td>
+              <!-- <td class="text-center">{{ booking.Veg }}</td> -->
+              <!-- <td class="text-center">{{ booking.NonVeg }}</td> -->
+              <td class="text-right">{{ booking.Email }}</td>
               <td class="text-right">{{ booking.Price }}</td>
             </tr>
           </tbody>
@@ -87,16 +88,14 @@
         <div class="invoice-price-left">
           <div class="invoice-price-row">
             <div class="sub-price">
-              <small>Bus Book</small>
+              <small>Bus Book with Food cost </small>
               <span class="text-inverse">{{ booking.Price }}</span>
             </div>
-            <div class="sub-price">
-              <i class="fa fa-plus text-muted"></i>
-            </div>
-            <div class="sub-price">
+
+            <!-- <div class="sub-price">
               <small>FOOD</small>
               <span class="text-inverse">108.00</span>
-            </div>
+            </div> -->
           </div>
         </div>
         <div class="invoice-price-right">
@@ -107,19 +106,19 @@
       </div>
     </div>
     <div class="invoice-note">
-      * Make all cheques payable tr /> * Payment is due within 30 days<br />
-      * If you have any questions concerning this invoice, contact [Name, Phone
-      Number, Email]
+      * Refund is alailable through manual process.<br />* Payment is due within
+      30 days<br />
+      * Veg Food cost 150 and Non-veg cost 200.
     </div>
 
     <div class="invoice-footer">
-      <p class="text-center m-b-5 f-w-600">THANK YOU FOR YOUR BUSINESS</p>
+      <p class="text-center m-b-5 f-w-600">THANK YOU FOR BOOKING BUS</p>
       <p class="text-center">
         <span class="m-r-10"
           ><i class="fa fa-fw fa-lg fa-globe"></i> IMARS.com</span
         >
         <span class="m-r-10"
-          ><i class="fa fa-fw fa-lg fa-phone-volume"></i> T:123456789</span
+          ><i class="fa fa-fw fa-lg fa-phone-volume"></i> 9898989898</span
         >
         <span class="m-r-10"
           ><i class="fa fa-fw fa-lg fa-envelope"></i> imars@gmail.com</span
@@ -128,4 +127,5 @@
     </div>
   </div>
 </div>
+
 <app-footer></app-footer>
