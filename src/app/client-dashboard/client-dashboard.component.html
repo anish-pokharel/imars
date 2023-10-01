@@ -43,7 +43,8 @@
           <div class="card">
             <div class="card-body">
               <h5 class="card-title">Change Password</h5>
-              <form
+              <p><strong>Comming soons</strong></p>
+              <!-- <form
                 method="post"
                 (ngSubmit)="OnSubmit()"
                 action="/client-dashboard"
@@ -87,7 +88,7 @@
                 <button type="submit" class="btn btn-primary">
                   Change Password
                 </button>
-              </form>
+              </form> -->
             </div>
           </div>
         </div>
@@ -243,23 +244,23 @@
         </div>
         <div class="tab-pane fade show active" show active id="payments">
           <div class="card">
-            <div class="card-body">
+            <div class="card-body" *ngFor="let payment of payment; let i = index">
               <h5 class="card-title">Payments</h5>
               <table class="table">
                 <thead class="thead-dark">
                   <tr>
                     <th scope="col">SN</th>
-                    <th scope="col">Email</th>
+                    <th scope="col">Reference Number</th>
                     <th scope="col">Phone Number</th>
                     <th scope="col">Amount</th>
                   </tr>
                 </thead>
                 <tbody>
                   <tr>
-                    <th scope="row">1</th>
-                    <td>Mark</td>
-                    <td>Otto</td>
-                    <td>@mdo</td>
+                    <th scope="row">{{i+1}}</th>
+                    <td>{{payment.idx}}</td>
+                    <td>{{payment.mobile}}</td>
+                    <td>{{payment.amount}}</td>
                   </tr>
                 </tbody>
               </table>

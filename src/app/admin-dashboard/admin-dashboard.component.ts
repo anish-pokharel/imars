@@ -163,11 +163,11 @@ export class AdminDashboardComponent implements OnInit {
       (response: any) => {
         debugger
         console.log('Accepted Data saved successfully');
-        window.location.reload();
+        //  window.location.reload();
       },
       (error: any) => {
         console.error('Error saving data:', error);
-        window.location.reload();
+        //  window.location.reload();
 
       }
 
@@ -178,6 +178,8 @@ export class AdminDashboardComponent implements OnInit {
     // if (index !== -1) {
     //   this.bookingForm.splice(index, 1);
     // }
+
+    
   }
 
   // Function to reject a request and move it to the "Rejected" section
@@ -203,12 +205,12 @@ export class AdminDashboardComponent implements OnInit {
       (response: any) => {
         debugger
         console.log('Rejected Data saved successfully');
-        window.location.reload();
+        // window.location.reload();
 
       },
       (error: any) => {
         console.error('Error saving data:', error);
-        window.location.reload();
+        // window.location.reload();
 
       }
     );

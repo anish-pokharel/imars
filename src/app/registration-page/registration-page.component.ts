@@ -18,8 +18,8 @@ export class RegistrationPageComponent implements OnInit {
       Name: [''],
       Email: [''],
       Address: [''],
-      Phone: [0],
-      Gender: [false],
+      Phone: [ ],
+      Gender: [''],
       Password: [''],
       ConfirmPassword: [''],
       //AgreementCheckbox: [false, Validators.requiredTrue]
@@ -32,7 +32,8 @@ export class RegistrationPageComponent implements OnInit {
      
       if(this.registerForm.value.Password === this.registerForm.value.ConfirmPassword){
         console.log('Password matched');
-        if( this.registerForm.value.Phone>0){
+        const regex=/^9\d{9}$/;
+        if( regex.test(this.registerForm.value.Phone) ){
           // if (!this.registerForm.invalid) {
           //   alert("Please enter valid information.");
           //   return;
@@ -57,7 +58,7 @@ export class RegistrationPageComponent implements OnInit {
             }
           );
         }else{
-            alert("Mobile Number must be 10 digits and not zero");
+            alert("Mobile Number must be 10 digits starting from 9");
         }
       }
       else{

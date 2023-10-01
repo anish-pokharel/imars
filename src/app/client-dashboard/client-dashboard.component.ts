@@ -88,13 +88,26 @@ export class ClientDashboardComponent implements OnInit {
       return;
     }
     debugger
+    this.http.get('http://localhost:3000/client_dashboard',  { withCredentials: true }).subscribe(
+      (response: any) => {
+        debugger
+        console.log('Rejected Data saved successfully');
+      
+      },
+      (error: any) => {
+        console.error('Error saving data:', error);
 
+      }
+    );
   }
+
+
   OnSubmit() {
     const token = this.cookieService.get('jwt');
     console.log('Token stored:', token);
     if (!token) {
       console.error('Token not found');
+      return;
     }
     if (this.newPassword === this.confirmPassword) {
       debugger
